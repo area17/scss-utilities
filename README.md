@@ -4,7 +4,7 @@
 
 A series of plugins to enable/encourage systematised web design/development and some other useful utility classes.
 
-AREA 17 strongly believes in design systems and then using these systems to build products for both ourselves and our clients. Tailwind is thus a natural fit for us, but we wanted more "system" to the utilities to tie closer to our design methodology.
+AREA 17 strongly believes in design systems and then using these systems to build products for both ourselves and our clients. Utilities are a natural fit for us, but we wanted more "system" to the utilities to tie closer to our design methodology.
 
 We also wanted to include a few utility classes that would simplify some common styling requirements.
 
@@ -32,7 +32,7 @@ $ npm install @area17/scss-utilities
 
 ## Writing a new utility
 
-See [docs/README.md](https://github.com/area17/scss-utilities/docs/README.md).
+See [docs/README.md](https://github.com/area17/scss-utilities/blob/main/docs/README.md).
 
 ### Code of Conduct
 
@@ -50,4 +50,4 @@ Remember, bug reports are created in the hope that others with the same problem 
 
 A17 SCSS follows [Semantic Versioning](https://semver.org/). Major releases are released only when breaking changes are necessary, while minor and patch releases may be released as often as every week. Minor and patch releases should never contain breaking changes.
 
-When referencing A17 SCSS from your application, you should always use a version constraint such as `^1.0`, since major releases of Tailwind Plugins will include breaking changes.
+When referencing A17 SCSS Utilities from your application, you should always use a version constraint such as `^1.0`, since major releases of A17 SCSS Utilities  will include breaking changes.

@@ -4,7 +4,7 @@
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>Takes <code>structure</code> information from the config and generates a series of <code>:root</code> variables which are used by other A17 Tailwind Plugins.</p>
+  <p>Takes <code>structure</code> information from the config and generates a series of <code>:root</code> variables which are used by other A17 SCSS utilities.</p>
 
   <h2 id="setup">Setup</h2>
 
