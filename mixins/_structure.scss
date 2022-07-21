@@ -76,22 +76,24 @@ $breakpoints-with-directions:();
   @each $name, $point in $breakpoints {
     @if ($name == $smallestBreakpointName) {
       $containerWidth: if(map-get($container-type, $name) == 'auto', 'unset', map-get($container-type, $name));
+      $outerGutter: if(map-deep-get($gutters, 'outer', $name) == 'auto', '0px', map-deep-get($gutters, 'outer', $name));
 
       :root {
         --breakpoint: '#{$name}';
         --inner-gutter: #{map-deep-get($gutters, 'inner', $name)};
-        --outer-gutter: #{map-deep-get($gutters, 'outer', $name)};
+        --outer-gutter: #{$outerGutter};
         --grid-columns: #{map-get($column-count, $name)};
         --container-width: #{$containerWidth};
       }
     } @else {
       $containerWidth: if(map-get($container-type, $name) == 'auto', 'unset', map-get($container-type, $name));
+      $outerGutter: if(map-deep-get($gutters, 'outer', $name) == 'auto', '0px', map-deep-get($gutters, 'outer', $name));
 
       @include breakpoint('#{$name}+') {
         :root {
           --breakpoint: '#{$name}';
           --inner-gutter: #{map-deep-get($gutters, 'inner', $name)};
-          --outer-gutter: #{map-deep-get($gutters, 'outer', $name)};
+          --outer-gutter: #{$outerGutter};
           --grid-columns: #{map-get($column-count, $name)};
           --container-width: #{$containerWidth};
         }
