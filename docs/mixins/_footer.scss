@@ -1,0 +1,42 @@
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-primary);
+
+  ul {
+    @include container;
+    @include breakpoint('sm+') {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  li {
+    @extend %f-body;
+    margin-top: 20px;
+    list-style-type: none;
+
+    @include breakpoint('sm+') {
+      margin-top: 0;
+      margin-right: 20px;
+    }
+  }
+
+  li:first-child {
+    margin-right: auto;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+}

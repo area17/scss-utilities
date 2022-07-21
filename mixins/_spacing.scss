@@ -1,0 +1,347 @@
+@mixin setupSpacing() {
+
+  $_spacing: ();
+
+  @if variable-exists(spacing_sets) {
+    $_spacing: $spacing_sets;
+  }
+
+  @if variable-exists(spacing) {
+    $_spacing: map-merge($_spacing, $spacing);
+  }
+
+
+  $_e_spacing: ();
+
+  // create empty sets
+  @each $name, $point in $breakpoints {
+    $_e_spacing: map-merge($_e_spacing, (#{$name}: 'null'));
+  }
+
+  @each $name, $set in $_spacing {
+    $newset: $_e_spacing;
+
+    // check for units, convert to rems
+    @each $bp, $size in $set {
+      @if (unitless($size)) {
+        $size: $size * 1px;
+      }
+      @if (unit($size) != 'vw' and unit($size) != 'rem') {
+        $size: #{rem-calc($size)};
+      }
+      $set: map-merge($set, (#{$bp}: #{$size}));
+    }
+
+    $set: map-merge($newset, $set);
+
+    $previous-value: 'auto';
+    @each $bp, $size in $set {
+      @if ($size == 'null') {
+        $set: map-merge($set, (#{$bp}: #{$previous-value}));
+      } @else {
+        $previous-value: $size;
+      }
+    }
+
+    $_spacing: map-merge($_spacing, (#{$name}: $set));
+
+    .mt-#{$name} {
+      margin-top: var(--spacing-#{$name});
+    }
+    .mb-#{$name} {
+      margin-bottom: var(--spacing-#{$name});
+    }
+    .ml-#{$name} {
+      margin-left: var(--spacing-#{$name});
+    }
+    .mr-#{$name} {
+      margin-right: var(--spacing-#{$name});
+    }
+    .m-#{$name} {
+      margin: var(--spacing-#{$name});
+    }
+    .mx-#{$name} {
+      margin-left: var(--spacing-#{$name});
+      margin-right: var(--spacing-#{$name});
+    }
+    .my-#{$name} {
+      margin-top: var(--spacing-#{$name});
+      margin-bottom: var(--spacing-#{$name});
+    }
+    .\-mt-#{$name} {
+      margin-top: calc(var(--spacing-#{$name}) * -1);
+    }
+    .\-mb-#{$name} {
+      margin-bottom: calc(var(--spacing-#{$name}) * -1);
+    }
+    .\-ml-#{$name} {
+      margin-left: calc(var(--spacing-#{$name}) * -1);
+    }
+    .\-mr-#{$name} {
+      margin-right: calc(var(--spacing-#{$name}) * -1);
+    }
+    .\-m-#{$name} {
+      margin: calc(var(--spacing-#{$name}) * -1);
+    }
+    .\-mx-#{$name} {
+      margin-left: calc(var(--spacing-#{$name}) * -1);
+      margin-right: calc(var(--spacing-#{$name}) * -1);
+    }
+    .\-my-#{$name} {
+      margin-top: calc(var(--spacing-#{$name}) * -1);
+      margin-bottom: calc(var(--spacing-#{$name}) * -1);
+    }
+    .pt-#{$name} {
+      padding-top: var(--spacing-#{$name});
+    }
+    .pb-#{$name} {
+      padding-bottom: var(--spacing-#{$name});
+    }
+    .pl-#{$name} {
+      padding-left: var(--spacing-#{$name});
+    }
+    .pr-#{$name} {
+      padding-right: var(--spacing-#{$name});
+    }
+    .p-#{$name} {
+      padding: var(--spacing-#{$name});
+    }
+    .px-#{$name} {
+      padding-left: var(--spacing-#{$name});
+      padding-right: var(--spacing-#{$name});
+    }
+    .py-#{$name} {
+      padding-top: var(--spacing-#{$name});
+      padding-bottom: var(--spacing-#{$name});
+    }
+  }
+
+  @each $bpname, $point in $breakpoints {
+    @include breakpoint(#{$bpname}) {
+      :root {
+        --SPACING_VARs: 'at this breakpoint ↓';
+        @each $name, $set in $_spacing {
+          --spacing-#{$name}: #{map-get($set, $bpname)};
+        }
+      }
+    }
+  }
+
+  @each $bpname, $point in $breakpoints {
+    @if ($bpname == $smallestBreakpointName) {
+      :root {
+        --SPACING_VARs: 'at this breakpoint ↓';
+        @each $name, $set in $_spacing {
+          --spacing-#{$name}: #{map-get($set, $bpname)};
+        }
+      }
+    } @else {
+      @include breakpoint('#{$bpname}+') {
+        :root {
+          --SPACING_VARs: 'at this breakpoint ↓';
+          @each $name, $set in $_spacing {
+            --spacing-#{$name}: #{map-get($set, $bpname)};
+          }
+        }
+      }
+    }
+  }
+
+  .ml-g, .ml-gutter {
+    margin-left: var(--inner-gutter);
+  }
+
+  .mr-g, .mr-gutter {
+    margin-right: var(--inner-gutter);
+  }
+
+  .mt-g, .mt-gutter {
+    margin-top: var(--inner-gutter);
+  }
+
+  .mb-g, .mb-gutter {
+    margin-bottom: var(--inner-gutter);
+  }
+
+  .m-g, .m-gutter {
+    margin: var(--inner-gutter);
+  }
+
+  .mx-g, .mx-gutter {
+    margin-left: var(--inner-gutter);
+    margin-right: var(--inner-gutter);
+  }
+
+  .my-g, .my-gutter {
+    margin-top: var(--inner-gutter);
+    margin-bottom: var(--inner-gutter);
+  }
+
+  .\-ml-g, .\-ml-gutter {
+    margin-left: calc(var(--inner-gutter) * -1);
+  }
+
+  .\-mr-g, .\-mr-gutter {
+    margin-right: calc(var(--inner-gutter) * -1);
+  }
+
+  .\-m-g, .\-m-gutter {
+    margin: calc(var(--inner-gutter) * -1);
+  }
+
+  .\-mx-g, .\-mx-gutter {
+    margin-left: calc(var(--inner-gutter) * -1);
+    margin-right: calc(var(--inner-gutter) * -1);
+  }
+
+  .\-my-g, .\-my-gutter {
+    margin-top: calc(var(--inner-gutter) * -1);
+    margin-bottom: calc(var(--inner-gutter) * -1);
+  }
+
+  .ml-og, .ml-outer-gutter {
+    margin-left: var(--outer-gutter);
+  }
+
+  .mr-og, .mr-outer-gutter {
+    margin-right: var(--outer-gutter);
+  }
+
+  .mt-og, .mt-outer-gutter {
+    margin-top: var(--outer-gutter);
+  }
+
+  .mb-og, .mb-outer-gutter {
+    margin-bottom: var(--outer-gutter);
+  }
+
+  .m-og, .m-outer-gutter {
+    margin-left: var(--outer-gutter);
+  }
+
+  .mx-og, .mg-outer-gutter {
+    margin-left: var(--outer-gutter);
+    margin-right: var(--outer-gutter);
+  }
+
+  .my-og, .my-outer-gutter {
+    margin-top: var(--outer-gutter);
+    margin-bottom: var(--outer-gutter);
+  }
+
+  .\-ml-og, .\-ml-outer-gutter {
+    margin-left: calc(var(--outer-gutter) * -1);
+  }
+
+  .\-mr-og, .\-mr-outer-gutter {
+    margin-right: calc(var(--outer-gutter) * -1);
+  }
+
+  .\-mt-og, .\-mt-outer-gutter {
+    margin-top: calc(var(--outer-gutter) * -1);
+  }
+
+  .\-mb-og, .\-mb-outer-gutter {
+    margin-bottom: calc(var(--outer-gutter) * -1);
+  }
+
+  .\-m-og, .\-m-outer-gutter {
+    margin: calc(var(--outer-gutter) * -1);
+  }
+
+  .\-mx-og, .\-mg-outer-gutter {
+    margin-left: calc(var(--outer-gutter) * -1);
+    margin-right: calc(var(--outer-gutter) * -1);
+  }
+
+  .\-my-og, .\-my-outer-gutter {
+    margin-top: calc(var(--outer-gutter) * -1);
+    margin-bottom: calc(var(--outer-gutter) * -1);
+  }
+
+  .ml-a, .ml-auto {
+    margin-left: auto;
+  }
+
+  .mr-a, .mr-auto {
+    margin-right: auto;
+  }
+
+  .mt-a, .mt-auto {
+    margin-top: auto;
+  }
+
+  .mb-a, .mb-auto {
+    margin-right: auto;
+  }
+
+  .my-a, .my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .mx-a, .mx-auto {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .pl-g, .pl-gutter {
+    padding-left: var(--inner-gutter);
+  }
+
+  .pr-g, .pr-gutter {
+    padding-right: var(--inner-gutter);
+  }
+
+  .pt-g, .pt-gutter {
+    padding-top: var(--inner-gutter);
+  }
+
+  .pb-g, .pb-gutter {
+    padding-bottom: var(--inner-gutter);
+  }
+
+  .p-g, .p-gutter {
+    padding: var(--inner-gutter);
+  }
+
+  .px-g, .px-gutter {
+    padding-left: var(--inner-gutter);
+    padding-right: var(--inner-gutter);
+  }
+
+  .py-g, .py-gutter {
+    padding-top: var(--inner-gutter);
+    padding-bottom: var(--inner-gutter);
+  }
+
+  .pl-og .pl-outer-gutter {
+    padding-left: var(--outer-gutter);
+  }
+
+  .pr-og .pr-outer-gutter {
+    padding-right: var(--outer-gutter);
+  }
+
+  .pt-og .pt-outer-gutter {
+    padding-top: var(--outer-gutter);
+  }
+
+  .pb-og .pb-outer-gutter {
+    padding-bottom: var(--outer-gutter);
+  }
+
+  .p-og .p-outer-gutter {
+    padding: var(--outer-gutter);
+  }
+
+  .px-og .px-outer-gutter {
+    padding-left: var(--outer-gutter);
+    padding-right: var(--outer-gutter);
+  }
+
+  .py-og .py-outer-gutter {
+    padding-top: var(--outer-gutter);
+    padding-bottom: var(--outer-gutter);
+  }
+}

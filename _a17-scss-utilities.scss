@@ -1,0 +1,71 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ internal
+
+@import 'functions/string-replace';
+@import 'functions/map-deep-get';
+
+@import 'functions/unit/strip-units';
+@import 'functions/unit/rem-calc';
+@import 'functions/unit/px-to-rem';
+
+@import 'functions/breakpoint/get-breakpoint-directions';
+@import 'functions/breakpoint/get-media';
+@import 'functions/breakpoint/process-breakpoints';
+@import 'functions/breakpoint/get-smallest-breakpoint';
+
+@import 'functions/color/isColorVariable';
+
+@import 'functions/grid/colspan';
+@import 'functions/grid/get-max';
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ setup
+
+@import 'mixins/structure';
+@import 'mixins/breakpoint';
+@import 'mixins/color';
+@import 'mixins/typography';
+@import 'mixins/grid';
+@import 'mixins/spacing';
+
+@import 'mixins/colspan';
+@import 'mixins/setColumn';
+@import 'mixins/setBreakpointColumn';
+@import 'mixins/setStartEndCColumn';
+@import 'mixins/setBreakpointStartEndCColumn';
+
+@import 'mixins/pushdown';
+
+@import 'mixins/grid-overlay';
+
+@import 'mixins/container';
+@import 'mixins/font-smoothing';
+@import 'mixins/hide-text';
+@import 'mixins/placeholder';
+@import 'mixins/visually-hidden';
+@import 'mixins/float-clear';
+@import 'mixins/background-fill';
+@import 'mixins/keyline-full';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+[hidden] {
+  display: none;
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ go go go
+
+@include processStructure();
+@include processColors();
+@include processTypography();
+@include setupGrid();
+@include setupGridOverlay();
+@include setupSpacing();
+

@@ -1,0 +1,243 @@
+<?php $title = 'Color'; ?>
+<?php include 'includes/_header.php'; ?>
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>This plugin turns colour tokens into CSS variables on the <code>:root</code>. These are then mapped to text, background and border colours utility classes.</p>
+
+  <p>You can set Hex, RGB, RGBA, HSL, colour name or any valid CSS colour value.</p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_tokens.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">$color: (
+  tokens: (
+    white: #fff,
+    grey-3: #f8f8f8,
+    grey-5: #f2f2f2,
+    grey-10: #e6e6e6,
+    grey-15: #d9d9d9,
+    grey-54: #757575,
+    grey-90: #1a1a1a,
+    black: #000,
+    blue-01: #0A152B,
+    blue-02: #001F5C,
+    blue-03: #004F91,
+    blue-04: #313BFB,
+    blue-05: #81EEF3,
+    blue-06: #ADD8E6,
+    red-01: #f00
+  ),
+  borderColor: (
+    primary: black,
+    secondary: grey-15,
+    tertiary: grey-54,
+    code-example-filename: blue-05
+  ),
+  textColor: (
+    title: black,
+    primary: grey-90,
+    inverse: white,
+    secondary: grey-54,
+    accent: blue-03,
+    code: black,
+    code-example: grey-3,
+    code-example-filename: blue-05
+  ),
+  backgroundColor: (
+    primary: white,
+    header: grey-10,
+    footer: grey-10,
+    banner: grey-90,
+    accent: blue-03,
+    column: blue-05,
+    column-alt: blue-04,
+    code: grey-10,
+    code-example: grey-90,
+    quote: grey-5
+  )
+);</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <p>Based on the reference config mentioned in this guide, we would get the following in our CSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">:root {
+  --COLOR-TOKENS: "↓";
+  --white: #fff;
+  --grey-3: #f8f8f8;
+  --grey-5: #f2f2f2;
+  --grey-10: #e6e6e6;
+  --grey-15: #d9d9d9;
+  --grey-54: #757575;
+  --grey-90: #1a1a1a;
+  --black: #000;
+  --blue-01: #0A152B;
+  --blue-02: #001F5C;
+  --blue-03: #004F91;
+  --blue-04: #313BFB;
+  --blue-05: #81EEF3;
+  --blue-06: #ADD8E6;
+  --red-01: #f00;
+}
+
+:root {
+  --COLOR-BORDER: "for usage ↓";
+  --border-primary: var(--black);
+  --border-secondary: var(--grey-15);
+  --border-tertiary: var(--grey-54);
+  --border-code-example-filename: var(--blue-05);
+}
+
+:root {
+  --COLOR-BACKGROUND: "for usage ↓";
+  --bg-design-grid: rgba(127, 255, 255, 0.25);
+  --bg-primary: var(--white);
+  --bg-header: var(--grey-10);
+  --bg-footer: var(--grey-10);
+  --bg-banner: var(--grey-90);
+  --bg-accent: var(--blue-03);
+  --bg-column: var(--blue-05);
+  --bg-column-alt: var(--blue-04);
+  --bg-code: var(--grey-10);
+  --bg-code-example: var(--grey-90);
+  --bg-quote: var(--grey-5);
+}
+
+:root {
+  --COLOR-TEXT: "for usage ↓";
+  --text-title: var(--black);
+  --text-primary: var(--grey-90);
+  --text-inverse: var(--white);
+  --text-secondary: var(--grey-54);
+  --text-accent: var(--blue-03);
+  --text-code: var(--black);
+  --text-code-example: var(--grey-3);
+  --text-code-example-filename: var(--blue-05);
+}
+
+.border-primary {
+  border-color: var(--black);
+}
+
+.border-secondary {
+  border-color: var(--grey-15);
+}
+
+.border-tertiary {
+  border-color: var(--grey-54);
+}
+
+.border-code-example-filename {
+  border-color: var(--blue-05);
+}
+
+.bg-design-grid {
+  background-color: rgba(127, 255, 255, 0.25);
+}
+
+.bg-primary {
+  background-color: var(--white);
+}
+
+.bg-header {
+  background-color: var(--grey-10);
+}
+
+.bg-footer {
+  background-color: var(--grey-10);
+}
+
+.bg-banner {
+  background-color: var(--grey-90);
+}
+
+.bg-accent {
+  background-color: var(--blue-03);
+}
+
+.bg-column {
+  background-color: var(--blue-05);
+}
+
+.bg-column-alt {
+  background-color: var(--blue-04);
+}
+
+.bg-code {
+  background-color: var(--grey-10);
+}
+
+.bg-code-example {
+  background-color: var(--grey-90);
+}
+
+.bg-quote {
+  background-color: var(--grey-5);
+}
+
+.text-title {
+  color: var(--black);
+}
+
+.text-primary {
+  color: var(--grey-90);
+}
+
+.text-inverse {
+  color: var(--white);
+}
+
+.text-secondary {
+  color: var(--grey-54);
+}
+
+.text-accent {
+  color: var(--blue-03);
+}
+
+.text-code {
+  color: var(--black);
+}
+
+.text-code-example {
+  color: var(--grey-3);
+}
+
+.text-code-example-filename {
+  color: var(--blue-05);
+}</code></pre>
+  </figure>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>Along with being able to use CSS variables like:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-css">.component > p {
+  color: var(--text-primary);
+}</code></pre>
+  </figure>
+
+  <p>You can use the utility class:</p>
+
+  <p class="bg-accent text-inverse">This text is white on a blue background.</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre class="code-example-code"><code class="language-html">&lt;p class="bg-accent text-inverse">This text is white on a blue background.&lt;/p></code></pre>
+  </figure>
+
+  <h2 id="notes">Notes</h2>
+
+  <p>Although you could name your text, background and border colours anything, its <strong>important</strong> to name by abstract usage and not by the hue of the colour itself. It will be far easier to update these and expand these in the future if you do this.</p>
+
+</div>
+
+<?php include 'includes/_footer.php'; ?>

@@ -1,0 +1,23 @@
+/*
+  @function process-breakpoints
+
+  Returns a breakpoints array
+*/
+
+@function process-breakpoints($points) {
+  $bps: ();
+
+  @each $key, $value in $points {
+    $index: index(($points), ($key $value)) !global;
+    $nextIndex: $index + 1;
+    $nextValue: 9999px;
+
+    @if $nextIndex <= length($points) {
+      $nextValue: nth(map-values($points), $nextIndex);
+    }
+
+    $bp: (start: $value, end: $nextValue);
+    $bps: map-merge($bps, ($key: $bp));
+  }
+  @return $bps;
+}

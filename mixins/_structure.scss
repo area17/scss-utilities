@@ -1,0 +1,102 @@
+$container-type: ();
+$column-count: ();
+$inner-gutters: ();
+$outer-gutters: ();
+$gutters: ();
+$breakpoints: ();
+$breakpoints-with-directions:();
+
+@mixin processStructure() {
+  $_container-type: ();
+  $_column-count: ();
+  $_inner-gutters: ();
+  $_outer-gutters: ();
+  $_breakpoints: ();
+
+  @if variable-exists(structure_container-type) {
+    $_container-type: $structure_container-type;
+  }
+
+  @if variable-exists(structure_column-count) {
+    $_column-count: $structure_column-count;
+  }
+
+  @if variable-exists(structure_gutters) {
+    @if map-has-key($structure_gutters, 'inner') {
+      $_inner-gutters: map-get($structure_gutters, 'inner');
+    }
+    @if map-has-key($structure_gutters, 'outer') {
+      $_outer-gutters: map-get($structure_gutters, 'outer');
+    }
+  }
+
+  @if variable-exists(structure_breakpoints) {
+    $_breakpoints: $structure_breakpoints;
+  }
+
+  @if variable-exists(structure) {
+    $_breakpoints: map-merge($_breakpoints, map-get($structure, 'breakpoints'));
+
+    $_inner-gutters: map-merge($_inner-gutters, map-deep-get($structure, 'gutters', 'inner'));
+    $_outer-gutters: map-merge($_outer-gutters, map-deep-get($structure, 'gutters', 'outer'));
+
+    $container-type: map-merge($_container-type, map-get($structure, 'container')) !global;
+    $column-count: map-merge($_column-count, map-get($structure, 'columns')) !global;
+  } @else {
+    $container-type: $_container-type !global;
+    $column-count: $_column-count !global;
+  }
+
+  $gutters: (
+    'inner': $_inner-gutters,
+    'outer': $_outer-gutters
+  ) !global;
+
+  $breakpoints: process-breakpoints($_breakpoints) !global;
+  $breakpoints-with-directions: get-breakpoint-directions($breakpoints) !global;
+  $smallestBreakpointName: get-smallest-breakpoint($_breakpoints) !global;
+
+  :root {
+    --safe-area-inset-bottom: 0px;
+  }
+
+  @supports (padding-top: constant(safe-area-inset-bottom)) {
+    :root {
+      --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+    }
+  }
+
+  @supports (padding-top: env(safe-area-inset-bottom)) {
+    :root {
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+
+  @each $name, $point in $breakpoints {
+    @if ($name == $smallestBreakpointName) {
+      $containerWidth: if(map-get($container-type, $name) == 'auto', 'unset', map-get($container-type, $name));
+
+      :root {
+        --breakpoint: '#{$name}';
+        --inner-gutter: #{map-deep-get($gutters, 'inner', $name)};
+        --outer-gutter: #{map-deep-get($gutters, 'outer', $name)};
+        --grid-columns: #{map-get($column-count, $name)};
+        --container-width: #{$containerWidth};
+      }
+    } @else {
+      $containerWidth: if(map-get($container-type, $name) == 'auto', 'unset', map-get($container-type, $name));
+
+      @include breakpoint('#{$name}+') {
+        :root {
+          --breakpoint: '#{$name}';
+          --inner-gutter: #{map-deep-get($gutters, 'inner', $name)};
+          --outer-gutter: #{map-deep-get($gutters, 'outer', $name)};
+          --grid-columns: #{map-get($column-count, $name)};
+          --container-width: #{$containerWidth};
+        }
+      }
+    }
+  }
+
+}

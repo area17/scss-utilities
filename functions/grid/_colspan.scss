@@ -1,0 +1,63 @@
+/*
+
+  colspan
+
+  $n - number of columns to span
+  $bump - some arbitrary value to add
+
+  NB: if you're doing a column thats wider than 100%, say because you're negative margin lefting it:
+
+  ```
+  .foo {
+    --max-width: calc(100% - var(--inner-gutter));
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: calc(var(--inner-gutter) * -1);
+  }
+
+  .bar {
+    flex: 0 0 auto;
+    width: colspan(2);
+  }
+  ```
+
+  Then you should set a `--max-width` CSS variable so that the calc uses this value and not 100% to base its calculation on.
+
+  If your container isn't all of your grid columns wide, say for example you have a 12 column grid, and your container is 9 columns wide, set a `--grid-columns` variable:
+
+  ```
+  .foo {
+    --grid-columns: 9;
+  }
+
+  .bar {
+    width: colspan(2);
+  }
+  ```
+
+  or
+
+  ```
+  .foo {
+    --grid-columns: 9;
+    width: colspan(2);
+  }
+  ```
+
+  or
+
+  ```
+  .foo {
+    @include colspan(2);
+  }
+  ```
+
+  will set both child --grid-columns, and width of colspan
+*/
+@function colspan($n, $bump: false) {
+  $calc: '((#{$n} / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (#{$n} / var(--grid-columns) * var(--inner-gutter)))';
+  @if $bump {
+    $calc: '(#{$calc}) + #{$bump}';
+  }
+  @return calc(#{$calc});
+}

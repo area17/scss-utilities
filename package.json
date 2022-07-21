@@ -1,0 +1,25 @@
+{
+  "name": "area17/scss-utilities",
+  "version": "1.0.0",
+  "description": "A utility class system for SCSS to help build responsive design systems in collaboration with A17 design and development build methodologies",
+  "scripts": {
+    "sass": "sass --watch --load-path=./ --style=expanded --no-source-map ./docs/application.scss:./docs/application.css",
+    "sync": "./node_modules/.bin/browser-sync start --config bs-config.js --no-open",
+    "dev": "npm run sync & npm run sass"
+  },
+  "author": "A17 <dev@area17.com> (https://area17.com/)",
+  "license": "MIT",
+  "homepage": "https://github.com/area17/scss-utilities#readme",
+  "bugs": {
+    "url": "https://github.com/area17/scss-utilities/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/area17/scss-utilities.git"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "dotenv": "^16.0.1",
+    "sass": "^1.53.0"
+  }
+}

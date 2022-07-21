@@ -1,0 +1,61 @@
+@mixin setupGrid() {
+  .grid {
+    display: grid;
+    column-gap: var(--inner-gutter);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+  }
+
+  .col,
+  [class*='col-'] {
+    grid-column: span var(--grid-columns);
+  }
+
+  [class*='colspan-'] {
+    width: 100%;
+  }
+
+  $max-columns: get-max($column-count);
+  // Generate col classes
+  @for $i from 1 through $max-columns {
+    @include setColumn($i);
+  }
+
+  // Generate responsive col classes by breakpoint
+  @each $name, $point in $breakpoints {
+    $grid-columns: map-get($column-count, $name);
+
+    @if ($name == $smallestBreakpointName) {
+      @for $i from 1 through $grid-columns {
+        @include setBreakpointColumn($i, $name);
+      }
+    } @else {
+      @include breakpoint('#{$name}+') {
+        @for $i from 1 through $grid-columns {
+          @include setBreakpointColumn($i, $name);
+        }
+      }
+    }
+  }
+
+  // Generate Start/End columns
+  @for $i from 1 through $max-columns {
+    @include setStartEndCColumn($i);
+  }
+
+  // Generate Start/End responsive col classes by breakpoint
+  @each $name, $point in $breakpoints {
+    $grid-columns: map-get($column-count, $name);
+
+    @if ($name == $smallestBreakpointName) {
+      @for $i from 1 through $grid-columns {
+        @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
+      }
+    } @else {
+      @include breakpoint('#{$name}+') {
+        @for $i from 1 through $grid-columns {
+          @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
+        }
+      }
+    }
+  }
+}

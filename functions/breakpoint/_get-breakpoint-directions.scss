@@ -1,0 +1,36 @@
+/*
+  @function get-breakpoint-directions
+
+  Sorts through breakpoints SASS map,
+  generates a full SASS map containing all the breakpoint
+  variations we'll require
+
+  Parameters:
+  none
+*/
+@function get-breakpoint-directions($bps) {
+  $_bps: ();
+  @each $k, $bp in $bps {
+    $_bps: map-merge($_bps, ($k: $bp));
+    $start: map-get($bp, start);
+    $end: map-get($bp, end);
+
+    @if $end != null and $start != null {
+      $down-key: unquote($k + '-');
+      $_bps: map-merge($_bps, ($down-key: (
+        start: null,
+        end: $end
+      )));
+    }
+
+    @if $start != null and $end != null {
+      $up-key: unquote($k) + '+';
+      $_bps: map-merge($_bps, ($up-key: (
+        start: $start,
+        end: null
+      )));
+    }
+  }
+
+  @return $_bps;
+}

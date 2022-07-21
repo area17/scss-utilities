@@ -1,0 +1,6 @@
+@mixin colspan($n, $bump: false){
+  width: colspan($n, $bump);
+  & > * {
+    --grid-columns: #{$n};
+  }
+}

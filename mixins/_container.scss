@@ -1,0 +1,10 @@
+@mixin container() {
+  width: var(--container-width);
+  margin-left: var(--outer-gutter);
+  margin-right: var(--outer-gutter);
+}
+
+.container,
+%container {
+  @include container;
+}

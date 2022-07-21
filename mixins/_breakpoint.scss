@@ -1,0 +1,83 @@
+/*
+  @mixin breakpoint
+
+  Inserts a media query
+
+  Parameters:
+  $name - name of breakpoint, choose from:
+
+  xs, sm, md, lg, xl, xxl  - *just* that breakpoint
+  sm-, md-, lg-, xl-, xxl-  - that breakpoint *and* below
+  xs+, sm+, md+, lg+, xl+  - that breakpoint *and* up
+
+  NB: the we're mobile up, so the minus values should be avoided..
+
+  $option - ie11, hover - to make an IE11 CSS with a breakpoint or to target browsers with mouse cursors
+
+  ```scss
+  @include breakpoint('md+') {
+    // styles to be given to browsers at `medium` and above
+  }
+  @include breakpoint('md+','(min-height: 680px)') {
+    // styles to be given to browsers at `medium` and above
+  }
+  @include breakpoint(null,'hover') {
+    // styles to be given to devices with mouse pointers
+  }
+  @include breakpoint(null,'ie11') {
+    // styles to be given to be given to IE11
+  }
+  @include breakpoint('md+','hover') {
+    // styles to be given to browsers at `medium` and above that have mouse pointers
+  }
+  @include breakpoint('md+','ie11') {
+    // styles to be given to ie11 at `medium` and above
+  }
+  ```
+*/
+
+@mixin breakpoint($name, $option:'') {
+  $points: map-get($breakpoints-with-directions, $name);
+  @if ($name and $points) {
+    $media: get-media($points);
+    $start: map-get($media, 'start');
+    $end: map-get($media, 'end');
+    $str: 'screen and (';
+    @if($start != null) {
+      $str: $str + 'min-width: ' + ($start);
+    }
+    @if($start != null and $end != null) {
+      $str: $str + ') and ('
+    }
+    @if($end != null) {
+      $str: $str + 'max-width: ' + ($end);
+    }
+    $str: $str + ')';
+    @if($option == 'hover') {
+      $str1: $str + ' and (-moz-touch-enabled: 0), ';
+      $str2: $str + ' and (pointer: fine)';
+      $str: $str1 + $str2;
+    }
+    @if($option == 'ie11') {
+      $str1: $str + ' and (-ms-high-contrast: none), ';
+      $str2: $str + ' and (-ms-high-contrast: active)';
+      $str: $str1 + $str2;
+    }
+    @if($option != '') {
+      $str: $str + ' and ' + $option;
+    }
+    @media #{$str} {
+      @content;
+    }
+  } @else if ($option == 'hover') {
+    @media (-moz-touch-enabled: 0), (pointer: fine) {
+      @content;
+    }
+  } @else if ($option == 'ie11') {
+    @media screen and (-ms-high-contrast: none), screen and (-ms-high-contrast: active) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$name}` in $breakpoints.";
+  }
+}

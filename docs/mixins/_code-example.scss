@@ -1,0 +1,55 @@
+.code-example {
+  display: block;
+  background-color: var(--grey-90);
+}
+
+.code-example .code-example-filename {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-weight: 400;
+  display: inline-block;
+  border-bottom: 1px solid var(--blue-05);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: var(--blue-05);
+  min-width: 160px;
+}
+
+.code-example .code-example-code {
+  margin-top: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+  display: block;
+  background-color: var(--grey-90);
+  color: var(--grey-3);
+}
+
+.code-example .code-example-code code {
+  margin-top: 0;
+  max-height: 37.5rem;
+  overflow: auto;
+  background-color: var(--grey-90);
+  scrollbar-color: var(--grey-54) var(--grey-90);
+  scrollbar-width: thin;
+}
+
+.code-example .code-example-code code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-example .code-example-code code::-webkit-scrollbar-track {
+  background: var(--grey-90);
+}
+
+.code-example .code-example-code code::-webkit-scrollbar-thumb {
+  background: var(--grey-54);
+  width: 8px;
+  height: 8px;
+}

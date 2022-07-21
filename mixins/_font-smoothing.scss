@@ -1,0 +1,16 @@
+/*
+  @mixin font-smoothing
+
+  Enable or disable font-smoothing : this controls the application
+  of anti-aliasing when fonts are rendered.
+*/
+@mixin font-smoothing($value: on) {
+  // sass-lint:disable-block no-vendor-prefixes
+  @if $value == on {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  } @else {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}

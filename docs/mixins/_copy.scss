@@ -1,0 +1,203 @@
+.copy h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
+
+.copy h2 b, .copy h2 strong {
+  font-weight: var(--bold-weight);
+}
+
+@include breakpoint('md+') {
+  .copy h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@include breakpoint('lg+') {
+  .copy h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.copy h2:not(:first-child) {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--border-secondary);
+  padding-top: 3rem;
+}
+
+.copy h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
+
+.copy h3 b, .copy h3 strong {
+  font-weight: var(--bold-weight);
+}
+
+@include breakpoint('md+') {
+  .copy h3 {
+    font-size: 1.25rem;
+  }
+}
+
+.copy h3 {
+  margin-top: 2.5rem;
+}
+
+.copy h4 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
+
+.copy h4 b, .copy h4 strong {
+  font-weight: var(--bold-weight);
+}
+
+@include breakpoint('md+') {
+  .copy h4 {
+    font-size: 1rem;
+  }
+}
+
+.copy h4 {
+  margin-top: 2.5rem;
+}
+
+.copy p {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
+
+.copy p b, .copy p strong {
+  font-weight: var(--bold-weight);
+}
+
+@include breakpoint('md+') {
+  .copy p {
+    font-size: 1rem;
+  }
+}
+
+.copy p {
+  margin-top: 1.25rem;
+}
+
+.copy p:first-child {
+  margin-top: 0rem;
+}
+
+.copy ul {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
+
+.copy ul b, .copy ul strong {
+  font-weight: var(--bold-weight);
+}
+
+@include breakpoint('md+') {
+  .copy ul {
+    font-size: 1rem;
+  }
+}
+
+.copy ul {
+  margin-top: 1.25rem;
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+.copy ul ul {
+  margin-top: 0rem;
+}
+
+.copy .code-example {
+  margin-top: 1.25rem;
+}
+
+.copy code:not([class]) {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+  background-color: var(--grey-10);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.125rem;
+  color: var(--black);
+}
+
+.copy pre:not([class]) {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-top: 1.25rem;
+  display: block;
+  max-height: 25rem;
+  overflow-y: scroll;
+}
+
+.copy pre:not([class]) code:not([class]) {
+  display: block;
+  padding: 0.5rem;
+}
+
+.copy a {
+  color: var(--blue-03);
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.copy a:hover, .copy a:focus {
+  color: var(--grey-90);
+}
+
+.copy hr {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-color: var(--grey-15);
+}
+
+.copy .blockquote {
+  margin-top: 1.25rem;
+}
+
+@include breakpoint('md+') {
+  .copy > *:not(.code-example,.copy h2,.copy hr) {
+    max-width: 80%;
+  }
+}
+
+@include breakpoint('lg+') {
+  .copy > *:not(.code-example,.copy h2,.copy hr) {
+    max-width: 60%;
+  }
+}

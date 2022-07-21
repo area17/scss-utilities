@@ -1,0 +1,27 @@
+/*
+  @function get-media
+
+  Returns start and stop points of a given media query
+
+  Parameters:
+  $bp - the breakpoint you want the stop and stop points of
+*/
+
+@function get-media($bp) {
+  $start: null;
+  $end: null;
+
+  $bp-start: map-get($bp, 'start');
+  $bp-end: map-get($bp, 'end');
+  @if($bp-start != null and ($start == null or $bp-start < $start)) {
+    $start: $bp-start;
+  }
+  @if($bp-end != null and ($end == null or $bp-end > $end)) {
+    $end: $bp-end;
+  }
+
+  @return (
+    start: $start,
+    end: $end
+  );
+}

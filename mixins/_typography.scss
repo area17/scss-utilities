@@ -1,0 +1,143 @@
+// ####################################################
+// Font setup mixins
+//
+//  see setup/_typography.scss
+
+// outputs CSS attributes
+@mixin type-style($font-info) {
+  @each $attribute, $setting in $font-info {
+    @if $attribute == 'font-size' {
+      @if (
+        (type-of($setting) == 'number' and unit($setting) == 'vw') or
+        type-of($setting) == 'string'
+      ) {
+        font-size: $setting;
+      } @else {
+        font-size: rem-calc($setting);
+      }
+    } @else if $attribute == 'bold-weight' {
+      --bold-weight: #{$setting};
+    } @else if $attribute == 'font-smoothing' {
+      @include font-smoothing(if($setting==true,'on','off'));
+    } @else if type-of($setting) == 'string' {
+      #{$attribute}: unquote($setting);
+    } @else {
+      #{$attribute}: #{$setting};
+    }
+  }
+}
+
+// loops a typeset to generate styles objects
+// and then generates CSS as required
+@mixin typeset($settings) {
+  // set the various font info per breakpoint
+  @if $settings {
+    $_settingsCache: ();
+    // loop the breakpoints in the setttings
+    @each $breakpoint, $font-info in $settings {
+      // check this is a valid breakpoint
+      @if map-has-key($breakpoints-with-directions, $breakpoint) {
+        $_settings: ();
+        // get font info for this breakpoint
+        // conditionally so can be inherited from smaller screens
+        @each $attribute, $setting in $font-info {
+          $cachedSetting: map-get($_settingsCache, $attribute);
+          @if not $cachedSetting or $cachedSetting != $setting {
+            $_settingsCache: map-merge($_settingsCache, (
+              $attribute: $setting)
+            );
+            $_settings: map-merge($_settings, (
+              $attribute: $setting)
+            );
+          }
+        }
+        // check if this is the smallest breakpoint (the default font setting)
+        @if (index(map-keys($settings), $breakpoint) == 1) {
+          @include type-style($_settings);
+          b,
+          strong {
+            font-weight: var(--bold-weight);
+          }
+          i,
+          em {
+            font-style: italic;
+          }
+        } @else {
+          @include breakpoint("#{$breakpoint}+") {
+            @include type-style($_settings);
+          }
+        }
+      }
+    }
+  }
+}
+
+// loops typesets,
+// makes placeholder and class for each
+// populates with styles
+@mixin typestyles($sets) {
+  @each $name, $settings in $sets {
+    %f-#{$name},
+    .f-#{$name} {
+      @include typeset($settings);
+    }
+  }
+}
+
+
+
+
+@mixin processTypography() {
+  $families: ();
+  $faces: ();
+  $typesets: ();
+
+  @if variable-exists(font_families) {
+    $families: $font_families;
+  }
+
+  @if variable-exists(font_faces) {
+    @for $i from 1 through length($font_faces) {
+      $face: nth($font_faces, $i);
+      $f: (
+        "scss#{$i}": $face
+      );
+      $faces: map-merge($faces, $f);
+    }
+  }
+
+  @if variable-exists(font_typesets) {
+    $typesets: $font_typesets;
+  }
+
+  @if variable-exists(typography) {
+    $families: map-merge($families, map-deep-get($typography, 'families'));
+
+    @if type-of(nth(map-deep-get($typography, 'faces'), 1)) == 'list' {
+      // single faces confuse things..
+      // the face object stops being wrapped in a list
+      $f: (
+        "json1": map-deep-get($typography, 'faces')
+      );
+      $faces: map-merge($faces, $f);
+    } @else {
+      @for $i from 1 through length(map-deep-get($typography, 'faces')) {
+        $face: nth(map-deep-get($typography, 'faces'), $i);
+        $f: (
+          "json#{$i}": $face
+        );
+        $faces: map-merge($faces, $f);
+      }
+    }
+
+    $typesets: map-merge($typesets, map-deep-get($typography, 'typesets'));
+  }
+
+  :root {
+    @each $key, $value in $families {
+      --#{$key}: #{$value};
+    }
+  }
+
+  @include typestyles($typesets);
+}

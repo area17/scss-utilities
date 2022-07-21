@@ -1,0 +1,16 @@
+/*
+  @function map-deep-get
+
+  Returns item from nested map
+
+  Parameters:
+  $map - initial map
+  $keys - list of keys to follow
+*/
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}

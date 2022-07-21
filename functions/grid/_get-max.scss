@@ -1,0 +1,9 @@
+@function get-max($map) {
+  $list: (0);
+
+  @each $key, $val in $map {
+    $list: append($list, $val, comma);
+  }
+
+  @return max($list...);
+}

@@ -1,0 +1,16 @@
+@mixin setStartEndCColumn($index, $columns: null) {
+  .col-start-#{$index} {
+    grid-column-start: #{$index};
+  }
+  .col-end-#{$index + 1} {
+    grid-column-end: #{$index + 2};
+  }
+
+  @if ($columns) {
+    @for $j from 1 through $columns {
+      .col-start-#{$index}.col-#{$j} {
+        grid-column: #{$index} / span #{$j};
+      }
+    }
+  }
+}

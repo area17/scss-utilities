@@ -1,0 +1,44 @@
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  touch-action: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  font-family: var(--serif-font);
+  font-size: 100%;
+  font-kerning: normal;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: 'kern' on;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+main {
+  margin-top: 40px;
+
+  @include breakpoint('md+') {
+    padding-top: 60px;
+  }
+}

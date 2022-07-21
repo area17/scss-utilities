@@ -1,0 +1,18 @@
+@mixin pushdown($obj, $type: 'margin', $single-bp: '') {
+  $previousPush: '';
+  @each $breakpoint, $push in $obj {
+    // check this is a valid breakpoint
+    @if map-has-key($breakpoints-with-directions, $breakpoint) {
+      @if ($breakpoint == $smallestBreakpointName or $single-bp == $breakpoint) {
+        #{$type}-top: $push;
+      } @else {
+        @if ($previousPush != $push) {
+          @include breakpoint('#{$breakpoint}+') {
+            #{$type}-top: $push;
+          }
+        }
+      }
+    }
+    $previousPush: $push;
+  }
+}

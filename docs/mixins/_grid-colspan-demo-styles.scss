@@ -1,0 +1,126 @@
+.grid-demo .col,
+.grid-demo [class*=col-],
+.colspan-demo [class*=colspan-] {
+  position: relative;
+  min-height: 30px;
+  background: #ccc;
+}
+.grid-demo .col::before,
+.grid-demo [class*=col-]::before,
+.colspan-demo [class*=colspan-]::before {
+  content: attr(class);
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 5px;
+  font: 12px/30px monospace;
+  white-space: nowrap;
+}
+.grid-demo .col .grid-demo .col,
+.grid-demo .col [class*=colspan-],
+.grid-demo .col .grid-demo [class*=col-],
+.grid-demo [class*=col-] [class*=colspan-],
+.grid-demo .col .colspan-demo [class*=colspan-],
+.colspan-demo [class*=colspan-] [class*=colspan-],
+.grid-demo [class*=col-] .grid-demo .col,
+.grid-demo [class*=col-] .grid-demo [class*=col-],
+.grid-demo [class*=col-] .colspan-demo [class*=colspan-],
+.colspan-demo [class*=colspan-] .grid-demo .col,
+.colspan-demo [class*=colspan-] .grid-demo [class*=col-],
+.colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-] {
+  background: #f2f2f2;
+}
+.grid-demo .col + [class*=colspan-]:not([class*=col-]),
+.grid-demo [class*=col-] + [class*=colspan-]:not([class*=col-]),
+.colspan-demo [class*=colspan-] + [class*=colspan-]:not([class*=col-]) {
+  margin-top: 30px;
+}
+.grid-demo .col .grid-demo .col .grid-demo .col,
+.grid-demo .col .grid-demo .col .grid-demo [class*=col-],
+.grid-demo .col .grid-demo .col .colspan-demo [class*=colspan-],
+.grid-demo .col .grid-demo [class*=col-] .grid-demo .col,
+.grid-demo .col .grid-demo [class*=col-] .grid-demo [class*=col-],
+.grid-demo .col .grid-demo [class*=col-] .colspan-demo [class*=colspan-],
+.grid-demo .col .colspan-demo [class*=colspan-] .grid-demo .col,
+.grid-demo .col .colspan-demo [class*=colspan-] .grid-demo [class*=col-],
+.grid-demo .col .colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-],
+.grid-demo [class*=col-] .grid-demo .col .grid-demo .col,
+.grid-demo [class*=col-] .grid-demo .col .grid-demo [class*=col-],
+.grid-demo [class*=col-] .grid-demo .col .colspan-demo [class*=colspan-],
+.grid-demo [class*=col-] .grid-demo [class*=col-] .grid-demo .col,
+.grid-demo [class*=col-] .grid-demo [class*=col-] .grid-demo [class*=col-],
+.grid-demo [class*=col-] .grid-demo [class*=col-] .colspan-demo [class*=colspan-],
+.grid-demo [class*=col-] .colspan-demo [class*=colspan-] .grid-demo .col,
+.grid-demo [class*=col-] .colspan-demo [class*=colspan-] .grid-demo [class*=col-],
+.grid-demo [class*=col-] .colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-],
+.colspan-demo [class*=colspan-] .grid-demo .col .grid-demo .col,
+.colspan-demo [class*=colspan-] .grid-demo .col .grid-demo [class*=col-],
+.colspan-demo [class*=colspan-] .grid-demo .col .colspan-demo [class*=colspan-],
+.colspan-demo [class*=colspan-] .grid-demo [class*=col-] .grid-demo .col,
+.colspan-demo [class*=colspan-] .grid-demo [class*=col-] .grid-demo [class*=col-],
+.colspan-demo [class*=colspan-] .grid-demo [class*=col-] .colspan-demo [class*=colspan-],
+.colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-] .grid-demo .col,
+.colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-] .grid-demo [class*=col-],
+.colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-] .colspan-demo [class*=colspan-] {
+  border: 1px solid #333;
+}
+
+.grid-demo,
+.colspan-demo {
+  padding-top: 30px;
+}
+
+.colspan-demo--flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.colspan-demo--flex [class*=colspan-] + [class*=colspan-]:not([class*=col-]) {
+  margin-top: 0;
+}
+.colspan-demo--flex .colspan-demo--flex {
+  padding-top: 30px;
+}
+.colspan-demo--flex .colspan-demo--flex .colspan-demo--flex [class*=colspan-] {
+  border: 1px solid #333;
+  background-color: transparent;
+}
+
+.grid-demo .colspan-demo [class*=colspan-] {
+  padding-top: 30px;
+}
+
+.grid-demo .colspan-demo [class*=col-] {
+  border: 1px solid #333;
+  background-color: transparent;
+}
+
+.grid-demo--10,
+.colspan-demo--10 {
+  --grid-columns: 10;
+}
+
+.grid-demo--24,
+.colspan-demo--24 {
+  --grid-columns: 24;
+}
+
+.colspan-demo--nested {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.colspan-demo--nested > [class*=colspan-], .colspan-demo--nested > [class*=colspan-] > [class*=colspan-] {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+.colspan-demo--nested [class*=colspan-] + [class*=colspan-]:not([class*=col-]) {
+  margin-top: 0;
+}
+.colspan-demo--nested [class*=colspan-] [class*=colspan-] [class*=colspan-] {
+  border: 1px solid #333;
+}
+

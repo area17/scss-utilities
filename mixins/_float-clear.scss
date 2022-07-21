@@ -1,0 +1,16 @@
+@mixin float-clear() {
+  &::after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+%float-clear,
+.float-clear {
+  @include float-clear;
+}

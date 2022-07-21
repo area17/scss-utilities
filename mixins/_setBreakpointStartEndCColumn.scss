@@ -1,0 +1,15 @@
+@mixin setBreakpointStartEndCColumn($index, $breakpoint: null, $columns: null) {
+  .col-start-#{$index}\@#{$breakpoint} {
+    grid-column-start: #{$index};
+  }
+  .col-end-#{$index + 1}\@#{$breakpoint} {
+    grid-column-end: #{$index + 2};
+  }
+
+  @for $j from 1 through $columns {
+    .col-start-#{$index}.col-#{$j}\@#{$breakpoint},
+    .col-start-#{$index}\@#{$breakpoint}.col-#{$j}\@#{$breakpoint} {
+      grid-column: #{$index} / span #{$j};
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@mixin keyline-full($position:top, $color:var(--border-primary)) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    @if $position == top {
+      bottom: 100%;
+    } @else {
+      top: 100%;
+    }
+    width: 100vw;
+    margin-left: -50vw;
+    border-top: 1px solid $color;
+    pointer-events: none;
+  }
+}
