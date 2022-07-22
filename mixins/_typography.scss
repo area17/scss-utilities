@@ -4,7 +4,7 @@
 //  see setup/_typography.scss
 
 // outputs CSS attributes
-@mixin type-style($font-info) {
+@mixin typeAttribute($font-info) {
   @each $attribute, $setting in $font-info {
     @if $attribute == 'font-size' {
       @if (
@@ -29,7 +29,7 @@
 
 // loops a typeset to generate styles objects
 // and then generates CSS as required
-@mixin typeset($settings) {
+@mixin typeStyle($settings) {
   // set the various font info per breakpoint
   @if $settings {
     $_settingsCache: ();
@@ -53,7 +53,7 @@
         }
         // check if this is the smallest breakpoint (the default font setting)
         @if (index(map-keys($settings), $breakpoint) == 1) {
-          @include type-style($_settings);
+          @include typeAttribute($_settings);
           b,
           strong {
             font-weight: var(--bold-weight);
@@ -64,7 +64,7 @@
           }
         } @else {
           @include breakpoint("#{$breakpoint}+") {
-            @include type-style($_settings);
+            @include typeAttribute($_settings);
           }
         }
       }
@@ -72,43 +72,47 @@
   }
 }
 
-// loops typesets,
-// makes placeholder and class for each
-// populates with styles
-@mixin typestyles($sets) {
-  @each $name, $settings in $sets {
-    %f-#{$name},
-    .f-#{$name} {
-      @include typeset($settings);
+/* outputs a specified typeset */
+@mixin typeset($name) {
+  @if $name {
+    /* check if user specified a `f-xxx` type name and fix */
+    $index: str-index($name, 'f-');
+    @if $index == 1 {
+      $name: str-slice($name, 3, str-length($name));
     }
+    /* now look for the specified typeset */
+    @if variable-exists(typography) and map-has-key($typography, 'typesets') {
+      $settings: map-deep-get($typography, 'typesets', $name);
+      @if $settings {
+        /* output specified typeset */
+        @include typeStyle($settings);
+      } @else {
+        @debug 'No typeset named #{$name}';
+      }
+    } @else {
+      @debug '$typography map not found';
+    }
+  } @else {
+    @debug 'No type set specified';
   }
 }
 
-
-
+// loops typesets,
+// makes placeholder and class for each
+// populates with styles
+@mixin typeStyles($sets) {
+  @each $name, $settings in $sets {
+    %f-#{$name},
+    .f-#{$name} {
+      @include typeStyle($settings);
+    }
+  }
+}
 
 @mixin processTypography() {
   $families: ();
   $faces: ();
   $typesets: ();
-
-  @if variable-exists(font_families) {
-    $families: $font_families;
-  }
-
-  @if variable-exists(font_faces) {
-    @for $i from 1 through length($font_faces) {
-      $face: nth($font_faces, $i);
-      $f: (
-        "scss#{$i}": $face
-      );
-      $faces: map-merge($faces, $f);
-    }
-  }
-
-  @if variable-exists(font_typesets) {
-    $typesets: $font_typesets;
-  }
 
   @if variable-exists(typography) {
     $families: map-merge($families, map-deep-get($typography, 'families'));
@@ -139,5 +143,5 @@
     }
   }
 
-  @include typestyles($typesets);
+  @include typeStyles($typesets);
 }

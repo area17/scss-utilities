@@ -9,6 +9,8 @@
 
   <p>We also wanted to include a few utility classes that would simplify some common styling requirements.</p>
 
+  <p>What this isn't is a replacement or alternative to Tailwind - which is a utility CSS class library. These SCSS utilities are intended to help you write SCSS and use your responsive/grid system.</p>
+
   <p>Firstly, the setup:</p>
 
   <ul>
@@ -41,6 +43,7 @@
     <li>hide-text</li>
     <li>container</li>
     <li>colspan</li>
+    <li>typeset</li>
   </ul>
 
   <p>Utility functions:</p>
@@ -61,9 +64,9 @@
     <li>
       processTypography
       <ul>
-        <li>typestyles</li>
-        <li>typeset</li>
-        <li>type-style</li>
+        <li>typeStyles</li>
+        <li>typeStyle</li>
+        <li>typeAttribute</li>
       </ul>
     </li>
     <li>setupGrid</li>

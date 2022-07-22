@@ -81,23 +81,9 @@
   margin-top: 2.5rem;
 }
 
-.copy p {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.copy p b, .copy p strong {
-  font-weight: var(--bold-weight);
-}
-
-@include breakpoint('md+') {
-  .copy p {
-    font-size: 1rem;
-  }
+.copy p,
+.copy ul {
+  @include typeset(body);
 }
 
 .copy p {
@@ -106,25 +92,6 @@
 
 .copy p:first-child {
   margin-top: 0rem;
-}
-
-.copy ul {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.copy ul b, .copy ul strong {
-  font-weight: var(--bold-weight);
-}
-
-@include breakpoint('md+') {
-  .copy ul {
-    font-size: 1rem;
-  }
 }
 
 .copy ul {
@@ -203,27 +170,6 @@
   }
 }
 
-.copy dl {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-  overflow: hidden;
-}
-
-.copy dt {
-  clear: left;
-  float: left;
-  width: 200px;
-  margin-right: 20px;
-}
-
-.copy dd {
-  float: left;
-  width: calc(100% - 220px);
-}
 
 
 .props-table {

@@ -174,6 +174,15 @@ $typography: (
 </code></pre>
   </figure>
 
+  <p>These font styles can also be applied via SCSS <code>@include typeset(name)</code>:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">.component > p {
+  @include typeset(body); // @include typeset(f-body); also works
+}</code></pre>
+  </figure>
+
   <p>These font styles can also be applied via SCSS <code>@extend</code>:</p>
 
   <figure class="code-example">

@@ -139,6 +139,7 @@
   }
   ```
 */
+/* outputs a specified typeset */
 .container {
   width: calc(var(--container-width, 100%) - 2 * var(--breakout-container-outer-gutter, var(--container-outer-gutter, var(--outer-gutter, 0))));
   margin-left: auto;
@@ -4956,24 +4957,37 @@ main {
   margin-top: 2.5rem;
 }
 
-.copy p {
+.copy p,
+.copy ul {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
   font-family: var(--sans);
+  --bold-weight: 500;
   font-size: 0.875rem;
   line-height: 1.7;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
 }
-
-.copy p b, .copy p strong {
+.copy p b,
+.copy p strong,
+.copy ul b,
+.copy ul strong {
   font-weight: var(--bold-weight);
 }
-
+.copy p i,
+.copy p em,
+.copy ul i,
+.copy ul em {
+  font-style: italic;
+}
 @media screen and (min-width: 650px) {
-  .copy p {
+  .copy p,
+.copy ul {
     font-size: 1rem;
   }
 }
+
 .copy p {
   margin-top: 1.25rem;
 }
@@ -4982,24 +4996,6 @@ main {
   margin-top: 0rem;
 }
 
-.copy ul {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.copy ul b, .copy ul strong {
-  font-weight: var(--bold-weight);
-}
-
-@media screen and (min-width: 650px) {
-  .copy ul {
-    font-size: 1rem;
-  }
-}
 .copy ul {
   margin-top: 1.25rem;
   list-style-type: disc;
@@ -5074,28 +5070,6 @@ main {
     max-width: 60%;
   }
 }
-.copy dl {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-  overflow: hidden;
-}
-
-.copy dt {
-  clear: left;
-  float: left;
-  width: 200px;
-  margin-right: 20px;
-}
-
-.copy dd {
-  float: left;
-  width: calc(100% - 220px);
-}
-
 .props-table {
   margin-top: 1.25rem;
 }
