@@ -12,9 +12,7 @@
 
   <figure class="code-example">
     <figcaption class="code-example-filename">_tokens.scss</figcaption>
-    <pre class="code-example-code"><code class="language-scss">$feConfigSmallestBreakpoint: 'xs';
-
-$structure: (
+    <pre class="code-example-code"><code class="language-scss">$structure: (
   breakpoints: (
     xs: 0,
     sm: 544px,
