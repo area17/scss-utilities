@@ -20,6 +20,8 @@
   <ul>
     <li><a href="/Typography.php">Typography</a> - generates responsive typography classes</li>
     <li><a href="/Color.php">Color</a> - generates colour variables and utility classes</li>
+    <li><a href="/Spacing.php">Spacing</a> - generates spacing utilities for gutters and responsive spacing groups</li>
+    <li>Grid/Colspans</li>
     <li>visually-hidden</li>
     <li>float clear</li>
     <li>background-fill</li>

@@ -183,7 +183,8 @@
 .copy hr {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-  border-color: var(--grey-15);
+  border: 0;
+  border-top: 1px solid var(--grey-15);
 }
 
 .copy .blockquote {
@@ -199,5 +200,50 @@
 @include breakpoint('lg+') {
   .copy > *:not(.code-example,.copy h2,.copy hr) {
     max-width: 60%;
+  }
+}
+
+.copy dl {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+  overflow: hidden;
+}
+
+.copy dt {
+  clear: left;
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+
+.copy dd {
+  float: left;
+  width: calc(100% - 220px);
+}
+
+
+.props-table {
+  margin-top: 1.25rem;
+
+  thead {
+    @extend %f-ui;
+    text-align: left;
+
+    th {
+      padding: 0 1rem 0.5rem 0;
+    }
+  }
+
+  tbody {
+    @extend %f-code;
+
+    td {
+      padding: 0.5rem 1rem 0.5rem 0;
+      border-top: 1px solid var(--border-secondary);
+    }
   }
 }
