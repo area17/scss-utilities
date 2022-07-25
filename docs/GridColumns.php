@@ -290,7 +290,7 @@
 <div class="copy">
   <hr>
 
-  <h4>Nesting</h4>
+  <h4 id="nesting">Nesting</h4>
 </div>
 
 <ul class="grid grid-demo">

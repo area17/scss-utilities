@@ -23,8 +23,8 @@
     <li><a href="/Typography.php">Typography</a> - generates responsive typography classes</li>
     <li><a href="/Color.php">Color</a> - generates colour variables and utility classes</li>
     <li><a href="/Spacing.php">Spacing</a> - generates spacing utilities for gutters and responsive spacing groups</li>
-    <li><a href="/GridColumns.php">Grid Columns</a> - generates CSS grid design column spanning classes</li>
-    <li>Colspans</li>
+    <li><a href="/GridColumns.php">Grid Columns</a> - generates CSS Grid design column spanning classes</li>
+    <li><a href="/Colspans.php">Colspans</a> - generates design column spanning classes (for flex/float/other)</li>
     <li>visually-hidden</li>
     <li>float clear</li>
     <li>background-fill</li>
