@@ -23,12 +23,12 @@
     <li><a href="/Typography.php">Typography</a> - generates responsive typography classes</li>
     <li><a href="/Color.php">Color</a> - generates colour variables and utility classes</li>
     <li><a href="/Spacing.php">Spacing</a> - generates spacing utilities for gutters and responsive spacing groups</li>
-    <li><a href="/GridColumns.php">Grid Columns</a> - generates CSS Grid design column spanning classes</li>
+    <li><a href="/Grid-Columns.php">Grid Columns</a> - generates CSS Grid design column spanning classes</li>
     <li><a href="/Colspans.php">Colspans</a> - generates design column spanning classes (for flex/float/other)</li>
-    <li>visually-hidden</li>
-    <li>float clear</li>
-    <li>background-fill</li>
-    <li>container</li>
+    <li><a href="/Visually-Hidden.php">Visually Hidden</a> - visually hidden screen reader only text class</li>
+    <li><a href="/Float-Clear.php">Float Clear</a> - float clearing utility</li>
+    <li><a href="/Background-Fill.php">Background Fill</a> - draws a full width background color block</li>
+    <li><a href="/Container.php">Container</a> - centered column container</li>
   </ul>
 
   <p>Utility mixins:</p>

@@ -1,14 +1,27 @@
 .grid-demo .col,
 .grid-demo [class*=col-],
-.colspan-demo [class*=colspan-] {
+.colspan-demo [class*=colspan-],
+.float-clear-demo .float-clear [class*=colspan-],
+.float-clear-demo > p {
   position: relative;
   min-height: var(--inner-gutter);
   background: #ccc;
   list-style-type: none;
 }
+
+.float-clear [class*=colspan-] {
+  float: left;
+}
+
+.float-clear-demo > p {
+  margin-top: var(--inner-gutter);
+  font: 12px/var(--inner-gutter) monospace;
+}
+
 .grid-demo .col::before,
 .grid-demo [class*=col-]::before,
-.colspan-demo [class*=colspan-]::before {
+.colspan-demo [class*=colspan-]::before,
+.float-clear [class*=colspan-]::before {
   content: attr(class);
   position: absolute;
   left: 0;
@@ -67,12 +80,14 @@
 }
 
 .grid-demo,
-.colspan-demo {
+.colspan-demo,
+.float-clear-demo {
   padding-top: var(--inner-gutter);
   padding-bottom: var(--inner-gutter);
 
   .grid-demo,
-  .colspan-demo {
+  .colspan-demo,
+  .float-clear-demo {
     padding-bottom: 0;
   }
 }

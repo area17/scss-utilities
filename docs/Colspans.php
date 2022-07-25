@@ -131,9 +131,9 @@
   &lt;div class="colspan-12">&lt;/div>
 &lt;/div></code></pre>
   </figure>
-</div>
 
-<div class="copy">
+  <p>The CSS for these docs contains a <code>.colspan-demo</code> class to add some color, spacing and to display the classname of the columns.</p>
+
   <hr>
 
   <h4 id="responsive">Responsive</h4>
