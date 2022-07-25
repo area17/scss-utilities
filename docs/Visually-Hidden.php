@@ -23,7 +23,7 @@
 }</code></pre>
   </figure>
 
-  <h2 id="demo">SCSS Usage</h2>
+  <h2 id="scss-usage">SCSS Usage</h2>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">_component.scss</figcaption>
