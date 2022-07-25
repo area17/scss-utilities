@@ -539,7 +539,7 @@ html {
   }
 }
 
-.footer li, .header li,
+.mixin-table tbody, .footer li, .header li,
 .f-body {
   font-family: var(--sans);
   --bold-weight: 500;
@@ -548,14 +548,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
-.footer li b, .header li b,
+.mixin-table tbody b, .footer li b, .header li b,
+.mixin-table tbody strong,
 .footer li strong,
 .header li strong,
 .f-body b,
 .f-body strong {
   font-weight: var(--bold-weight);
 }
-.footer li i, .header li i,
+.mixin-table tbody i, .footer li i, .header li i,
+.mixin-table tbody em,
 .footer li em,
 .header li em,
 .f-body i,
@@ -563,13 +565,13 @@ html {
   font-style: italic;
 }
 @media screen and (min-width: 650px) {
-  .footer li, .header li,
+  .mixin-table tbody, .footer li, .header li,
 .f-body {
     font-size: 1rem;
   }
 }
 
-.props-table thead,
+.mixin-table thead, .props-table thead,
 .f-ui {
   font-family: var(--sans);
   --bold-weight: 500;
@@ -577,13 +579,15 @@ html {
   line-height: 1.2;
   font-weight: 400;
 }
-.props-table thead b,
+.mixin-table thead b, .props-table thead b,
+.mixin-table thead strong,
 .props-table thead strong,
 .f-ui b,
 .f-ui strong {
   font-weight: var(--bold-weight);
 }
-.props-table thead i,
+.mixin-table thead i, .props-table thead i,
+.mixin-table thead em,
 .props-table thead em,
 .f-ui i,
 .f-ui em {
@@ -5132,6 +5136,41 @@ main {
   padding: 0 1rem 0.5rem 0;
 }
 .props-table tbody td {
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-top: 1px solid var(--border-secondary);
+}
+
+.copy .mixin {
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+  display: block;
+  background-color: var(--grey-90);
+  color: var(--grey-3);
+}
+.copy .mixin .mixin-include {
+  color: #e28964;
+}
+.copy .mixin em {
+  color: #aeaeae;
+}
+
+.mixin-table {
+  margin-top: 1.25rem;
+}
+.mixin-table thead {
+  text-align: left;
+}
+.mixin-table thead th {
+  padding: 0 1rem 0.5rem 0;
+}
+.mixin-table tbody td {
   padding: 0.5rem 1rem 0.5rem 0;
   border-top: 1px solid var(--border-secondary);
 }

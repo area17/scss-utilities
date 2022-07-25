@@ -34,7 +34,7 @@
   <p>Utility mixins:</p>
 
   <ul>
-    <li>Breakpoint</li>
+    <li><a href="/Breakpoint.php">Breakpoint</a> - inserts a media query</li>
     <li>Placeholder - form input placeholder styling</li>
     <li>visually-hidden</li>
     <li>float clear</li>

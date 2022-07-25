@@ -1,0 +1,202 @@
+<?php $title = 'Breakpoint'; ?>
+<?php include 'includes/_header.php'; ?>
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>Inserts a media query.</p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_tokens.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">$structure: (
+  breakpoints: (
+    xs: 0,
+    sm: 544px,
+    md: 650px,
+    lg: 990px,
+    xl: 1300px,
+    xxl: 1520px
+  ),
+  columns: (
+    xs: 4,
+    sm: 4,
+    md: 8,
+    lg: 12,
+    xl: 12,
+    xxl: 12
+  ),
+  container: (
+    xs: auto,
+    sm: auto,
+    md: auto,
+    lg: auto,
+    xl: auto,
+    xxl: 1440px
+  ),
+  gutters: (
+    inner: (
+      xs: 10px,
+      sm: 15px,
+      md: 20px,
+      lg: 30px,
+      xl: 40px,
+      xxl: 40px
+    ),
+    outer: (
+      xs: 20px,
+      sm: 30px,
+      md: 40px,
+      lg: 40px,
+      xl: 40px,
+      xxl: auto
+    )
+  )
+);</code></pre>
+  </figure>
+
+  <h2 id="scss-usage">SCSS Usage</h2>
+
+  <code class="mixin"><span class="mixin-include">@include</span> breakpoint(<em>breakpoint</em>,<em>option</em>)</code>
+
+  <table class="mixin-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required?</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td><code>breakpoint</code></td>
+      <td>Yes</td>
+      <td>any of the named breakpoint names from the setup</td>
+    </tbody>
+    <tbody>
+      <td><code>option</code></td>
+      <td>No</td>
+      <td><code>hover</code> or <code>IE11</code></td>
+    </tbody>
+  </table>
+
+  <p>And so, in SCSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">.container-1 {
+  @include breakpoint('md+') {
+    background-color: red; // background will be red at md and larger
+  }
+}
+
+.container-2 {
+  @include breakpoint('md-') {
+    background-color: green; // background will be green at md and smaller
+  }
+}
+
+.container-3 {
+  @include breakpoint('md') {
+    background-color: blue; // background will be green at only md
+  }
+}
+
+.container-4 {
+  @include breakpoint('md') {
+    background-color: blue; // background will be green at only md
+  }
+}
+
+.container-5 {
+  @include breakpoint('md+', '(min-height: 680px)') {
+    background-color: orange; // background will orange at md and larger and when also larger than 680px tall
+  }
+}
+
+.container-6 {
+  @include breakpoint(null, 'hover') {
+    background-color: purple; // background will purple only on devices with mouse pointers
+  }
+}
+
+.container-7 {
+  @include breakpoint('md+', 'hover') {
+    background-color: pink; // background will pink at md and larger, only on devices with mouse pointers
+  }
+}
+
+.container-8 {
+  @include breakpoint(null,'ie11') {
+    background-color: brown; // background will be brown in IE11
+  }
+}
+
+.container-9 {
+  @include breakpoint('md+','ie11') {
+    background-color: beige; // background will be beige at md and larger only in IE11
+  }
+}</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">@media screen and (min-width: 650px) {
+  .container-1 {
+    background-color: red;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .container-2 {
+    background-color: green;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 990px) {
+  .container-3 {
+    background-color: blue;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 990px) {
+  .container-4 {
+    background-color: blue;
+  }
+}
+
+@media screen and (min-width: 650px) and (min-height: 680px) {
+  .container-5 {
+    background-color: orange;
+  }
+}
+
+@media (-moz-touch-enabled: 0), (pointer: fine) {
+  .container-6 {
+    background-color: purple;
+  }
+}
+
+@media screen and (min-width: 650px) and (-moz-touch-enabled: 0), screen and (min-width: 650px) and (pointer: fine) {
+  .container-7 {
+    background-color: pink;
+  }
+}
+
+@media screen and (-ms-high-contrast: none), screen and (-ms-high-contrast: active) {
+  .container-8 {
+    background-color: brown;
+  }
+}
+
+@media screen and (min-width: 650px) and (-ms-high-contrast: none), screen and (min-width: 650px) and (-ms-high-contrast: active) {
+  .container-9 {
+    background-color: beige;
+  }
+}</code></pre>
+  </figure>
+</div>
+
+<?php include 'includes/_footer.php'; ?>

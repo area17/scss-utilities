@@ -170,8 +170,6 @@
   }
 }
 
-
-
 .props-table {
   margin-top: 1.25rem;
 
@@ -193,3 +191,49 @@
     }
   }
 }
+
+.copy .mixin {
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+  display: block;
+  background-color: var(--grey-90);
+  color: var(--grey-3);
+
+  .mixin-include {
+    color: #e28964;
+  }
+
+  em {
+    color: #aeaeae;
+  }
+}
+
+.mixin-table {
+  margin-top: 1.25rem;
+
+  thead {
+    @extend %f-ui;
+    text-align: left;
+
+    th {
+      padding: 0 1rem 0.5rem 0;
+    }
+  }
+
+  tbody {
+    @extend %f-body;
+
+    td {
+      padding: 0.5rem 1rem 0.5rem 0;
+      border-top: 1px solid var(--border-secondary);
+    }
+  }
+}
+
