@@ -35,14 +35,14 @@
 
   <ul>
     <li><a href="/Breakpoint.php">Breakpoint</a> - inserts a media query</li>
-    <li>Placeholder - form input placeholder styling</li>
-    <li>visually-hidden</li>
-    <li>float clear</li>
-    <li>background-fill</li>
+    <li><a href="/Placeholder.php">Placeholder</a> - form input placeholder styling</li>
+    <li><a href="/Visually-Hidden.php">Visually Hidden</a> - visually hidden screen reader only text class</li>
+    <li><a href="/Float-Clear.php">Float Clear</a> - float clearing utility</li>
+    <li><a href="/Background-Fill.php">Background Fill</a> - draws a full width background color block</li>
     <li>keyline-full</li>
     <li>font-smoothing</li>
     <li>hide-text</li>
-    <li>container</li>
+    <li><a href="/Container.php">Container</a> - centered column container</li>
     <li>colspan</li>
     <li>typeset</li>
   </ul>
