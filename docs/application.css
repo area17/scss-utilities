@@ -782,6 +782,7 @@ html {
 }
 
 .col-1\@xs {
+  --grid-columns: 1;
   grid-column: span 1;
 }
 
@@ -794,6 +795,7 @@ html {
 }
 
 .col-2\@xs {
+  --grid-columns: 2;
   grid-column: span 2;
 }
 
@@ -806,6 +808,7 @@ html {
 }
 
 .col-3\@xs {
+  --grid-columns: 3;
   grid-column: span 3;
 }
 
@@ -818,6 +821,7 @@ html {
 }
 
 .col-4\@xs {
+  --grid-columns: 4;
   grid-column: span 4;
 }
 
@@ -831,6 +835,7 @@ html {
 
 @media screen and (min-width: 544px) {
   .col-1\@sm {
+    --grid-columns: 1;
     grid-column: span 1;
   }
   .colspan-1\@sm {
@@ -840,6 +845,7 @@ html {
     --grid-columns: 1;
   }
   .col-2\@sm {
+    --grid-columns: 2;
     grid-column: span 2;
   }
   .colspan-2\@sm {
@@ -849,6 +855,7 @@ html {
     --grid-columns: 2;
   }
   .col-3\@sm {
+    --grid-columns: 3;
     grid-column: span 3;
   }
   .colspan-3\@sm {
@@ -858,6 +865,7 @@ html {
     --grid-columns: 3;
   }
   .col-4\@sm {
+    --grid-columns: 4;
     grid-column: span 4;
   }
   .colspan-4\@sm {
@@ -869,6 +877,7 @@ html {
 }
 @media screen and (min-width: 650px) {
   .col-1\@md {
+    --grid-columns: 1;
     grid-column: span 1;
   }
   .colspan-1\@md {
@@ -878,6 +887,7 @@ html {
     --grid-columns: 1;
   }
   .col-2\@md {
+    --grid-columns: 2;
     grid-column: span 2;
   }
   .colspan-2\@md {
@@ -887,6 +897,7 @@ html {
     --grid-columns: 2;
   }
   .col-3\@md {
+    --grid-columns: 3;
     grid-column: span 3;
   }
   .colspan-3\@md {
@@ -896,6 +907,7 @@ html {
     --grid-columns: 3;
   }
   .col-4\@md {
+    --grid-columns: 4;
     grid-column: span 4;
   }
   .colspan-4\@md {
@@ -905,6 +917,7 @@ html {
     --grid-columns: 4;
   }
   .col-5\@md {
+    --grid-columns: 5;
     grid-column: span 5;
   }
   .colspan-5\@md {
@@ -914,6 +927,7 @@ html {
     --grid-columns: 5;
   }
   .col-6\@md {
+    --grid-columns: 6;
     grid-column: span 6;
   }
   .colspan-6\@md {
@@ -923,6 +937,7 @@ html {
     --grid-columns: 6;
   }
   .col-7\@md {
+    --grid-columns: 7;
     grid-column: span 7;
   }
   .colspan-7\@md {
@@ -932,6 +947,7 @@ html {
     --grid-columns: 7;
   }
   .col-8\@md {
+    --grid-columns: 8;
     grid-column: span 8;
   }
   .colspan-8\@md {
@@ -943,6 +959,7 @@ html {
 }
 @media screen and (min-width: 990px) {
   .col-1\@lg {
+    --grid-columns: 1;
     grid-column: span 1;
   }
   .colspan-1\@lg {
@@ -952,6 +969,7 @@ html {
     --grid-columns: 1;
   }
   .col-2\@lg {
+    --grid-columns: 2;
     grid-column: span 2;
   }
   .colspan-2\@lg {
@@ -961,6 +979,7 @@ html {
     --grid-columns: 2;
   }
   .col-3\@lg {
+    --grid-columns: 3;
     grid-column: span 3;
   }
   .colspan-3\@lg {
@@ -970,6 +989,7 @@ html {
     --grid-columns: 3;
   }
   .col-4\@lg {
+    --grid-columns: 4;
     grid-column: span 4;
   }
   .colspan-4\@lg {
@@ -979,6 +999,7 @@ html {
     --grid-columns: 4;
   }
   .col-5\@lg {
+    --grid-columns: 5;
     grid-column: span 5;
   }
   .colspan-5\@lg {
@@ -988,6 +1009,7 @@ html {
     --grid-columns: 5;
   }
   .col-6\@lg {
+    --grid-columns: 6;
     grid-column: span 6;
   }
   .colspan-6\@lg {
@@ -997,6 +1019,7 @@ html {
     --grid-columns: 6;
   }
   .col-7\@lg {
+    --grid-columns: 7;
     grid-column: span 7;
   }
   .colspan-7\@lg {
@@ -1006,6 +1029,7 @@ html {
     --grid-columns: 7;
   }
   .col-8\@lg {
+    --grid-columns: 8;
     grid-column: span 8;
   }
   .colspan-8\@lg {
@@ -1015,6 +1039,7 @@ html {
     --grid-columns: 8;
   }
   .col-9\@lg {
+    --grid-columns: 9;
     grid-column: span 9;
   }
   .colspan-9\@lg {
@@ -1024,6 +1049,7 @@ html {
     --grid-columns: 9;
   }
   .col-10\@lg {
+    --grid-columns: 10;
     grid-column: span 10;
   }
   .colspan-10\@lg {
@@ -1033,6 +1059,7 @@ html {
     --grid-columns: 10;
   }
   .col-11\@lg {
+    --grid-columns: 11;
     grid-column: span 11;
   }
   .colspan-11\@lg {
@@ -1042,6 +1069,7 @@ html {
     --grid-columns: 11;
   }
   .col-12\@lg {
+    --grid-columns: 12;
     grid-column: span 12;
   }
   .colspan-12\@lg {
@@ -1053,6 +1081,7 @@ html {
 }
 @media screen and (min-width: 1300px) {
   .col-1\@xl {
+    --grid-columns: 1;
     grid-column: span 1;
   }
   .colspan-1\@xl {
@@ -1062,6 +1091,7 @@ html {
     --grid-columns: 1;
   }
   .col-2\@xl {
+    --grid-columns: 2;
     grid-column: span 2;
   }
   .colspan-2\@xl {
@@ -1071,6 +1101,7 @@ html {
     --grid-columns: 2;
   }
   .col-3\@xl {
+    --grid-columns: 3;
     grid-column: span 3;
   }
   .colspan-3\@xl {
@@ -1080,6 +1111,7 @@ html {
     --grid-columns: 3;
   }
   .col-4\@xl {
+    --grid-columns: 4;
     grid-column: span 4;
   }
   .colspan-4\@xl {
@@ -1089,6 +1121,7 @@ html {
     --grid-columns: 4;
   }
   .col-5\@xl {
+    --grid-columns: 5;
     grid-column: span 5;
   }
   .colspan-5\@xl {
@@ -1098,6 +1131,7 @@ html {
     --grid-columns: 5;
   }
   .col-6\@xl {
+    --grid-columns: 6;
     grid-column: span 6;
   }
   .colspan-6\@xl {
@@ -1107,6 +1141,7 @@ html {
     --grid-columns: 6;
   }
   .col-7\@xl {
+    --grid-columns: 7;
     grid-column: span 7;
   }
   .colspan-7\@xl {
@@ -1116,6 +1151,7 @@ html {
     --grid-columns: 7;
   }
   .col-8\@xl {
+    --grid-columns: 8;
     grid-column: span 8;
   }
   .colspan-8\@xl {
@@ -1125,6 +1161,7 @@ html {
     --grid-columns: 8;
   }
   .col-9\@xl {
+    --grid-columns: 9;
     grid-column: span 9;
   }
   .colspan-9\@xl {
@@ -1134,6 +1171,7 @@ html {
     --grid-columns: 9;
   }
   .col-10\@xl {
+    --grid-columns: 10;
     grid-column: span 10;
   }
   .colspan-10\@xl {
@@ -1143,6 +1181,7 @@ html {
     --grid-columns: 10;
   }
   .col-11\@xl {
+    --grid-columns: 11;
     grid-column: span 11;
   }
   .colspan-11\@xl {
@@ -1152,6 +1191,7 @@ html {
     --grid-columns: 11;
   }
   .col-12\@xl {
+    --grid-columns: 12;
     grid-column: span 12;
   }
   .colspan-12\@xl {
@@ -1163,6 +1203,7 @@ html {
 }
 @media screen and (min-width: 1520px) {
   .col-1\@xxl {
+    --grid-columns: 1;
     grid-column: span 1;
   }
   .colspan-1\@xxl {
@@ -1172,6 +1213,7 @@ html {
     --grid-columns: 1;
   }
   .col-2\@xxl {
+    --grid-columns: 2;
     grid-column: span 2;
   }
   .colspan-2\@xxl {
@@ -1181,6 +1223,7 @@ html {
     --grid-columns: 2;
   }
   .col-3\@xxl {
+    --grid-columns: 3;
     grid-column: span 3;
   }
   .colspan-3\@xxl {
@@ -1190,6 +1233,7 @@ html {
     --grid-columns: 3;
   }
   .col-4\@xxl {
+    --grid-columns: 4;
     grid-column: span 4;
   }
   .colspan-4\@xxl {
@@ -1199,6 +1243,7 @@ html {
     --grid-columns: 4;
   }
   .col-5\@xxl {
+    --grid-columns: 5;
     grid-column: span 5;
   }
   .colspan-5\@xxl {
@@ -1208,6 +1253,7 @@ html {
     --grid-columns: 5;
   }
   .col-6\@xxl {
+    --grid-columns: 6;
     grid-column: span 6;
   }
   .colspan-6\@xxl {
@@ -1217,6 +1263,7 @@ html {
     --grid-columns: 6;
   }
   .col-7\@xxl {
+    --grid-columns: 7;
     grid-column: span 7;
   }
   .colspan-7\@xxl {
@@ -1226,6 +1273,7 @@ html {
     --grid-columns: 7;
   }
   .col-8\@xxl {
+    --grid-columns: 8;
     grid-column: span 8;
   }
   .colspan-8\@xxl {
@@ -1235,6 +1283,7 @@ html {
     --grid-columns: 8;
   }
   .col-9\@xxl {
+    --grid-columns: 9;
     grid-column: span 9;
   }
   .colspan-9\@xxl {
@@ -1244,6 +1293,7 @@ html {
     --grid-columns: 9;
   }
   .col-10\@xxl {
+    --grid-columns: 10;
     grid-column: span 10;
   }
   .colspan-10\@xxl {
@@ -1253,6 +1303,7 @@ html {
     --grid-columns: 10;
   }
   .col-11\@xxl {
+    --grid-columns: 11;
     grid-column: span 11;
   }
   .colspan-11\@xxl {
@@ -1262,6 +1313,7 @@ html {
     --grid-columns: 11;
   }
   .col-12\@xxl {
+    --grid-columns: 12;
     grid-column: span 12;
   }
   .colspan-12\@xxl {
@@ -5144,8 +5196,9 @@ main {
 .grid-demo [class*=col-],
 .colspan-demo [class*=colspan-] {
   position: relative;
-  min-height: 30px;
+  min-height: var(--inner-gutter);
   background: #ccc;
+  list-style-type: none;
 }
 
 .grid-demo .col::before,
@@ -5156,7 +5209,7 @@ main {
   left: 0;
   top: 0;
   padding: 0 5px;
-  font: 12px/30px monospace;
+  font: 12px/var(--inner-gutter) monospace;
   white-space: nowrap;
 }
 
@@ -5178,7 +5231,7 @@ main {
 .grid-demo .col + [class*=colspan-]:not([class*=col-]),
 .grid-demo [class*=col-] + [class*=colspan-]:not([class*=col-]),
 .colspan-demo [class*=colspan-] + [class*=colspan-]:not([class*=col-]) {
-  margin-top: 30px;
+  margin-top: var(--inner-gutter);
 }
 
 .grid-demo .col .grid-demo .col .grid-demo .col,
@@ -5213,7 +5266,14 @@ main {
 
 .grid-demo,
 .colspan-demo {
-  padding-top: 30px;
+  padding-top: var(--inner-gutter);
+  padding-bottom: var(--inner-gutter);
+}
+.grid-demo .grid-demo,
+.grid-demo .colspan-demo,
+.colspan-demo .grid-demo,
+.colspan-demo .colspan-demo {
+  padding-bottom: 0;
 }
 
 .colspan-demo--flex {
@@ -5228,7 +5288,7 @@ main {
 }
 
 .colspan-demo--flex .colspan-demo--flex {
-  padding-top: 30px;
+  padding-top: var(--inner-gutter);
 }
 
 .colspan-demo--flex .colspan-demo--flex .colspan-demo--flex [class*=colspan-] {
@@ -5237,7 +5297,7 @@ main {
 }
 
 .grid-demo .colspan-demo [class*=colspan-] {
-  padding-top: 30px;
+  padding-top: var(--inner-gutter);
 }
 
 .grid-demo .colspan-demo [class*=col-] {
@@ -5265,7 +5325,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding-top: 30px;
+  padding-top: var(--inner-gutter);
 }
 
 .colspan-demo--nested [class*=colspan-] + [class*=colspan-]:not([class*=col-]) {

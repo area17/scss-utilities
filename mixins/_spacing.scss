@@ -51,14 +51,9 @@
 
   $_spacing: ();
 
-  @if variable-exists(spacing_sets) {
-    $_spacing: $spacing_sets;
-  }
-
   @if variable-exists(spacing) {
     $_spacing: map-merge($_spacing, $spacing);
   }
-
 
   $_e_spacing: ();
 
@@ -115,8 +110,6 @@
   }
 
   /* generate responsive spacing root variables */
-
-
   @each $bpname, $point in $breakpoints {
     @if ($bpname == $smallestBreakpointName) {
       :root {
