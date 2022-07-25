@@ -57,13 +57,11 @@
       $str1: $str + ' and (-moz-touch-enabled: 0), ';
       $str2: $str + ' and (pointer: fine)';
       $str: $str1 + $str2;
-    }
-    @if($option == 'ie11') {
+    } @else if($option == 'ie11') {
       $str1: $str + ' and (-ms-high-contrast: none), ';
       $str2: $str + ' and (-ms-high-contrast: active)';
       $str: $str1 + $str2;
-    }
-    @if($option != '') {
+    } @else if($option != '') {
       $str: $str + ' and ' + $option;
     }
     @media #{$str} {
