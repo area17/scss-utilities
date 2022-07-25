@@ -1,6 +1,7 @@
 @mixin setBreakpointColumn($index, $breakpoint: null) {
   @if ($breakpoint) {
     .col-#{$index}\@#{$breakpoint} {
+      --grid-columns: #{$index};
       grid-column: span #{$index};
     }
     .colspan-#{$index}\@#{$breakpoint} {
