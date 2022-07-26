@@ -111,7 +111,7 @@
 
   /* generate responsive spacing root variables */
   @each $bpname, $point in $a17-breakpoints {
-    @if ($bpname == $smallestBreakpointName) {
+    @if ($bpname == $a17-smallest-breakpoint-name) {
       :root {
         --SPACING_VARs: 'at this breakpoint ↓';
         @each $name, $set in $_spacing {

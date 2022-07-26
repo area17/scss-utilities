@@ -24,7 +24,7 @@
   @each $name, $point in $a17-breakpoints {
     $grid-columns: map-get($a17-column-count, $name);
 
-    @if ($name == $smallestBreakpointName) {
+    @if ($name == $a17-smallest-breakpoint-name) {
       @for $i from 1 through $grid-columns {
         @include setBreakpointColumn($i, $name);
       }
@@ -46,7 +46,7 @@
   @each $name, $point in $a17-breakpoints {
     $grid-columns: map-get($a17-column-count, $name);
 
-    @if ($name == $smallestBreakpointName) {
+    @if ($name == $a17-smallest-breakpoint-name) {
       @for $i from 1 through $grid-columns {
         @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
       }

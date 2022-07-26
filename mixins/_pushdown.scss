@@ -3,7 +3,7 @@
   @each $breakpoint, $push in $obj {
     // check this is a valid breakpoint
     @if map-has-key($a17-breakpoints-with-directions, $breakpoint) {
-      @if ($breakpoint == $smallestBreakpointName or $single-bp == $breakpoint) {
+      @if ($breakpoint == $a17-smallest-breakpoint-name or $single-bp == $breakpoint) {
         #{$type}-top: $push;
       } @else {
         @if ($previousPush != $push) {

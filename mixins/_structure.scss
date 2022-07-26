@@ -5,57 +5,19 @@ $a17-outer-gutters: ();
 $a17-gutters: ();
 $a17-breakpoints: ();
 $a17-breakpoints-with-directions:();
+$a17-smallest-breakpoint-name: 'xs';
 
 @mixin processStructure() {
   @if variable-exists(structure) {
-    $_container-type: ();
-    $_column-count: ();
-    $_inner-gutters: ();
-    $_outer-gutters: ();
-    $_breakpoints: ();
-
-    @if variable-exists(structure_container-type) {
-      $_container-type: $structure_container-type;
-    }
-
-    @if variable-exists(structure_column-count) {
-      $_column-count: $structure_column-count;
-    }
-
-    @if variable-exists(structure_gutters) {
-      @if map-has-key($structure_gutters, 'inner') {
-        $_inner-gutters: map-get($structure_gutters, 'inner');
-      }
-      @if map-has-key($structure_gutters, 'outer') {
-        $_outer-gutters: map-get($structure_gutters, 'outer');
-      }
-    }
-
-    @if variable-exists(structure_breakpoints) {
-      $_breakpoints: $structure_breakpoints;
-    }
-
-    @if variable-exists(structure) {
-      $_breakpoints: map-merge($_breakpoints, map-get($structure, 'breakpoints'));
-
-      $_inner-gutters: map-merge($_inner-gutters, map-deep-get($structure, 'gutters', 'inner'));
-      $_outer-gutters: map-merge($_outer-gutters, map-deep-get($structure, 'gutters', 'outer'));
-
-      $a17-container-type: map-merge($_container-type, map-get($structure, 'container')) !global;
-      $a17-column-count: map-merge($_column-count, map-get($structure, 'columns')) !global;
-    } @else {
-      $a17-container-type: $_container-type !global;
-      $a17-column-count: $_column-count !global;
-    }
-
+    $a17-container-type: map-get($structure, 'container') !global;
+    $a17-column-count: map-get($structure, 'columns') !global;
     $a17-gutters: (
-      'inner': $_inner-gutters,
-      'outer': $_outer-gutters
+      'inner': map-deep-get($structure, 'gutters', 'inner'),
+      'outer': map-deep-get($structure, 'gutters', 'outer')
     ) !global;
-
-    $a17-breakpoints: process-breakpoints($_breakpoints) !global;
+    $a17-breakpoints: process-breakpoints(map-get($structure, 'breakpoints')) !global;
     $a17-breakpoints-with-directions: get-breakpoint-directions($a17-breakpoints) !global;
-    $smallestBreakpointName: get-smallest-breakpoint($_breakpoints) !global;
+    $a17-smallest-breakpoint-name: get-smallest-breakpoint(map-get($structure, 'breakpoints')) !global;
 
     :root {
       --safe-area-inset-bottom: 0px;
@@ -73,9 +35,8 @@ $a17-breakpoints-with-directions:();
       }
     }
 
-
     @each $name, $point in $a17-breakpoints {
-      @if ($name == $smallestBreakpointName) {
+      @if ($name == $a17-smallest-breakpoint-name) {
         $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
         $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
 
