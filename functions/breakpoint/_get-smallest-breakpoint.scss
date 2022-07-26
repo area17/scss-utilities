@@ -5,11 +5,6 @@
 */
 
 @function get-smallest-breakpoint($points) {
-  // if set by the build task and valid, return webpack supplied smallest
-  @if ($feConfigSmallestBreakpoint and map-get($breakpoints-with-directions, $feConfigSmallestBreakpoint)) {
-    @return $feConfigSmallestBreakpoint;
-  }
-
   // else look for the smallest
   $smallestName: null;
   $minSize: 999999999999px;
@@ -20,6 +15,5 @@
       $smallestName: $key;
     }
   }
-  @debug $smallestName;
   @return $smallestName;
 }
