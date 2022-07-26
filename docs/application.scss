@@ -5,6 +5,10 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include A17 SCSS Utilities
 
 //@import '~@area17/scss-utilities/a17-scss-utilities';
+$a17-scss-generate: (
+  colspan: true,
+  grid: true,
+);
 @import '../a17-scss-utilities';
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include site css

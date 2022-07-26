@@ -1,61 +1,81 @@
 @mixin setupGrid() {
-  .grid {
-    display: grid;
-    column-gap: var(--inner-gutter);
-    grid-template-columns: repeat(var(--grid-columns), 1fr);
-  }
-
-  .col,
-  [class*='col-'] {
-    grid-column: span var(--grid-columns);
-  }
-
-  [class*='colspan-'] {
-    width: 100%;
-  }
-
   $max-columns: get-max($a17-column-count);
-  // Generate col classes
-  @for $i from 1 through $max-columns {
-    @include setColumn($i);
-  }
 
-  // Generate responsive col classes by breakpoint
-  @each $name, $point in $a17-breakpoints {
-    $grid-columns: map-get($a17-column-count, $name);
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ colspan */
 
-    @if ($name == $a17-smallest-breakpoint-name) {
-      @for $i from 1 through $grid-columns {
-        @include setBreakpointColumn($i, $name);
+  @if map-get($_a17-scss-generate, 'colspan') {
+    @if variable-exists(structure) {
+      [class*='colspan-'] {
+        width: 100%;
       }
-    } @else {
-      @include breakpoint('#{$name}+') {
-        @for $i from 1 through $grid-columns {
-          @include setBreakpointColumn($i, $name);
+
+      // Generate col classes
+      @for $i from 1 through $max-columns {
+        @include setColspan($i);
+      }
+
+      // Generate responsive col classes by breakpoint
+      @each $name, $point in $a17-breakpoints {
+        $grid-columns: map-get($a17-column-count, $name);
+
+        @if ($name == $a17-smallest-breakpoint-name) {
+          @for $i from 1 through $grid-columns {
+            @include setBreakpointColspan($i, $name);
+          }
+        } @else {
+          @include breakpoint('#{$name}+') {
+            @for $i from 1 through $grid-columns {
+              @include setBreakpointColspan($i, $name);
+            }
+          }
         }
       }
+    } @else {
+      @error 'No `$structure` map found when trying to make `colspan` classes';
     }
   }
 
-  // Generate Start/End columns
-  @for $i from 1 through $max-columns {
-    @include setStartEndCColumn($i);
-  }
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ grid/col-*/
 
-  // Generate Start/End responsive col classes by breakpoint
-  @each $name, $point in $a17-breakpoints {
-    $grid-columns: map-get($a17-column-count, $name);
-
-    @if ($name == $a17-smallest-breakpoint-name) {
-      @for $i from 1 through $grid-columns {
-        @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
+  @if map-get($_a17-scss-generate, 'grid') {
+    @if variable-exists(structure) {
+      .grid {
+        display: grid;
+        column-gap: var(--inner-gutter);
+        grid-template-columns: repeat(var(--grid-columns), 1fr);
       }
-    } @else {
-      @include breakpoint('#{$name}+') {
-        @for $i from 1 through $grid-columns {
-          @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
+
+      .col,
+      [class*='col-'] {
+        grid-column: span var(--grid-columns);
+      }
+
+      // Generate Start/End columns
+      @for $i from 1 through $max-columns {
+        @include setGridCol($i);
+        @include setStartEndCColumn($i);
+      }
+
+      // Generate Start/End responsive col classes by breakpoint
+      @each $name, $point in $a17-breakpoints {
+        $grid-columns: map-get($a17-column-count, $name);
+
+        @if ($name == $a17-smallest-breakpoint-name) {
+          @for $i from 1 through $grid-columns {
+            @include setBreakpointColumn($i, $name);
+            @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
+          }
+        } @else {
+          @include breakpoint('#{$name}+') {
+            @for $i from 1 through $grid-columns {
+              @include setBreakpointColumn($i, $name);
+              @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
+            }
+          }
         }
       }
+    } @else {
+      @error 'No `$structure` map found when trying to make `grid` classes';
     }
   }
 }

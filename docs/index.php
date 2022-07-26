@@ -11,10 +11,11 @@
 
   <p>What this isn't is a replacement or alternative to Tailwind - which is a utility CSS class library. These SCSS utilities are intended to help you write SCSS and use your responsive/grid system.</p>
 
-  <h2>Required setup</h2>
+  <h2>Setup</h2>
 
   <ul>
-    <li><a href="/Setup.php">Setup</a> - a walk through of the setup</li>
+    <li>Required: <a href="/Setup.php">Setup</a> - a walk through of the setup</li>
+    <li>Optional: <a href="/CSS-Class-Generation.php">CSS-Class-Generation</a> - configure which CSS classes are generated</li>
   </ul>
 </div>
 
@@ -111,7 +112,9 @@
     </ul>
     <ul>
       <li><code>@mixin</code> grid-overlay</li>
-      <li><code>@mixin</code> setColumn</li>
+      <li><code>@mixin</code> setColspan</li>
+      <li><code>@mixin</code> setBreakpointColspan</li>
+      <li><code>@mixin</code> setGridCol</li>
       <li><code>@mixin</code> setBreakpointColumn</li>
       <li><code>@mixin</code> setStartEndCColumn</li>
       <li><code>@mixin</code> setBreakpointStartEndCColumn</li>

@@ -8,38 +8,49 @@ $a17-breakpoints-with-directions:();
 $a17-smallest-breakpoint-name: 'xs';
 
 @mixin processStructure() {
-  @if variable-exists(structure) {
-    $a17-container-type: map-get($structure, 'container') !global;
-    $a17-column-count: map-get($structure, 'columns') !global;
-    $a17-gutters: (
-      'inner': map-deep-get($structure, 'gutters', 'inner'),
-      'outer': map-deep-get($structure, 'gutters', 'outer')
-    ) !global;
-    $a17-breakpoints: process-breakpoints(map-get($structure, 'breakpoints')) !global;
-    $a17-breakpoints-with-directions: get-breakpoint-directions($a17-breakpoints) !global;
-    $a17-smallest-breakpoint-name: get-smallest-breakpoint(map-get($structure, 'breakpoints')) !global;
+  $a17-container-type: map-get($structure, 'container') !global;
+  $a17-column-count: map-get($structure, 'columns') !global;
+  $a17-gutters: (
+    'inner': map-deep-get($structure, 'gutters', 'inner'),
+    'outer': map-deep-get($structure, 'gutters', 'outer')
+  ) !global;
+  $a17-breakpoints: process-breakpoints(map-get($structure, 'breakpoints')) !global;
+  $a17-breakpoints-with-directions: get-breakpoint-directions($a17-breakpoints) !global;
+  $a17-smallest-breakpoint-name: get-smallest-breakpoint(map-get($structure, 'breakpoints')) !global;
 
+  :root {
+    --safe-area-inset-bottom: 0px;
+  }
+
+  @supports (padding-top: constant(safe-area-inset-bottom)) {
     :root {
-      --safe-area-inset-bottom: 0px;
+      --safe-area-inset-bottom: constant(safe-area-inset-bottom);
     }
+  }
 
-    @supports (padding-top: constant(safe-area-inset-bottom)) {
+  @supports (padding-top: env(safe-area-inset-bottom)) {
+    :root {
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+  @each $name, $point in $a17-breakpoints {
+    @if ($name == $a17-smallest-breakpoint-name) {
+      $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
+      $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
+
       :root {
-        --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+        --breakpoint: '#{$name}';
+        --inner-gutter: #{map-deep-get($a17-gutters, 'inner', $name)};
+        --outer-gutter: #{$outerGutter};
+        --grid-columns: #{map-get($a17-column-count, $name)};
+        --container-width: #{$containerWidth};
       }
-    }
+    } @else {
+      $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
+      $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
 
-    @supports (padding-top: env(safe-area-inset-bottom)) {
-      :root {
-        --safe-area-inset-bottom: env(safe-area-inset-bottom);
-      }
-    }
-
-    @each $name, $point in $a17-breakpoints {
-      @if ($name == $a17-smallest-breakpoint-name) {
-        $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
-        $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
-
+      @include breakpoint('#{$name}+') {
         :root {
           --breakpoint: '#{$name}';
           --inner-gutter: #{map-deep-get($a17-gutters, 'inner', $name)};
@@ -47,22 +58,7 @@ $a17-smallest-breakpoint-name: 'xs';
           --grid-columns: #{map-get($a17-column-count, $name)};
           --container-width: #{$containerWidth};
         }
-      } @else {
-        $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
-        $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
-
-        @include breakpoint('#{$name}+') {
-          :root {
-            --breakpoint: '#{$name}';
-            --inner-gutter: #{map-deep-get($a17-gutters, 'inner', $name)};
-            --outer-gutter: #{$outerGutter};
-            --grid-columns: #{map-get($a17-column-count, $name)};
-            --container-width: #{$containerWidth};
-          }
-        }
       }
     }
-  } @else {
-    @error 'No `$structure` map found';
   }
 }

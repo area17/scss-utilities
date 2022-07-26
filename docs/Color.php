@@ -61,6 +61,8 @@
 );</code></pre>
   </figure>
 
+  <p>If you don't want to process colours, you can safely omit a <code>$color</code> map.</p>
+
   <h2 id="output">Output</h2>
 
   <p>Based on the reference config mentioned in this guide, we would get the following in our CSS:</p>
@@ -237,6 +239,12 @@
   <h2 id="notes">Notes</h2>
 
   <p>Although you could name your text, background and border colours anything, its <strong>important</strong> to name by abstract usage and not by the hue of the colour itself. It will be far easier to update these and expand these in the future if you do this.</p>
+
+  <h2 id="notes">Notes</h2>
+
+  <p>As you can see, this generates a reasonable number of CSS classes - you will want to purge your CSS of unused classes to remove any of these that you don't use.</p>
+
+  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.php">CSS-Class-Generation</a>.</p>
 
 </div>
 

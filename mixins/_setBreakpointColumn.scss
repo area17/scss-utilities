@@ -4,13 +4,7 @@
       --grid-columns: #{$index};
       grid-column: span #{$index};
     }
-    .colspan-#{$index}\@#{$breakpoint} {
-      width: colspan($index);
-    }
-    .colspan-#{$index}\@#{$breakpoint} > * {
-      --grid-columns: #{$index};
-    }
   } @else {
-    @include setColumn($index);
+    @include setGridCol($index);
   }
 }

@@ -1,8 +1,4 @@
-@mixin setColumn($index) {
-  .col-#{$index} {
-    --grid-columns: #{$index};
-    grid-column: span #{$index};
-  }
+@mixin setColspan($index) {
   .colspan-#{$index} {
     width: colspan($index);
   }

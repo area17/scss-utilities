@@ -27,7 +27,9 @@
 @import 'mixins/spacing';
 
 @import 'mixins/colspan';
-@import 'mixins/setColumn';
+@import 'mixins/setColspan';
+@import 'mixins/setBreakpointColspan';
+@import 'mixins/setGridCol';
 @import 'mixins/setBreakpointColumn';
 @import 'mixins/setStartEndCColumn';
 @import 'mixins/setBreakpointStartEndCColumn';
@@ -45,6 +47,8 @@
 @import 'mixins/background-fill';
 @import 'mixins/keyline-full';
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ resets
+
 html {
   box-sizing: border-box;
 }
@@ -59,13 +63,23 @@ html {
   display: none;
 }
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ config
+
+$_a17-scss-generate: (
+  colspan: true,
+  grid: true,
+);
+
+@if variable-exists(a17-scss-generate) {
+  $_a17-scss-generate: map-merge($_a17-scss-generate, $a17-scss-generate);
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ go go go
 
-@include processStructure();
 @include processColors();
-@include processTypography();
+@include processStructure();
 @include setupGrid();
+@include processTypography();
 @include setupGridOverlay();
 @include setupSpacing();
 

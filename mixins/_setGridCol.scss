@@ -1,0 +1,6 @@
+@mixin setGridCol($index) {
+  .col-#{$index} {
+    --grid-columns: #{$index};
+    grid-column: span #{$index};
+  }
+}

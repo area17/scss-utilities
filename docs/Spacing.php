@@ -298,7 +298,9 @@
 
   <h2 id="notes">Notes</h2>
 
-  <p>As you can see, this generates <strong>a lot</strong> of classes - you will want to purge your CSS of unused classes to remove any of these that you don't use.</p>
+  <p>As you can see, this generates <strong>a lot</strong> of CSS classes - you will want to purge your CSS of unused classes to remove any of these that you don't use.</p>
+
+  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.php">CSS-Class-Generation</a>.</p>
 
   <p>You maybe wondering why we don't also generate spacing classes linked to <code>rem</code> values such as those within Tailwind. When writing SCSS to style your components, you would place any none non systemised spacing inside your SCSS files. Though you may choose to use the systemised responsive spacing classes in your HTML, they can help debugging as its clear which spacing group is being applied.</p>
 </div>
