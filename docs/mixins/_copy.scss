@@ -25,7 +25,9 @@
   }
 }
 
-.copy h2:not(:first-child) {
+.copy h2:not(:first-child),
+.copy.col-6\@lg h2,
+.grid + .copy h2 {
   margin-top: 3.5rem;
   border-top: 1px solid var(--border-secondary);
   padding-top: 3rem;
@@ -104,6 +106,11 @@
   margin-top: 0rem;
 }
 
+.copy > img {
+  margin-top: 1.25rem;
+  border: 1px solid #eee;
+}
+
 .copy .code-example {
   margin-top: 1.25rem;
 }
@@ -165,8 +172,12 @@
 }
 
 @include breakpoint('lg+') {
-  .copy > *:not(.code-example,.copy h2,.copy hr) {
+  .copy:not(.col-6\@lg) > *:not(.code-example,.copy h2,.copy hr) {
     max-width: 60%;
+  }
+
+  .copy.col-6\@lg > *:not(.code-example,.copy h2,.copy hr) {
+    max-width: 100%;
   }
 }
 

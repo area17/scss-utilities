@@ -10,54 +10,11 @@
 
   <h2 id="setup">Setup</h2>
 
+  <p>In addition to the required <code>$structure</code> map (<a href="/Setup.php">Setup</a>), you should add a <code>$typography</code> map to your <code>_tokens.scss</code>, with the following format:</p>
+
   <figure class="code-example">
     <figcaption class="code-example-filename">_tokens.scss</figcaption>
-    <pre class="code-example-code"><code class="language-scss">$structure: (
-  breakpoints: (
-    xs: 0,
-    sm: 544px,
-    md: 650px,
-    lg: 990px,
-    xl: 1300px,
-    xxl: 1520px
-  ),
-  columns: (
-    xs: 4,
-    sm: 4,
-    md: 8,
-    lg: 12,
-    xl: 12,
-    xxl: 12
-  ),
-  container: (
-    xs: auto,
-    sm: auto,
-    md: auto,
-    lg: auto,
-    xl: auto,
-    xxl: 1440px
-  ),
-  gutters: (
-    inner: (
-      xs: 10px,
-      sm: 15px,
-      md: 20px,
-      lg: 30px,
-      xl: 40px,
-      xxl: 40px
-    ),
-    outer: (
-      xs: 20px,
-      sm: 30px,
-      md: 40px,
-      lg: 40px,
-      xl: 40px,
-      xxl: auto
-    )
-  )
-);
-
-$typography: (
+    <pre class="code-example-code"><code class="language-scss">$typography: (
   families: (
     sans: "SuisseIntl, Helvetica, Arial, sans-serif"
   ),

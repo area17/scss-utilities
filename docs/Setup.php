@@ -8,11 +8,11 @@
 
   <h2 id="setup">Setup</h2>
 
+  <p>Required setup for all plugins (except <code>Color</code>). Additional set up maybe required for other utilities.</p>
+
   <figure class="code-example">
     <figcaption class="code-example-filename">_tokens.scss</figcaption>
-    <pre class="code-example-code"><code class="language-scss">$feConfigSmallestBreakpoint: 'xs';
-
-$structure: (
+    <pre class="code-example-code"><code class="language-scss">$structure: (
   breakpoints: (
     xs: 0,
     sm: 544px,
@@ -21,14 +21,6 @@ $structure: (
     xl: 1300px,
     xxl: 1520px
   ),
-  columns: (
-    xs: 4,
-    sm: 4,
-    md: 8,
-    lg: 12,
-    xl: 12,
-    xxl: 12
-  ),
   container: (
     xs: auto,
     sm: auto,
@@ -36,6 +28,14 @@ $structure: (
     lg: auto,
     xl: auto,
     xxl: 1440px
+  ),
+  columns: (
+    xs: 4,
+    sm: 4,
+    md: 8,
+    lg: 12,
+    xl: 12,
+    xxl: 12
   ),
   gutters: (
     inner: (
@@ -55,172 +55,127 @@ $structure: (
       xxl: auto
     )
   )
-);
-$spacing: (
-  outer-1: (
-    xs: 64px,
-    lg: 96px
+);</code></pre>
+  </figure>
+
+  <p>And, so your <code>application.scss</code> will look like:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">application.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include setup tokens
+
+@import '_tokens';
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include A17 SCSS Utilities
+
+@import '~@area17/scss-utilities/a17-scss-utilities';
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include site css
+
+@import 'mixins/_your-mixin';</code></pre>
+  </figure>
+
+  <h2 id="breakdown">Breakdown</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_tokens.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">$structure: (
+  breakpoints: (
+    xs: 0,
+    sm: 544px,
+    md: 650px,
+    lg: 990px,
+    xl: 1300px,
+    xxl: 1520px
   ),
-  inner-1: (
-    xs: 24px,
-    md: 40px,
-    lg: 64px
+);</code></pre>
+  </figure>
+
+  <p>A key-value SCSS map of your breakpoints, where the keys are your breakpoint names and the values are the start points of the breakpoints.</p>
+
+  <hr>
+
+  <p>For the following SCSS maps, it probably helps to define "design grid". We call the grid that the design system lives within, as opposed to CSS Grid or a grid layout. Of course, you may then make components that use CSS Grid to make a grid layout which lives on the design grid.</p>
+
+  <img src="/assets/images/design-grid.png" alt="design grid screen shot">
+
+  <p>And so, referencing the screen shot above:</p>
+
+  <ul>
+    <li><code>container</code> is the defined as the area the blue bars cover;</li>
+    <li><code>columns</code> are the blue bars</li>
+    <li>
+      <code>gutters</code>
+      <ul>
+        <li><code>inner</code> - the gaps between blue bars</li>
+        <li><code>outer</code> - the gaps on the outside of the first and last blue bar</li>
+      </ul>
+    </li>
+  </ul>
+
+  <hr>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_tokens.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">$structure: (
+  container: (
+    xs: auto,
+    sm: auto,
+    md: auto,
+    lg: auto,
+    xl: auto,
+    xxl: 1440px
   ),
-  inner-2: (
-    xs: 16px,
-    md: 24px,
-    lg: 32px
-  )
-);
-$color: (
-  tokens: (
-    white: #fff,
-    grey-3: #f8f8f8,
-    grey-5: #f2f2f2,
-    grey-10: #e6e6e6,
-    grey-15: #d9d9d9,
-    grey-54: #757575,
-    grey-90: #1a1a1a,
-    black: #000,
-    blue-01: #0A152B,
-    blue-02: #001F5C,
-    blue-03: #004F91,
-    blue-04: #313BFB,
-    blue-05: #81EEF3,
-    blue-06: #ADD8E6,
-    red-01: #f00
+);</code></pre>
+  </figure>
+
+  <p>A key-value SCSS map describing the width of the main container at each breakpoint. Values can be <code>auto</code> for fluid width or a defined value to lock the column at a certain breakpoint. This allows you to build fluid and adaptive layouts.</p>
+
+  <hr>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_tokens.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">$structure: (
+  columns: (
+    xs: 4,
+    sm: 4,
+    md: 8,
+    lg: 12,
+    xl: 12,
+    xxl: 12
   ),
-  borderColor: (
-    primary: black,
-    secondary: grey-15,
-    tertiary: grey-54,
-    code-example-filename: blue-05
-  ),
-  textColor: (
-    title: black,
-    primary: grey-90,
-    inverse: white,
-    secondary: grey-54,
-    accent: blue-03,
-    code: black,
-    code-example: grey-3,
-    code-example-filename: blue-05
-  ),
-  backgroundColor: (
-    primary: white,
-    header: grey-10,
-    footer: grey-10,
-    banner: grey-90,
-    accent: blue-03,
-    column: blue-05,
-    column-alt: blue-04,
-    code: grey-10,
-    code-example: grey-90,
-    quote: grey-5
-  )
-);
-$typography: (
-  families: (
-    sans: "SuisseIntl, Helvetica, Arial, sans-serif",
-    serif: "\"Times New Roman\", Georgia, serif",
-    mono: "\"Lucida Console\", Courier, monospace"
-  ),
-  typesets: (
-    h1: (
-      xs: (
-        font-family: "var(--sans)",
-        font-weight: 500,
-        bold-weight: 500,
-        font-size: 32,
-        line-height: 1.2,
-        letter-spacing: -0.02em,
-        font-smoothing: true
-      ),
-      md: (
-        font-size: 36px
-      ),
-      lg: (
-        font-size: 48px
-      )
+);</code></pre>
+  </figure>
+
+  <p>A key-value SCSS map describing how many design columns are at each breakpoint.</p>
+
+  <hr>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_tokens.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">$structure: (
+  gutters: (
+    inner: (
+      xs: 10px,
+      sm: 15px,
+      md: 20px,
+      lg: 30px,
+      xl: 40px,
+      xxl: 40px
     ),
-    h2: (
-      xs: (
-        font-family: "var(--sans)",
-        font-weight: 500,
-        bold-weight: 500,
-        font-size: 20px,
-        line-height: 1.2,
-        letter-spacing: -0.02em,
-        font-smoothing: true
-      ),
-      md: (
-        font-size: 24px
-      ),
-      lg: (
-        font-size: 28px
-      )
-    ),
-    h3: (
-      xs: (
-        font-family: "var(--sans)",
-        font-weight: 500,
-        bold-weight: 500,
-        font-size: 16px,
-        line-height: 1.2,
-        letter-spacing: -0.02em,
-        font-smoothing: true
-      ),
-      md: (
-        font-size: 20px
-      )
-    ),
-    h4: (
-      xs: (
-        font-family: "var(--sans)",
-        font-weight: 500,
-        bold-weight: 500,
-        font-size: 14px,
-        line-height: 1.2,
-        letter-spacing: -0.02em,
-        font-smoothing: true
-      ),
-      md: (
-        font-size: 16px
-      )
-    ),
-    body: (
-      xs: (
-        font-family: "var(--sans)",
-        bold-weight: 500,
-        font-size: 14px,
-        line-height: 1.7,
-        font-smoothing: true
-      ),
-      md: (
-        font-size: 16px
-      )
-    ),
-    ui: (
-      xs: (
-        font-family: "var(--sans)",
-        bold-weight: 500,
-        font-size: 12px,
-        line-height: 1.2,
-        font-weight: 400
-      )
-    ),
-    code: (
-      xs: (
-        font-family: "var(--mono)",
-        font-size: 14px,
-        line-height: 1.2,
-        font-weight: 400
-      )
+    outer: (
+      xs: 20px,
+      sm: 30px,
+      md: 40px,
+      lg: 40px,
+      xl: 40px,
+      xxl: auto
     )
   )
-);
-</code></pre>
+);</code></pre>
   </figure>
+
+  <p>Two key-value SCSS maps describing the design grid inner and outer gutters, per breakpoint. Can be a <code>auto</code> (when the container has a fixed width at a breakpoint) or a defined value (for other breakpoints).</p>
 
   <h2 id="output">Output</h2>
 

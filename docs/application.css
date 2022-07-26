@@ -4896,6 +4896,7 @@ main {
 .footer {
   margin-top: 60px;
   padding-top: 24px;
+  padding-bottom: 24px;
   border-top: 1px solid var(--border-primary);
 }
 .footer ul {
@@ -4959,7 +4960,9 @@ main {
     font-size: 1.75rem;
   }
 }
-.copy h2:not(:first-child) {
+.copy h2:not(:first-child),
+.copy.col-6\@lg h2,
+.grid + .copy h2 {
   margin-top: 3.5rem;
   border-top: 1px solid var(--border-secondary);
   padding-top: 3rem;
@@ -5062,6 +5065,11 @@ main {
   margin-top: 0rem;
 }
 
+.copy > img {
+  margin-top: 1.25rem;
+  border: 1px solid #eee;
+}
+
 .copy .code-example {
   margin-top: 1.25rem;
 }
@@ -5122,8 +5130,11 @@ main {
   }
 }
 @media screen and (min-width: 990px) {
-  .copy > *:not(.code-example, .copy h2, .copy hr) {
+  .copy:not(.col-6\@lg) > *:not(.code-example, .copy h2, .copy hr) {
     max-width: 60%;
+  }
+  .copy.col-6\@lg > *:not(.code-example, .copy h2, .copy hr) {
+    max-width: 100%;
   }
 }
 .props-table {
