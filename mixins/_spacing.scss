@@ -58,7 +58,7 @@
   $_e_spacing: ();
 
   // create empty sets
-  @each $name, $point in $breakpoints {
+  @each $name, $point in $a17-breakpoints {
     $_e_spacing: map-merge($_e_spacing, (#{$name}: 'null'));
   }
 
@@ -110,7 +110,7 @@
   }
 
   /* generate responsive spacing root variables */
-  @each $bpname, $point in $breakpoints {
+  @each $bpname, $point in $a17-breakpoints {
     @if ($bpname == $smallestBreakpointName) {
       :root {
         --SPACING_VARs: 'at this breakpoint ↓';

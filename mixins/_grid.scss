@@ -14,15 +14,15 @@
     width: 100%;
   }
 
-  $max-columns: get-max($column-count);
+  $max-columns: get-max($a17-column-count);
   // Generate col classes
   @for $i from 1 through $max-columns {
     @include setColumn($i);
   }
 
   // Generate responsive col classes by breakpoint
-  @each $name, $point in $breakpoints {
-    $grid-columns: map-get($column-count, $name);
+  @each $name, $point in $a17-breakpoints {
+    $grid-columns: map-get($a17-column-count, $name);
 
     @if ($name == $smallestBreakpointName) {
       @for $i from 1 through $grid-columns {
@@ -43,8 +43,8 @@
   }
 
   // Generate Start/End responsive col classes by breakpoint
-  @each $name, $point in $breakpoints {
-    $grid-columns: map-get($column-count, $name);
+  @each $name, $point in $a17-breakpoints {
+    $grid-columns: map-get($a17-column-count, $name);
 
     @if ($name == $smallestBreakpointName) {
       @for $i from 1 through $grid-columns {

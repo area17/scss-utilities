@@ -37,7 +37,7 @@
 */
 
 @mixin breakpoint($name, $option:'') {
-  $points: map-get($breakpoints-with-directions, $name);
+  $points: map-get($a17-breakpoints-with-directions, $name);
   @if ($name and $points) {
     $media: get-media($points);
     $start: map-get($media, 'start');
@@ -76,6 +76,6 @@
       @content;
     }
   } @else {
-    @warn "Unknown breakpoint `#{$name}` in $breakpoints.";
+    @warn "Unknown breakpoint `#{$name}` in $a17-breakpoints.";
   }
 }

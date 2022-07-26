@@ -36,7 +36,7 @@
     // loop the breakpoints in the setttings
     @each $breakpoint, $font-info in $settings {
       // check this is a valid breakpoint
-      @if map-has-key($breakpoints-with-directions, $breakpoint) {
+      @if map-has-key($a17-breakpoints-with-directions, $breakpoint) {
         $_settings: ();
         // get font info for this breakpoint
         // conditionally so can be inherited from smaller screens
