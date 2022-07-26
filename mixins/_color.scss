@@ -1,141 +1,125 @@
 @mixin processColors() {
-  $c: ();
-  $tokens: ();
-  $textColor: ();
-  $backgroundColor: (
-    design-grid: #{rgba(#7fffff, 0.25)}
-  );
-  $borderColor: ();
+  @if variable-exists(color) {
+    $tokens: ();
+    $textColor: ();
+    $backgroundColor: (
+      design-grid: #{rgba(#7fffff, 0.25)}
+    );
+    $borderColor: ();
 
-  @if variable-exists(color_tokens) {
-    $tokens: map-merge($tokens, $color_tokens);
-  }
-
-  @if variable-exists(color) and map-has-key($color, 'tokens') {
-    $tokens: map-merge($tokens, map-deep-get($color, 'tokens'));
-  }
-
-  @each $key, $value in $tokens {
-    $tokens: map-merge($tokens, ($key: $value));
-  }
-
-
-  @if variable-exists(color_textColor) {
-    $textColor: map-merge($textColor, $color_textColor);
-  }
-
-  @if variable-exists(color) and map-has-key($color, 'textColor') {
-    $textColor: map-merge($textColor, map-deep-get($color, 'textColor'));
-  }
-
-  @each $key, $value in $textColor {
-    $textColor: map-merge($textColor, ($key: $value));
-  }
-
-
-  @if variable-exists(color_backgroundColor) {
-    $backgroundColor: map-merge($backgroundColor, $color_backgroundColor);
-  }
-
-  @if variable-exists(color) and map-has-key($color, 'backgroundColor') {
-    $backgroundColor: map-merge($backgroundColor, map-deep-get($color, 'backgroundColor'));
-  }
-
-  @each $key, $value in $backgroundColor {
-    $backgroundColor: map-merge($backgroundColor, ($key: $value));
-  }
-
-
-  @if variable-exists(color_borderColor) {
-    $borderColor: map-merge($borderColor, $color_borderColor);
-  }
-
-  @if variable-exists(color) and map-has-key($color, 'borderColor') {
-    $borderColor: map-merge($borderColor, map-deep-get($color, 'borderColor'));
-  }
-
-  @each $key, $value in $borderColor {
-    $borderColor: map-merge($borderColor, ($key: $value));
-  }
-
-  // add root tokens
-  :root {
-    --COLOR-TOKENS: '↓';
-    @each $key, $value in $tokens {
-      --#{"" + $key}: #{$value};
+    @if map-has-key($color, 'tokens') {
+      $tokens: map-merge($tokens, map-deep-get($color, 'tokens'));
     }
-  }
 
-  // add root colours
-  :root {
-    --COLOR-BORDER: 'for usage ↓';
+    @each $key, $value in $tokens {
+      $tokens: map-merge($tokens, ($key: $value));
+    }
+
+    @if map-has-key($color, 'textColor') {
+      $textColor: map-merge($textColor, map-deep-get($color, 'textColor'));
+    }
+
+    @each $key, $value in $textColor {
+      $textColor: map-merge($textColor, ($key: $value));
+    }
+
+    @if map-has-key($color, 'backgroundColor') {
+      $backgroundColor: map-merge($backgroundColor, map-deep-get($color, 'backgroundColor'));
+    }
+
+    @each $key, $value in $backgroundColor {
+      $backgroundColor: map-merge($backgroundColor, ($key: $value));
+    }
+
+    @if map-has-key($color, 'borderColor') {
+      $borderColor: map-merge($borderColor, map-deep-get($color, 'borderColor'));
+    }
+
+    @each $key, $value in $borderColor {
+      $borderColor: map-merge($borderColor, ($key: $value));
+    }
+
+    // add root tokens
+    :root {
+      --COLOR-TOKENS: '↓';
+      @each $key, $value in $tokens {
+        --#{"" + $key}: #{$value};
+      }
+    }
+
+    // add root colours
+    :root {
+      --COLOR-BORDER: 'for usage ↓';
+      @each $key, $value in $borderColor {
+        @if (isColorVariable($value)) {
+          --border-#{$key}: #{$value};
+        } @else {
+          --border-#{$key}: var(--#{$value});
+        }
+      }
+    }
+    :root {
+      --COLOR-BACKGROUND: 'for usage ↓';
+      @each $key, $value in $backgroundColor {
+        @if (isColorVariable($value)) {
+          --bg-#{$key}: #{$value};
+        } @else {
+          --bg-#{$key}: var(--#{$value});
+        }
+      }
+    }
+    :root {
+      --COLOR-TEXT: 'for usage ↓';
+      @each $key, $value in $textColor {
+       @if (isColorVariable($value)) {
+          --text-#{$key}: #{$value};
+        } @else {
+          --text-#{$key}: var(--#{$value});
+        }
+      }
+    }
+
+    // add helper classes
     @each $key, $value in $borderColor {
       @if (isColorVariable($value)) {
-        --border-#{$key}: #{$value};
+        %border-#{$key},
+        .border-#{$key} {
+          border-color: #{$value};
+        }
       } @else {
-        --border-#{$key}: var(--#{$value});
+        %border-#{$key},
+        .border-#{$key} {
+          border-color: var(--#{$value});
+        }
       }
     }
-  }
-  :root {
-    --COLOR-BACKGROUND: 'for usage ↓';
     @each $key, $value in $backgroundColor {
       @if (isColorVariable($value)) {
-        --bg-#{$key}: #{$value};
+        %bg-#{$key},
+        .bg-#{$key} {
+          background-color: #{$value};
+        }
       } @else {
-        --bg-#{$key}: var(--#{$value});
+        %bg-#{$key},
+        .bg-#{$key} {
+          background-color: var(--#{$value});
+        }
       }
     }
-  }
-  :root {
-    --COLOR-TEXT: 'for usage ↓';
     @each $key, $value in $textColor {
-     @if (isColorVariable($value)) {
-        --text-#{$key}: #{$value};
+      @if (isColorVariable($value)) {
+        %text-#{$key},
+        .text-#{$key} {
+          color: #{$value};
+        }
       } @else {
-        --text-#{$key}: var(--#{$value});
+        %text-#{$key},
+        .text-#{$key} {
+          color: var(--#{$value});
+        }
       }
     }
-  }
-
-  // add helper classes
-  @each $key, $value in $borderColor {
-    @if (isColorVariable($value)) {
-      %border-#{$key},
-      .border-#{$key} {
-        border-color: #{$value};
-      }
-    } @else {
-      %border-#{$key},
-      .border-#{$key} {
-        border-color: var(--#{$value});
-      }
-    }
-  }
-  @each $key, $value in $backgroundColor {
-    @if (isColorVariable($value)) {
-      %bg-#{$key},
-      .bg-#{$key} {
-        background-color: #{$value};
-      }
-    } @else {
-      %bg-#{$key},
-      .bg-#{$key} {
-        background-color: var(--#{$value});
-      }
-    }
-  }
-  @each $key, $value in $textColor {
-    @if (isColorVariable($value)) {
-      %text-#{$key},
-      .text-#{$key} {
-        color: #{$value};
-      }
-    } @else {
-      %text-#{$key},
-      .text-#{$key} {
-        color: var(--#{$value});
-      }
-    }
+  } @else {
+    @error 'No `$color` map found';
   }
 }
