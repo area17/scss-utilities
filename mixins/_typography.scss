@@ -102,9 +102,14 @@
 // populates with styles
 @mixin typeStyles($sets) {
   @each $name, $settings in $sets {
-    %f-#{$name},
-    .f-#{$name} {
+    %f-#{$name} {
       @include typeStyle($settings);
+    }
+
+    @if map-get($_a17-scss-generate-classes, 'typography') == true {
+      .f-#{$name} {
+        @include typeStyle($settings);
+      }
     }
   }
 }

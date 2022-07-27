@@ -82,40 +82,70 @@
     // add helper classes
     @each $key, $value in $borderColor {
       @if (isColorVariable($value)) {
-        %border-#{$key},
-        .border-#{$key} {
+        %border-#{$key} {
           border-color: #{$value};
         }
+
+        @if map-get($_a17-scss-generate-classes, 'color') == true {
+          .border-#{$key} {
+            border-color: #{$value};
+          }
+        }
       } @else {
-        %border-#{$key},
-        .border-#{$key} {
+        %border-#{$key} {
           border-color: var(--#{$value});
+        }
+
+        @if map-get($_a17-scss-generate-classes, 'color') == true {
+          .border-#{$key} {
+            border-color: var(--#{$value});
+          }
         }
       }
     }
     @each $key, $value in $backgroundColor {
       @if (isColorVariable($value)) {
-        %bg-#{$key},
-        .bg-#{$key} {
+        %bg-#{$key} {
           background-color: #{$value};
         }
+
+        @if map-get($_a17-scss-generate-classes, 'color') == true {
+          .bg-#{$key} {
+            background-color: #{$value};
+          }
+        }
       } @else {
-        %bg-#{$key},
-        .bg-#{$key} {
+        %bg-#{$key} {
           background-color: var(--#{$value});
+        }
+
+        @if map-get($_a17-scss-generate-classes, 'color') == true {
+          .bg-#{$key} {
+            background-color: var(--#{$value});
+          }
         }
       }
     }
     @each $key, $value in $textColor {
       @if (isColorVariable($value)) {
-        %text-#{$key},
-        .text-#{$key} {
+        %text-#{$key} {
           color: #{$value};
         }
+
+        @if map-get($_a17-scss-generate-classes, 'color') == true {
+          .text-#{$key} {
+            color: #{$value};
+          }
+        }
       } @else {
-        %text-#{$key},
-        .text-#{$key} {
+        %text-#{$key} {
           color: var(--#{$value});
+        }
+
+        @if map-get($_a17-scss-generate-classes, 'color') == true {
+          .text-#{$key} {
+            color: var(--#{$value});
+          }
         }
       }
     }

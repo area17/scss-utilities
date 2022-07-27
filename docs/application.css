@@ -3808,8 +3808,7 @@ html {
   }
 }
 
-.mixin-table tbody, .footer li, .header li,
-.f-body {
+.mixin-table tbody, .footer li, .header li {
   font-family: var(--sans);
   --bold-weight: 500;
   font-size: 0.875rem;
@@ -3820,28 +3819,44 @@ html {
 .mixin-table tbody b, .footer li b, .header li b,
 .mixin-table tbody strong,
 .footer li strong,
-.header li strong,
-.f-body b,
-.f-body strong {
+.header li strong {
   font-weight: var(--bold-weight);
 }
 .mixin-table tbody i, .footer li i, .header li i,
 .mixin-table tbody em,
 .footer li em,
-.header li em,
+.header li em {
+  font-style: italic;
+}
+@media screen and (min-width: 650px) {
+  .mixin-table tbody, .footer li, .header li {
+    font-size: 1rem;
+  }
+}
+
+.f-body {
+  font-family: var(--sans);
+  --bold-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+.f-body b,
+.f-body strong {
+  font-weight: var(--bold-weight);
+}
 .f-body i,
 .f-body em {
   font-style: italic;
 }
 @media screen and (min-width: 650px) {
-  .mixin-table tbody, .footer li, .header li,
-.f-body {
+  .f-body {
     font-size: 1rem;
   }
 }
 
-.mixin-table thead, .props-table thead,
-.f-ui {
+.mixin-table thead, .props-table thead {
   font-family: var(--sans);
   --bold-weight: 500;
   font-size: 0.75rem;
@@ -3850,34 +3865,56 @@ html {
 }
 .mixin-table thead b, .props-table thead b,
 .mixin-table thead strong,
-.props-table thead strong,
-.f-ui b,
-.f-ui strong {
+.props-table thead strong {
   font-weight: var(--bold-weight);
 }
 .mixin-table thead i, .props-table thead i,
 .mixin-table thead em,
-.props-table thead em,
+.props-table thead em {
+  font-style: italic;
+}
+
+.f-ui {
+  font-family: var(--sans);
+  --bold-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+.f-ui b,
+.f-ui strong {
+  font-weight: var(--bold-weight);
+}
 .f-ui i,
 .f-ui em {
   font-style: italic;
 }
 
-.props-table tbody,
-.f-code {
+.props-table tbody {
   font-family: var(--mono);
   font-size: 0.875rem;
   line-height: 1.2;
   font-weight: 400;
 }
 .props-table tbody b,
-.props-table tbody strong,
+.props-table tbody strong {
+  font-weight: var(--bold-weight);
+}
+.props-table tbody i,
+.props-table tbody em {
+  font-style: italic;
+}
+
+.f-code {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
 .f-code b,
 .f-code strong {
   font-weight: var(--bold-weight);
 }
-.props-table tbody i,
-.props-table tbody em,
 .f-code i,
 .f-code em {
   font-style: italic;

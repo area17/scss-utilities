@@ -65,13 +65,16 @@ html {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ config
 
-$_a17-scss-generate: (
+$_a17-scss-generate-classes: (
   colspan: true,
   grid: true,
+  color: true,
+  spacing: true,
+  typography: true,
 );
 
-@if variable-exists(a17-scss-generate) {
-  $_a17-scss-generate: map-merge($_a17-scss-generate, $a17-scss-generate);
+@if variable-exists(a17-scss-generate-classes) {
+  $_a17-scss-generate-classes: map-merge($_a17-scss-generate-classes, $a17-scss-generate-classes);
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ go go go

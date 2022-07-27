@@ -91,19 +91,33 @@
 
     /* generate responsive spacing placeholders and classes */
     @each $class, $attrs in $_positive {
-      %#{$class}-#{$name},
-      .#{$class}-#{$name} {
+      %#{$class}-#{$name} {
         @each $attr in $attrs {
           #{$attr}: var(--spacing-#{$name});
+        }
+      }
+
+      @if map-get($_a17-scss-generate-classes, 'spacing') == true {
+        .#{$class}-#{$name} {
+          @each $attr in $attrs {
+            #{$attr}: var(--spacing-#{$name});
+          }
         }
       }
     }
 
     @each $class, $attrs in $_negative {
-      %-#{$class}-#{$name},
-      .-#{$class}-#{$name} {
+      %-#{$class}-#{$name} {
         @each $attr in $attrs {
           #{$attr}: calc(var(--spacing-#{$name}) * -1);
+        }
+      }
+
+      @if map-get($_a17-scss-generate-classes, 'spacing') == true {
+        .-#{$class}-#{$name} {
+          @each $attr in $attrs {
+            #{$attr}: calc(var(--spacing-#{$name}) * -1);
+          }
         }
       }
     }
@@ -133,19 +147,33 @@
   /* generate gutter placeholders and classes */
   @each $gutter, $cssVariable in $_gutters {
     @each $class, $attrs in $_positive {
-      %#{$class}-#{$gutter},
-      .#{$class}-#{$gutter} {
+      %#{$class}-#{$gutter} {
         @each $attr in $attrs {
           #{$attr}: $cssVariable;
+        }
+      }
+
+      @if map-get($_a17-scss-generate-classes, 'spacing') == true {
+        .#{$class}-#{$gutter} {
+          @each $attr in $attrs {
+            #{$attr}: $cssVariable;
+          }
         }
       }
     }
 
     @each $class, $attrs in $_negative {
-      %-#{$class}-#{$gutter},
-      .-#{$class}-#{$gutter} {
+      %-#{$class}-#{$gutter} {
         @each $attr in $attrs {
           #{$attr}: calc(#{$cssVariable} * -1);
+        }
+      }
+
+      @if map-get($_a17-scss-generate-classes, 'spacing') == true {
+        .-#{$class}-#{$gutter} {
+          @each $attr in $attrs {
+            #{$attr}: calc(#{$cssVariable} * -1);
+          }
         }
       }
     }

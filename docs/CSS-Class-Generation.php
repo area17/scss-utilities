@@ -7,9 +7,9 @@
   <ul>
       <li><a href="/Colspans.php">Colspans</a></li>
       <li><a href="/Grid-Columns.php">Grid Columns</a></li>
-      <li>❌<a href="/Spacing.php">Spacing</a></li>
-      <li>❌<a href="/Typography.php">Typography</a></li>
-      <li>❌<a href="/Color.php">Color</a>
+      <li><a href="/Spacing.php">Spacing</a></li>
+      <li><a href="/Typography.php">Typography</a></li>
+      <li><a href="/Color.php">Color</a>
   </ul>
 
   <p>Each of these classes has a either a <code>%placeholder</code>, <code>@mixin</code> and/or <code>@function</code> to also use within your SCSS.</p>
@@ -27,6 +27,9 @@
 $a17-scss-generate: (
   colspan: false,
   grid: false,
+  color: false,
+  spacing: false,
+  typography: false,
 );
 @import '~@area17/scss-utilities/a17-scss-utilities';
 

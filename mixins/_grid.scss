@@ -3,7 +3,7 @@
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ colspan */
 
-  @if map-get($_a17-scss-generate, 'colspan') {
+  @if map-get($_a17-scss-generate-classes, 'colspan') == true {
     @if variable-exists(structure) {
       [class*='colspan-'] {
         width: 100%;
@@ -37,7 +37,7 @@
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ grid/col-*/
 
-  @if map-get($_a17-scss-generate, 'grid') {
+  @if map-get($_a17-scss-generate-classes, 'grid') == true {
     @if variable-exists(structure) {
       .grid {
         display: grid;
