@@ -4975,20 +4975,26 @@ main {
 }
 
 .copy h2 {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
   font-family: var(--sans);
   font-weight: 500;
+  --bold-weight: 500;
   font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
 }
-
-.copy h2 b, .copy h2 strong {
+.copy h2 b,
+.copy h2 strong {
   font-weight: var(--bold-weight);
 }
-
+.copy h2 i,
+.copy h2 em {
+  font-style: italic;
+}
 @media screen and (min-width: 650px) {
   .copy h2 {
     font-size: 1.5rem;
@@ -4999,6 +5005,7 @@ main {
     font-size: 1.75rem;
   }
 }
+
 .copy h2:not(:first-child),
 .copy.col-6\@lg h2,
 .grid + .copy h2 {
@@ -5008,51 +5015,59 @@ main {
 }
 
 .copy h3 {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
   font-family: var(--sans);
   font-weight: 500;
+  --bold-weight: 500;
   font-size: 1rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  margin-top: 2.5rem;
 }
-
-.copy h3 b, .copy h3 strong {
+.copy h3 b,
+.copy h3 strong {
   font-weight: var(--bold-weight);
 }
-
+.copy h3 i,
+.copy h3 em {
+  font-style: italic;
+}
 @media screen and (min-width: 650px) {
   .copy h3 {
     font-size: 1.25rem;
   }
 }
-.copy h3 {
-  margin-top: 2.5rem;
-}
 
 .copy h4 {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
   font-family: var(--sans);
   font-weight: 500;
+  --bold-weight: 500;
   font-size: 0.875rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  margin-top: 2.5rem;
 }
-
-.copy h4 b, .copy h4 strong {
+.copy h4 b,
+.copy h4 strong {
   font-weight: var(--bold-weight);
 }
-
+.copy h4 i,
+.copy h4 em {
+  font-style: italic;
+}
 @media screen and (min-width: 650px) {
   .copy h4 {
     font-size: 1rem;
   }
-}
-.copy h4 {
-  margin-top: 2.5rem;
 }
 
 .copy p,
@@ -5114,6 +5129,9 @@ main {
 }
 
 .copy code:not([class]) {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
   font-family: var(--mono);
   font-size: 0.875rem;
   line-height: 1.2;
@@ -5125,8 +5143,19 @@ main {
   padding-bottom: 0.125rem;
   color: var(--black);
 }
+.copy code:not([class]) b,
+.copy code:not([class]) strong {
+  font-weight: var(--bold-weight);
+}
+.copy code:not([class]) i,
+.copy code:not([class]) em {
+  font-style: italic;
+}
 
 .copy pre:not([class]) {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
   font-family: var(--mono);
   font-size: 0.875rem;
   line-height: 1.2;
@@ -5136,6 +5165,14 @@ main {
   max-height: 25rem;
   overflow-y: scroll;
 }
+.copy pre:not([class]) b,
+.copy pre:not([class]) strong {
+  font-weight: var(--bold-weight);
+}
+.copy pre:not([class]) i,
+.copy pre:not([class]) em {
+  font-style: italic;
+}
 
 .copy pre:not([class]) code:not([class]) {
   display: block;
@@ -5144,8 +5181,7 @@ main {
 
 .copy a {
   color: var(--blue-03);
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
+  text-decoration: underline;
 }
 
 .copy a:hover, .copy a:focus {
@@ -5191,18 +5227,29 @@ main {
 }
 
 .copy .mixin {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
   margin-top: 1.25rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  line-height: 1.2;
-  font-weight: 400;
   display: block;
   background-color: var(--grey-90);
   color: var(--grey-3);
+}
+.copy .mixin b,
+.copy .mixin strong {
+  font-weight: var(--bold-weight);
+}
+.copy .mixin i,
+.copy .mixin em {
+  font-style: italic;
 }
 .copy .mixin .mixin-include {
   color: #e28964;
