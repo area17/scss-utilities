@@ -27,7 +27,7 @@
 
     <ul>
       <li><a href="/Container.php">Container</a> - centered column container</li>
-      <li><a href="/Colspans.php">Colspans</a> - generates design column spanning classes (for flex/float/other)</li>
+      <li><a href="/Colspan.php">Colspan</a> - generates design column spanning classes (for flex/float/other)</li>
       <li><a href="/Grid-Columns.php">Grid Columns</a> - generates CSS Grid design column spanning classes</li>
       <li><a href="/Spacing.php">Spacing</a> - generates spacing utilities for gutters and responsive spacing groups</li>
     </ul>
@@ -61,8 +61,8 @@
     <ul>
       <li><code>@mixin</code> <a href="/Breakpoint.php">Breakpoint</a> - inserts a media query</li>
       <li><code>@mixin</code> <a href="/Container.php">Container</a> - centered column container</li>
-      <li><code>@mixin</code> colspan</li>
-      <li><code>@function</code> colspan</li>
+      <li><code>@mixin</code> <a href="/Colspan-mixin.php">Colspan</a> - mixin to add a design column spanning <code>width</code> to an element</li>
+      <li><code>@function</code> <a href="/Colspan-function.php">Colspan</a> - function that returns a design column spanning CSS <code>calc()</code></li>
       <li><code>@function</code> rem-calc</li>
     </ul>
 

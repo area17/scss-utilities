@@ -5,7 +5,7 @@
   <p>The following utilities output large amounts CSS classes for you to use within your HTML:</p>
 
   <ul>
-      <li><a href="/Colspans.php">Colspans</a></li>
+      <li><a href="/Colspan.php">Colspan</a></li>
       <li><a href="/Grid-Columns.php">Grid Columns</a></li>
       <li><a href="/Spacing.php">Spacing</a></li>
       <li><a href="/Typography.php">Typography</a></li>

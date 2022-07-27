@@ -91,10 +91,6 @@
   border-top: 1px solid var(--grey-15);
 }
 
-.copy .blockquote {
-  margin-top: 1.25rem;
-}
-
 @include breakpoint('md+') {
   .copy > *:not(.code-example,.copy h2,.copy hr) {
     max-width: 80%;
@@ -111,67 +107,11 @@
   }
 }
 
-.props-table {
+.copy .blockquote,
+.copy .props-table,
+.copy .mixin,
+.copy .mixin-table {
   margin-top: 1.25rem;
-
-  thead {
-    @extend %f-ui;
-    text-align: left;
-
-    th {
-      padding: 0 1rem 0.5rem 0;
-    }
-  }
-
-  tbody {
-    @extend %f-code;
-
-    td {
-      padding: 0.5rem 1rem 0.5rem 0;
-      border-top: 1px solid var(--border-secondary);
-    }
-  }
 }
 
-.copy .mixin {
-  @include typeset(code);
-  margin-top: 1.25rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  display: block;
-  background-color: var(--grey-90);
-  color: var(--grey-3);
-
-  .mixin-include {
-    color: #e28964;
-  }
-
-  em {
-    color: #aeaeae;
-  }
-}
-
-.mixin-table {
-  margin-top: 1.25rem;
-
-  thead {
-    @extend %f-ui;
-    text-align: left;
-
-    th {
-      padding: 0 1rem 0.5rem 0;
-    }
-  }
-
-  tbody {
-    @extend %f-body;
-
-    td {
-      padding: 0.5rem 1rem 0.5rem 0;
-      border-top: 1px solid var(--border-secondary);
-    }
-  }
-}
 

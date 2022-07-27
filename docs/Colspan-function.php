@@ -1,0 +1,62 @@
+<?php $title = 'Colspan (function)'; ?>
+<?php include 'includes/_header.php'; ?>
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>Function that returns a design column spanning CSS <code>calc()</code>.</p>
+
+  <p>This function is used in the <a href="/Colspan-mixin.php">Colspan (mixin)</a> and subsequently in the auto generated <a href="/Colspan.php">Colspan</a> CSS classes.</p>
+
+  <p>Both <a href="/Colspan-mixin.php">Colspan (mixin)</a> and <a href="/Colspan.php">Colspan</a> are concerned with CSS <code>width</code>. This function is useful when you want a design column spanning <code>margin</code>, <code>padding</code>, <code>top/right/bottom/left</code>, <code>inset</code> or other positioning type CSS declaration.</p>
+
+  <h2 id="scss-usage">SCSS Usage</h2>
+
+  <code class="mixin">colspan(<em>$n</em>, <em>$bump:false</em>)</code>
+
+  <p>And so, in SCSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">.foo {
+  padding-left: colspan(2); // span 2 columns at every breakpoint
+}
+
+.bar {
+  padding-left: colspan(2); // span 2 columns at every breakpoint
+
+  @include breakpoint('md+') {
+    padding-left: colspan(4); // from 'md' and up, span 4 columns
+  }
+}
+
+.baz {
+  padding-left: colspan(2, 20px); // span 2 columns + 20px, at every breakpoint
+}</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.foo {
+  padding-left: calc(((2 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+.bar {
+  padding-left: calc(((2 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+@media screen and (min-width: 650px) {
+  .bar {
+    padding-left: calc(((4 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (4 / var(--grid-columns) * var(--inner-gutter))));
+  }
+}
+
+.baz {
+  padding-left: calc((((2 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter)))) + 20px);
+}</code></pre>
+  </figure>
+</div>
+
+<?php include 'includes/_footer.php'; ?>

@@ -1,0 +1,19 @@
+.copy .mixin {
+  @include typeset(code);
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: block;
+  background-color: var(--grey-90);
+  color: var(--grey-3);
+
+  .mixin-include {
+    color: #e28964;
+  }
+
+  em {
+    color: #aeaeae;
+  }
+}

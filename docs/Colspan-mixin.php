@@ -1,0 +1,75 @@
+<?php $title = 'Colspan (mixin)'; ?>
+<?php include 'includes/_header.php'; ?>
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>Mixin to add a design column spanning <code>width</code> to an element. This mixin is used in the auto generated <a href="/Colspan.php">Colspan</a> CSS classes.</p>
+
+  <h2 id="scss-usage">SCSS Usage</h2>
+
+  <code class="mixin"><span class="mixin-include">@include</span> colspan(<em>$n</em>, <em>$bump:false</em>)</code>
+
+  <p>And so, in SCSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">.foo {
+  @include colspan(2); // span 2 columns at every breakpoint
+}
+
+.bar {
+  @include colspan(2); // span 2 columns at every breakpoint
+
+  @include breakpoint('md+') {
+    @include colspan(4); // from 'md' and up, span 4 columns
+  }
+}
+
+.baz {
+  @include colspan(2, 20px); // span 2 columns + 20px, at every breakpoint
+}</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.foo {
+  width: calc(((2 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter))));
+}
+.foo > * {
+  --grid-columns: 2;
+}
+
+.bar {
+  width: calc(((2 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter))));
+}
+.bar > * {
+  --grid-columns: 2;
+}
+@media screen and (min-width: 650px) {
+  .bar {
+    width: calc(((4 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (4 / var(--grid-columns) * var(--inner-gutter))));
+  }
+  .bar > * {
+    --grid-columns: 4;
+  }
+}
+
+.baz {
+  width: calc((((2 / var(--grid-columns)) * var(--max-width, 100%)) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter)))) + 20px);
+}
+.baz > * {
+  --grid-columns: 2;
+}</code></pre>
+  </figure>
+
+  <p>This mixin also inserts a CSS variable to the children of the element with the mixin; this allows for nesting. See <a href="/Colspan.php#nesting">Colspan#nesting</a>.</p>
+
+  <hr>
+
+  <p>You may want to span 2 columns <strong>and</strong> a gutter so the right hand edge of your element is against the next design grid column. For this you would use <code>@include colspan(2, var(--inner-gutter));</code>.</p>
+</div>
+
+<?php include 'includes/_footer.php'; ?>

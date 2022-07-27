@@ -3856,21 +3856,21 @@ html {
   }
 }
 
-.mixin-table thead, .props-table thead {
+.props-table thead, .mixin-table thead {
   font-family: var(--sans);
   --bold-weight: 500;
   font-size: 0.75rem;
   line-height: 1.2;
   font-weight: 400;
 }
-.mixin-table thead b, .props-table thead b,
-.mixin-table thead strong,
-.props-table thead strong {
+.props-table thead b, .mixin-table thead b,
+.props-table thead strong,
+.mixin-table thead strong {
   font-weight: var(--bold-weight);
 }
-.mixin-table thead i, .props-table thead i,
-.mixin-table thead em,
-.props-table thead em {
+.props-table thead i, .mixin-table thead i,
+.props-table thead em,
+.mixin-table thead em {
   font-style: italic;
 }
 
@@ -5195,10 +5195,6 @@ main {
   border-top: 1px solid var(--grey-15);
 }
 
-.copy .blockquote {
-  margin-top: 1.25rem;
-}
-
 @media screen and (min-width: 650px) {
   .copy > *:not(.code-example, .copy h2, .copy hr) {
     max-width: 80%;
@@ -5212,64 +5208,11 @@ main {
     max-width: 100%;
   }
 }
-.props-table {
+.copy .blockquote,
+.copy .props-table,
+.copy .mixin,
+.copy .mixin-table {
   margin-top: 1.25rem;
-}
-.props-table thead {
-  text-align: left;
-}
-.props-table thead th {
-  padding: 0 1rem 0.5rem 0;
-}
-.props-table tbody td {
-  padding: 0.5rem 1rem 0.5rem 0;
-  border-top: 1px solid var(--border-secondary);
-}
-
-.copy .mixin {
-  /* check if user specified a `f-xxx` type name and fix */
-  /* now look for the specified typeset */
-  /* output specified typeset */
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  line-height: 1.2;
-  font-weight: 400;
-  margin-top: 1.25rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  display: block;
-  background-color: var(--grey-90);
-  color: var(--grey-3);
-}
-.copy .mixin b,
-.copy .mixin strong {
-  font-weight: var(--bold-weight);
-}
-.copy .mixin i,
-.copy .mixin em {
-  font-style: italic;
-}
-.copy .mixin .mixin-include {
-  color: #e28964;
-}
-.copy .mixin em {
-  color: #aeaeae;
-}
-
-.mixin-table {
-  margin-top: 1.25rem;
-}
-.mixin-table thead {
-  text-align: left;
-}
-.mixin-table thead th {
-  padding: 0 1rem 0.5rem 0;
-}
-.mixin-table tbody td {
-  padding: 0.5rem 1rem 0.5rem 0;
-  border-top: 1px solid var(--border-secondary);
 }
 
 .code-example {
@@ -5488,4 +5431,58 @@ main {
 
 .colspan-demo--nested [class*=colspan-] [class*=colspan-] [class*=colspan-] {
   border: 1px solid #333;
+}
+
+.copy .mixin {
+  /* check if user specified a `f-xxx` type name and fix */
+  /* now look for the specified typeset */
+  /* output specified typeset */
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: block;
+  background-color: var(--grey-90);
+  color: var(--grey-3);
+}
+.copy .mixin b,
+.copy .mixin strong {
+  font-weight: var(--bold-weight);
+}
+.copy .mixin i,
+.copy .mixin em {
+  font-style: italic;
+}
+.copy .mixin .mixin-include {
+  color: #e28964;
+}
+.copy .mixin em {
+  color: #aeaeae;
+}
+
+.mixin-table thead {
+  text-align: left;
+}
+.mixin-table thead th {
+  padding: 0 1rem 0.5rem 0;
+}
+.mixin-table tbody td {
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-top: 1px solid var(--border-secondary);
+}
+
+.props-table thead {
+  text-align: left;
+}
+.props-table thead th {
+  padding: 0 1rem 0.5rem 0;
+}
+.props-table tbody td {
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-top: 1px solid var(--border-secondary);
 }
