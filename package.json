@@ -1,5 +1,5 @@
 {
-  "name": "area17/scss-utilities",
+  "name": "@area17/scss-utilities",
   "version": "1.0.0",
   "description": "A utility class system for SCSS to help build responsive design systems in collaboration with A17 design and development build methodologies",
   "scripts": {
