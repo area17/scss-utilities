@@ -63,7 +63,7 @@
       <li><code>@mixin</code> <a href="/Container.php">container</a> - centered column container</li>
       <li><code>@mixin</code> <a href="/Colspan-mixin.php">colspan</a> - mixin to add a design column spanning <code>width</code> to an element</li>
       <li><code>@function</code> <a href="/Colspan-function.php">colspan</a> - function that returns a design column spanning CSS <code>calc()</code></li>
-      <li><code>@function</code> <a href="/Rem-Calc.php">rem-calc</a> - function </li>
+      <li><code>@function</code> <a href="/Rem-Calc.php">rem-calc</a> - converts <code>px</code> and <code>em</code> to <code>rem</code></li>
     </ul>
 
     <h3>Typography</h3>
