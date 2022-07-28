@@ -1,0 +1,50 @@
+<?php $title = 'rem-calc'; ?>
+<?php include 'includes/_header.php'; ?>
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>Function that coverts a <code>rem</code> value from a <code>px</code> or <code>em</code> value.</p>
+
+  <h2 id="scss-usage">SCSS Usage</h2>
+
+  <code class="mixin">rem-calc(<em>$value</em>)</code>
+
+  <p>Where <code>$value</code> can be a number, a <code>px</code> value or a <code>em</code> value.</p>
+
+  <p>And so, in SCSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">.foo {
+  padding-left: rem-calc(32px);
+}
+
+.bar {
+  padding-left: rem-calc(20);
+}
+
+.baz {
+  padding-left: rem-calc(1.2em);
+}</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.foo {
+  padding-left: 2rem;
+}
+
+.bar {
+  padding-left: 1.25rem;
+}
+
+.baz {
+  padding-left: 1.2rem;
+}</code></pre>
+  </figure>
+</div>
+
+<?php include 'includes/_footer.php'; ?>

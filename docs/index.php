@@ -26,8 +26,8 @@
     <h3>Layout</h3>
 
     <ul>
-      <li><a href="/Container.php">Container</a> - centered column container</li>
-      <li><a href="/Colspan.php">Colspan</a> - generates design column spanning classes (for flex/float/other)</li>
+      <li><a href="/Container.php">container</a> - centered column container</li>
+      <li><a href="/Colspan.php">colspan</a> - generates design column spanning classes (for flex/float/other)</li>
       <li><a href="/Grid-Columns.php">Grid Columns</a> - generates CSS Grid design column spanning classes</li>
       <li><a href="/Spacing.php">Spacing</a> - generates spacing utilities for gutters and responsive spacing groups</li>
     </ul>
@@ -47,9 +47,9 @@
     <h2>Other useful utility classes</h2>
 
     <ul>
-      <li><a href="/Visually-Hidden.php">Visually Hidden</a> - visually hidden screen reader only text class</li>
-      <li><a href="/Float-Clear.php">Float Clear</a> - float clearing utility</li>
-      <li><a href="/Background-Fill.php">Background Fill</a> - draws a full width background color block</li>
+      <li><a href="/Visually-Hidden.php">visually-hidden/sr-only</a> - visually hidden screen reader only text class</li>
+      <li><a href="/Float-Clear.php">float-clear</a> - float clearing utility</li>
+      <li><a href="/Background-Fill.php">background-fill</a> - draws a full width background color block</li>
     </ul>
   </div>
 
@@ -59,11 +59,11 @@
     <h3>Layout</h3>
 
     <ul>
-      <li><code>@mixin</code> <a href="/Breakpoint.php">Breakpoint</a> - inserts a media query</li>
-      <li><code>@mixin</code> <a href="/Container.php">Container</a> - centered column container</li>
-      <li><code>@mixin</code> <a href="/Colspan-mixin.php">Colspan</a> - mixin to add a design column spanning <code>width</code> to an element</li>
-      <li><code>@function</code> <a href="/Colspan-function.php">Colspan</a> - function that returns a design column spanning CSS <code>calc()</code></li>
-      <li><code>@function</code> rem-calc</li>
+      <li><code>@mixin</code> <a href="/Breakpoint.php">breakpoint</a> - inserts a media query</li>
+      <li><code>@mixin</code> <a href="/Container.php">container</a> - centered column container</li>
+      <li><code>@mixin</code> <a href="/Colspan-mixin.php">colspan</a> - mixin to add a design column spanning <code>width</code> to an element</li>
+      <li><code>@function</code> <a href="/Colspan-function.php">colspan</a> - function that returns a design column spanning CSS <code>calc()</code></li>
+      <li><code>@function</code> <a href="/Rem-Calc.php">rem-calc</a> - function </li>
     </ul>
 
     <h3>Typography</h3>
@@ -75,10 +75,10 @@
     <h2>Other useful utility mixins and functions</h2>
 
     <ul>
-      <li><code>@mixin</code> <a href="/Placeholder.php">Placeholder</a> - form input placeholder styling</li>
-      <li><code>@mixin</code> <a href="/Visually-Hidden.php">Visually Hidden</a> - visually hidden screen reader only text class</li>
-      <li><code>@mixin</code> <a href="/Float-Clear.php">Float Clear</a> - float clearing utility</li>
-      <li><code>@mixin</code> <a href="/Background-Fill.php">Background Fill</a> - draws a full width background color block</li>
+      <li><code>@mixin</code> <a href="/Placeholder.php">placeholder</a> - form input placeholder styling</li>
+      <li><code>@mixin</code> <a href="/Visually-Hidden.php">visually-hidden</a> - visually hidden screen reader only text class</li>
+      <li><code>@mixin</code> <a href="/Float-Clear.php">float-clear</a> - float clearing utility</li>
+      <li><code>@mixin</code> <a href="/Background-Fill.php">background-fill</a> - draws a full width background color block</li>
       <li><code>@mixin</code> keyline-full</li>
       <li><code>@mixin</code> font-smoothing</li>
       <li><code>@mixin</code> hide-text</li>
