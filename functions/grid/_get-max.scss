@@ -1,3 +1,12 @@
+/*
+  @function get-max
+
+  Looks at a map of values and returns the largest value in that map
+
+  Parameters:
+  $map - map to check
+*/
+
 @function get-max($map) {
   $list: (0);
 

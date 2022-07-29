@@ -44,6 +44,12 @@
       <li><a href="/Color.php">Color</a> - generates colour variables and utility classes</li>
     </ul>
 
+    <h3>Dev Tools</h3>
+
+    <ul>
+      <li><a href="/DevTools.php">Dev Tools</a> - generates colour variables and utility classes</li>
+    </ul>
+
     <h2>Other useful utility classes</h2>
 
     <ul>
@@ -95,38 +101,40 @@
 <div class="grid">
   <div class="col-6@lg copy">
     <ul>
-      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_structure.scss">processStructure</a></li>
-      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_color.scss">processColors</a></li>
+      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_processStructure.scss">processStructure</a></li>
+      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_processColors.scss">processColors</a></li>
       <li>
-        <code>@mixin</code> <a href="">processTypography</a>
+        <code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_processTypography.scss">processTypography</a>
         <ul>
-          <li><code>@mixin</code> <a href="">typeStyles</a></li>
-          <li><code>@mixin</code> <a href="">typeStyle</a></li>
-          <li><code>@mixin</code> <a href="">typeAttribute</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_typeStyles.scss">typeStyles</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_typeStyle.scss">typeStyle</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_typeAttribute.scss">typeAttribute</a></li>
         </ul>
       </li>
-      <li><code>@mixin</code> <a href="">setupGrid</a></li>
-      <li><code>@mixin</code> <a href="">setupSpacing</a></li>
-    </ul>
-    <ul>
-      <li><code>@mixin</code> <a href="">grid-overlay</a></li>
-      <li><code>@mixin</code> <a href="">setColspan</a></li>
-      <li><code>@mixin</code> <a href="">setBreakpointColspan</a></li>
-      <li><code>@mixin</code> <a href="">setGridCol</a></li>
-      <li><code>@mixin</code> <a href="">setBreakpointColumn</a></li>
-      <li><code>@mixin</code> <a href="">setStartEndCColumn</a></li>
-      <li><code>@mixin</code> <a href="">setBreakpointStartEndCColumn</a></li>
-      <li><code>@mixin</code> <a href="">pushdown</a></li>
+      <li>
+        <code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_processGrid.scss">processGrid</a>
+        <ul>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_setupDevTools.scss">setupDevTools</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_setColspan.scss">setColspan</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_setBreakpointColspan.scss">setBreakpointColspan</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_setGridCol.scss">setGridCol</a></li>
+          <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_setBreakpointGridCol.scss">setBreakpointGridCol</a></li>
+          <li><code>@mixin</code> <a href="">setStartEndCColumn</a></li>
+          <li><code>@mixin</code> <a href="">setBreakpointStartEndCColumn</a></li>
+        </ul>
+      </li>
+      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_processSpacing.scss">processSpacing</a></li>
+      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_setupDevTools.scss">setupDevTools</a></li>
     </ul>
   </div>
   <div class="col-6@lg copy">
     <ul>
-      <li><code>@function</code> <a href="">get-breakpoint-directions</a></li>
-      <li><code>@function</code> <a href="">get-media</a></li>
-      <li><code>@function</code> <a href="">process-breakpoints</a></li>
-      <li><code>@function</code> <a href="">get-smallest-breakpoint</a></li>
-      <li><code>@function</code> <a href="">isColorVariable</a></li>
-      <li><code>@function</code> <a href="">get-max</a></li>
+      <li><code>@function</code> <a href="https://github.com/area17/scss-utilities/blob/main/functions/breakpoint/_get-breakpoint-directions.scss">get-breakpoint-directions</a></li>
+      <li><code>@function</code> <a href="https://github.com/area17/scss-utilities/blob/main/functions/breakpoint/_get-media.scss">get-media</a></li>
+      <li><code>@function</code> <a href="https://github.com/area17/scss-utilities/blob/main/functions/breakpoint/_process-breakpoints.scss">process-breakpoints</a></li>
+      <li><code>@function</code> <a href="https://github.com/area17/scss-utilities/blob/main/functions/breakpoint/_get-smallest-breakpoint.scss">get-smallest-breakpoint</a></li>
+      <li><code>@function</code> <a href="https://github.com/area17/scss-utilities/blob/main/functions/color/_isColorVariable.scss">isColorVariable</a></li>
+      <li><code>@function</code> <a href="https://github.com/area17/scss-utilities/blob/main/functions/grid/_get-max.scss">get-max</a></li>
     </ul>
   </div>
 </div>

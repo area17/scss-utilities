@@ -5,8 +5,6 @@
   generates a full SASS map containing all the breakpoint
   variations we'll require
 
-  Parameters:
-  none
 */
 @function get-breakpoint-directions($bps) {
   $_bps: ();

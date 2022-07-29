@@ -1,3 +1,11 @@
+/*
+  @mixin setGridCol
+
+  Adds a `col-` class with a given index
+  (to span number of columns equal to index)
+
+*/
+
 @mixin setGridCol($index) {
   .col-#{$index} {
     --grid-columns: #{$index};

@@ -1,3 +1,11 @@
+/*
+  @mixin setColspan
+
+  Adds a `colspan-` class with a given index
+  (to span number of columns equal to index)
+
+*/
+
 @mixin setColspan($index) {
   .colspan-#{$index} {
     width: colspan($index);

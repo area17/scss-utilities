@@ -18,24 +18,29 @@
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ setup
 
-@import 'mixins/structure';
-@import 'mixins/breakpoint';
-@import 'mixins/color';
-@import 'mixins/typography';
-@import 'mixins/grid';
-@import 'mixins/spacing';
+@import 'mixins/processStructure';
+  @import 'mixins/breakpoint';
 
-@import 'mixins/colspan';
-@import 'mixins/setColspan';
-@import 'mixins/setBreakpointColspan';
-@import 'mixins/setGridCol';
-@import 'mixins/setBreakpointColumn';
-@import 'mixins/setStartEndCColumn';
-@import 'mixins/setBreakpointStartEndCColumn';
+@import 'mixins/processColors';
 
-@import 'mixins/pushdown';
+@import 'mixins/processTypography';
+  @import 'mixins/typeAttribute';
+  @import 'mixins/typeStyle';
+  @import 'mixins/typeStyles';
+  @import 'mixins/typeset';
 
-@import 'mixins/grid-overlay';
+@import 'mixins/processGrid';
+  @import 'mixins/colspan';
+  @import 'mixins/setColspan';
+  @import 'mixins/setBreakpointColspan';
+  @import 'mixins/setGridCol';
+  @import 'mixins/setBreakpointGridCol';
+  @import 'mixins/setStartEndCColumn';
+  @import 'mixins/setBreakpointStartEndCColumn';
+
+@import 'mixins/processSpacing';
+
+@import 'mixins/setupDevTools';
 
 @import 'mixins/container';
 @import 'mixins/font-smoothing';
@@ -69,6 +74,7 @@ $_a17-scss-generate-classes: (
   color: true,
   spacing: true,
   typography: true,
+  devtools: true,
 );
 
 @if variable-exists(a17-scss-generate-classes) {
@@ -79,8 +85,8 @@ $_a17-scss-generate-classes: (
 
 @include processColors();
 @include processStructure();
-@include setupGrid();
+@include processGrid();
 @include processTypography();
-@include setupGridOverlay();
-@include setupSpacing();
+@include processSpacing();
 
+@include setupDevTools();

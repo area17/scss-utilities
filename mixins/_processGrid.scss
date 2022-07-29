@@ -1,4 +1,12 @@
-@mixin setupGrid() {
+/*
+  @mixin processGrid
+
+  Generates design grid placeholder and CSS classes
+  (`colspan-X` and `col-X`)
+
+*/
+
+@mixin processGrid() {
   $max-columns: get-max($a17-column-count);
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ colspan */
@@ -62,13 +70,13 @@
 
         @if ($name == $a17-smallest-breakpoint-name) {
           @for $i from 1 through $grid-columns {
-            @include setBreakpointColumn($i, $name);
+            @include setBreakpointGridCol($i, $name);
             @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
           }
         } @else {
           @include breakpoint('#{$name}+') {
             @for $i from 1 through $grid-columns {
-              @include setBreakpointColumn($i, $name);
+              @include setBreakpointGridCol($i, $name);
               @include setBreakpointStartEndCColumn($i, $name, $grid-columns);
             }
           }

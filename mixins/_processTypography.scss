@@ -1,0 +1,42 @@
+/*
+  @mixin processTypography
+
+  Processes the typography tokens, sets up the mixins, placeholders and CSS classes.
+*/
+
+@mixin processTypography() {
+  $families: ();
+  $faces: ();
+  $typesets: ();
+
+  @if variable-exists(typography) {
+    $families: map-merge($families, map-deep-get($typography, 'families'));
+
+    @if type-of(nth(map-deep-get($typography, 'faces'), 1)) == 'list' {
+      // single faces confuse things..
+      // the face object stops being wrapped in a list
+      $f: (
+        "json1": map-deep-get($typography, 'faces')
+      );
+      $faces: map-merge($faces, $f);
+    } @else {
+      @for $i from 1 through length(map-deep-get($typography, 'faces')) {
+        $face: nth(map-deep-get($typography, 'faces'), $i);
+        $f: (
+          "json#{$i}": $face
+        );
+        $faces: map-merge($faces, $f);
+      }
+    }
+
+    $typesets: map-merge($typesets, map-deep-get($typography, 'typesets'));
+  }
+
+  :root {
+    @each $key, $value in $families {
+      --#{$key}: #{$value};
+    }
+  }
+
+  @include typeStyles($typesets);
+}

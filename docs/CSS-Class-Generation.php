@@ -10,6 +10,7 @@
       <li><a href="/Spacing.php">Spacing</a></li>
       <li><a href="/Typography.php">Typography</a></li>
       <li><a href="/Color.php">Color</a>
+      <li><a href="/DevTools.php">DevTools</a>
   </ul>
 
   <p>Each of these classes has a either a <code>%placeholder</code>, <code>@mixin</code> and/or <code>@function</code> to also use within your SCSS.</p>
@@ -30,6 +31,7 @@ $a17-scss-generate: (
   color: false,
   spacing: false,
   typography: false,
+  devtools: false,
 );
 @import '~@area17/scss-utilities/a17-scss-utilities';
 

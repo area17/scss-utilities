@@ -1,3 +1,13 @@
+/*
+  @function isColorVariable
+
+  Checks to see if a passed value appears to be a CSS variable or
+  CSS color
+
+  Parameters:
+  $value - value to check
+*/
+
 @function isColorVariable($value) {
   @return str-index(#{$value}, '#') or str-index(#{$value}, 'rgb') or str-index(#{$value}, 'rgba') or str-index(#{$value}, 'hsl') or str-index(#{$value}, 'transparent') or str-index(#{$value}, 'currentcolor');
 }

@@ -1,0 +1,24 @@
+/* outputs a specified typeset */
+@mixin typeset($name) {
+  @if $name {
+    /* check if user specified a `f-xxx` type name and fix */
+    $index: str-index($name, 'f-');
+    @if $index == 1 {
+      $name: str-slice($name, 3, str-length($name));
+    }
+    /* now look for the specified typeset */
+    @if variable-exists(typography) and map-has-key($typography, 'typesets') {
+      $settings: map-deep-get($typography, 'typesets', $name);
+      @if $settings {
+        /* output specified typeset */
+        @include typeStyle($settings);
+      } @else {
+        @debug 'No typeset named #{$name}';
+      }
+    } @else {
+      @debug '$typography map not found';
+    }
+  } @else {
+    @debug 'No type set specified';
+  }
+}

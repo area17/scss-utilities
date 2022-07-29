@@ -1,0 +1,50 @@
+/*
+  @mixin typeStyle
+
+  Loops a typeset to generate styles objects
+  and then generates CSS as required
+
+*/
+
+@mixin typeStyle($settings) {
+  // set the various font info per breakpoint
+  @if $settings {
+    $_settingsCache: ();
+    // loop the breakpoints in the setttings
+    @each $breakpoint, $font-info in $settings {
+      // check this is a valid breakpoint
+      @if map-has-key($a17-breakpoints-with-directions, $breakpoint) {
+        $_settings: ();
+        // get font info for this breakpoint
+        // conditionally so can be inherited from smaller screens
+        @each $attribute, $setting in $font-info {
+          $cachedSetting: map-get($_settingsCache, $attribute);
+          @if not $cachedSetting or $cachedSetting != $setting {
+            $_settingsCache: map-merge($_settingsCache, (
+              $attribute: $setting)
+            );
+            $_settings: map-merge($_settings, (
+              $attribute: $setting)
+            );
+          }
+        }
+        // check if this is the smallest breakpoint (the default font setting)
+        @if (index(map-keys($settings), $breakpoint) == 1) {
+          @include typeAttribute($_settings);
+          b,
+          strong {
+            font-weight: var(--bold-weight);
+          }
+          i,
+          em {
+            font-style: italic;
+          }
+        } @else {
+          @include breakpoint("#{$breakpoint}+") {
+            @include typeAttribute($_settings);
+          }
+        }
+      }
+    }
+  }
+}

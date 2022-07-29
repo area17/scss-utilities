@@ -1,0 +1,29 @@
+/*
+  @mixin typeAttribute
+
+  Outputs CSS attributes
+
+*/
+
+@mixin typeAttribute($font-info) {
+  @each $attribute, $setting in $font-info {
+    @if $attribute == 'font-size' {
+      @if (
+        (type-of($setting) == 'number' and unit($setting) == 'vw') or
+        type-of($setting) == 'string'
+      ) {
+        font-size: $setting;
+      } @else {
+        font-size: rem-calc($setting);
+      }
+    } @else if $attribute == 'bold-weight' {
+      --bold-weight: #{$setting};
+    } @else if $attribute == 'font-smoothing' {
+      @include font-smoothing(if($setting==true,'on','off'));
+    } @else if type-of($setting) == 'string' {
+      #{$attribute}: unquote($setting);
+    } @else {
+      #{$attribute}: #{$setting};
+    }
+  }
+}

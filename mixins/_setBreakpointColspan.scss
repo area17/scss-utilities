@@ -1,3 +1,11 @@
+/*
+  @mixin setBreakpointColspan
+
+  Adds a `colspan-` class with a given index, with a breakpoint helper
+  (to span number of columns equal to index)
+
+*/
+
 @mixin setBreakpointColspan($index, $breakpoint: null) {
   @if ($breakpoint) {
     .colspan-#{$index}\@#{$breakpoint} {

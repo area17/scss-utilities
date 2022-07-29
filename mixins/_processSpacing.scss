@@ -1,4 +1,11 @@
-@mixin setupSpacing() {
+/*
+  @mixin processSpacing
+
+  Generates spacing utilities for gutters and responsive spacing groups
+
+*/
+
+@mixin processSpacing() {
 
   $_positive: (
     mt: (margin-top),

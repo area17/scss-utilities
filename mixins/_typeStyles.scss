@@ -1,0 +1,22 @@
+/*
+  @mixin typeStyles
+
+  Loops typesets,
+  makes placeholder and class for each,
+  populates with styles
+
+*/
+
+@mixin typeStyles($sets) {
+  @each $name, $settings in $sets {
+    %f-#{$name} {
+      @include typeStyle($settings);
+    }
+
+    @if map-get($_a17-scss-generate-classes, 'typography') == true {
+      .f-#{$name} {
+        @include typeStyle($settings);
+      }
+    }
+  }
+}

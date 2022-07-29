@@ -1,0 +1,18 @@
+/*
+  @mixin setBreakpointGridCol
+
+  Adds a `colspan-` class with a given index, with a breakpoint helper
+  (to span number of columns equal to index)
+
+*/
+
+@mixin setBreakpointGridCol($index, $breakpoint: null) {
+  @if ($breakpoint) {
+    .col-#{$index}\@#{$breakpoint} {
+      --grid-columns: #{$index};
+      grid-column: span #{$index};
+    }
+  } @else {
+    @include setGridCol($index);
+  }
+}

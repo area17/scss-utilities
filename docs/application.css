@@ -25,8 +25,6 @@
   generates a full SASS map containing all the breakpoint
   variations we'll require
 
-  Parameters:
-  none
 */
 /*
   @function get-media
@@ -45,6 +43,15 @@
   @function get-smallest-breakpoint
 
   Returns the name of the smallest breakpoint
+*/
+/*
+  @function isColorVariable
+
+  Checks to see if a passed value appears to be a CSS variable or
+  CSS color
+
+  Parameters:
+  $value - value to check
 */
 /*
 
@@ -103,6 +110,14 @@
   will set both child --grid-columns, and width of colspan
 */
 /*
+  @function get-max
+
+  Looks at a map of values and returns the largest value in that map
+
+  Parameters:
+  $map - map to check
+*/
+/*
   @mixin processStructure
 
   Sets up the structural `:root` vars used by other utilities.
@@ -153,7 +168,79 @@
   Sets up the color tokens, color `:root` variables and
   the associated `%placeholder` and CSS classes.
 */
-/* outputs a specified typeset */
+/*
+  @mixin processTypography
+
+  Processes the typography tokens, sets up the mixins, placeholders and CSS classes.
+*/
+/*
+  @mixin typeAttribute
+
+  Outputs CSS attributes
+
+*/
+/*
+  @mixin typeStyle
+
+  Loops a typeset to generate styles objects
+  and then generates CSS as required
+
+*/
+/*
+  @mixin typeStyles
+
+  Loops typesets,
+  makes placeholder and class for each,
+  populates with styles
+
+*/
+/* outputs a specified typeset */ /*
+  @mixin processGrid
+
+  Generates design grid placeholder and CSS classes
+  (`colspan-X` and `col-X`)
+
+*/
+/*
+  @mixin setColspan
+
+  Adds a `colspan-` class with a given index
+  (to span number of columns equal to index)
+
+*/
+/*
+  @mixin setBreakpointColspan
+
+  Adds a `colspan-` class with a given index, with a breakpoint helper
+  (to span number of columns equal to index)
+
+*/
+/*
+  @mixin setGridCol
+
+  Adds a `col-` class with a given index
+  (to span number of columns equal to index)
+
+*/
+/*
+  @mixin setBreakpointGridCol
+
+  Adds a `colspan-` class with a given index, with a breakpoint helper
+  (to span number of columns equal to index)
+
+*/
+/*
+  @mixin processSpacing
+
+  Generates spacing utilities for gutters and responsive spacing groups
+
+*/
+/*
+  @mixin setupDevTools
+
+  Generates dev tools classes for design grid overlay
+
+*/
 .container {
   width: calc(var(--container-width, 100%) - 2 * var(--breakout-container-outer-gutter, var(--container-outer-gutter, var(--outer-gutter, 0))));
   margin-left: auto;
@@ -3929,73 +4016,6 @@ html {
   font-style: italic;
 }
 
-.dev-tools {
-  position: fixed;
-  z-index: 9999999999;
-  left: 0;
-  bottom: 0;
-  font-size: 0;
-}
-
-.dev-tools::before {
-  content: var(--breakpoint) " • " var(--env, attr(data-env));
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  bottom: 100%;
-  padding: 4px 5px;
-  background: green;
-  color: white;
-  font: 12px/1 sans-serif;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.dev-tools-toggle {
-  position: relative;
-  z-index: 2;
-  width: 30px;
-  height: 30px;
-  border: 0;
-  background: black;
-  color: transparent;
-  font: 0/0 a;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-
-.dev-tools-toggle::before,
-.dev-tools-toggle::after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 10px;
-  width: 5px;
-  height: 10px;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-}
-
-.dev-tools-toggle::after {
-  left: 16px;
-}
-
-.dev-tools-grid {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: calc(var(--container-width, 100%) - 2 * var(--outer-gutter, 0));
-  height: 100%;
-  margin: 0 auto;
-  background: repeating-linear-gradient(90deg, var(--grid-column-bg, rgba(127, 255, 255, 0.25)), var(--grid-column-bg, rgba(127, 255, 255, 0.25)) calc((100% - (var(--grid-columns) - 1) * var(--inner-gutter)) / var(--grid-columns)), rgba(0, 0, 0, 0) calc((100% - (var(--grid-columns) - 1) * var(--inner-gutter)) / var(--grid-columns)), rgba(0, 0, 0, 0) calc((100% - (var(--grid-columns) - 1) * var(--inner-gutter)) / var(--grid-columns) + var(--inner-gutter)));
-  pointer-events: none;
-}
-
 /* generate responsive spacing placeholders and classes */
 .mt-outer-1 {
   margin-top: var(--spacing-outer-1);
@@ -4836,6 +4856,73 @@ html {
 
 .-inset-y-outer-gutter {
   inset-y: calc(var(--outer-gutter) * -1);
+}
+
+.dev-tools {
+  position: fixed;
+  z-index: 9999999999;
+  left: 0;
+  bottom: 0;
+  font-size: 0;
+}
+
+.dev-tools::before {
+  content: var(--breakpoint) " • " var(--env, attr(data-env));
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 100%;
+  padding: 4px 5px;
+  background: green;
+  color: white;
+  font: 12px/1 sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.dev-tools-toggle {
+  position: relative;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: black;
+  color: transparent;
+  font: 0/0 a;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.dev-tools-toggle::before,
+.dev-tools-toggle::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  width: 5px;
+  height: 10px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.dev-tools-toggle::after {
+  left: 16px;
+}
+
+.dev-tools-grid {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--container-width, 100%) - 2 * var(--outer-gutter, 0));
+  height: 100%;
+  margin: 0 auto;
+  background: repeating-linear-gradient(90deg, var(--grid-column-bg, rgba(127, 255, 255, 0.25)), var(--grid-column-bg, rgba(127, 255, 255, 0.25)) calc((100% - (var(--grid-columns) - 1) * var(--inner-gutter)) / var(--grid-columns)), rgba(0, 0, 0, 0) calc((100% - (var(--grid-columns) - 1) * var(--inner-gutter)) / var(--grid-columns)), rgba(0, 0, 0, 0) calc((100% - (var(--grid-columns) - 1) * var(--inner-gutter)) / var(--grid-columns) + var(--inner-gutter)));
+  pointer-events: none;
 }
 
 @-ms-viewport {
