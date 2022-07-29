@@ -22,8 +22,10 @@ $ npm install @area17/scss-utilities
 2. Include plugins in your main `.scss` file (`application.scss` or similar):
 
 ```CSS
-@import '~@area17/scss-utilities/a17-scss-utilities';
+@import '@area17/scss-utilities/a17-scss-utilities';
 ```
+
+(You'll need to configure your SCSS compiler to check inside `node_modules`)
 
 ## Documentation and demos
 

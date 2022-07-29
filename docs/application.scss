@@ -4,7 +4,6 @@
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include A17 SCSS Utilities
 
-//@import '~@area17/scss-utilities/a17-scss-utilities';
 $a17-scss-generate-classes: (
   colspan: true,
   grid: true,
@@ -13,7 +12,8 @@ $a17-scss-generate-classes: (
   typography: true,
   devtools: true,
 );
-@import '../a17-scss-utilities';
+@import '@area17/scss-utilities/a17-scss-utilities'; // package
+//@import '../a17-scss-utilities'; // for local dev
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include site css
 
