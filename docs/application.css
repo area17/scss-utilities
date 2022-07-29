@@ -103,6 +103,14 @@
   will set both child --grid-columns, and width of colspan
 */
 /*
+  @mixin processStructure
+
+  Sets up the structural `:root` vars used by other utilities.
+  Most utilities point to these variables, either directly or within `calc()`'s.
+  These variables are then updated with media queries so the individual utilities
+  don't require their own media queries.
+*/
+/*
   @mixin breakpoint
 
   Inserts a media query
@@ -139,6 +147,12 @@
   }
   ```
 */
+/*
+  @mixin processColors
+
+  Sets up the color tokens, color `:root` variables and
+  the associated `%placeholder` and CSS classes.
+*/
 /* outputs a specified typeset */
 .container {
   width: calc(var(--container-width, 100%) - 2 * var(--breakout-container-outer-gutter, var(--container-outer-gutter, var(--outer-gutter, 0))));
@@ -151,11 +165,6 @@
 
   Enable or disable font-smoothing : this controls the application
   of anti-aliasing when fonts are rendered.
-*/
-/*
-  @mixin hide-text
-
-  Hides text in an element
 */
 /*
   @mixin placeholder
@@ -5485,4 +5494,74 @@ main {
 .props-table tbody td {
   padding: 0.5rem 1rem 0.5rem 0;
   border-top: 1px solid var(--border-secondary);
+}
+
+.demo-keyline-full-1 {
+  position: relative;
+}
+.demo-keyline-full-1::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: 100%;
+  width: 100vw;
+  margin-left: -50vw;
+  border-top: 1px solid var(--border-primary);
+  pointer-events: none;
+}
+
+.demo-keyline-full-2 {
+  position: relative;
+}
+.demo-keyline-full-2::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: 100%;
+  width: 100vw;
+  margin-left: -50vw;
+  border-top: 1px solid var(--border-tertiary);
+  pointer-events: none;
+}
+
+.demo-keyline-full-3 {
+  position: relative;
+}
+.demo-keyline-full-3::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 100%;
+  width: 100vw;
+  margin-left: -50vw;
+  border-top: 1px solid red;
+  pointer-events: none;
+}
+
+.demo-keyline-full-4 {
+  position: relative;
+}
+.demo-keyline-full-4::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: 100%;
+  width: 100vw;
+  margin-left: -50vw;
+  border-top: 4px solid var(--border-primary);
+  pointer-events: none;
+}
+
+.demo-font-smoothing-on {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.demo-font-smoothing-off {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
 }

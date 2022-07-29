@@ -1,4 +1,4 @@
-@mixin keyline-full($position:top, $color:var(--border-primary)) {
+@mixin keyline-full($position:top, $color:var(--border-primary), $width:1px) {
   position: relative;
 
   &::before {
@@ -13,7 +13,7 @@
     }
     width: 100vw;
     margin-left: -50vw;
-    border-top: 1px solid $color;
+    border-top: $width solid $color;
     pointer-events: none;
   }
 }

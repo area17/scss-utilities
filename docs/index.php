@@ -69,7 +69,7 @@
     <h3>Typography</h3>
 
     <ul>
-      <li><code>@mixin</code> typeset</li>
+      <li><code>@mixin</code> <a href="/Typeset.php">typeset</a> - adds responsive type set to an element</li>
     </ul>
 
     <h2>Other useful utility mixins and functions</h2>
@@ -79,13 +79,11 @@
       <li><code>@mixin</code> <a href="/Visually-Hidden.php">visually-hidden</a> - visually hidden screen reader only text class</li>
       <li><code>@mixin</code> <a href="/Float-Clear.php">float-clear</a> - float clearing utility</li>
       <li><code>@mixin</code> <a href="/Background-Fill.php">background-fill</a> - draws a full width background color block</li>
-      <li><code>@mixin</code> keyline-full</li>
-      <li><code>@mixin</code> font-smoothing</li>
-      <li><code>@mixin</code> hide-text</li>
-      <li><code>@function</code> stripunits</li>
-      <li><code>@function</code> rem-calc</li>
-      <li><code>@function</code> string-replace</li>
-      <li><code>@function</code> map-deep-get</li>
+      <li><code>@mixin</code> <a href="/Keyline-Full.php">keyline-full</a> - draws a keyline the full viewport width</li>
+      <li><code>@mixin</code> <a href="/Font-Smoothing.php">font-smoothing</a> - controls the anti-aliasing of text</li>
+      <li><code>@function</code> <a href="/Strip-Units.php">strip-units</a> - removes unites from a CSS distance value</li>
+      <li><code>@function</code> <a href="/String-Replace.php">string-replace</a> - replaces item in string with new string</li>
+      <li><code>@function</code> <a href="/Map-Deep-Get.php">map-deep-get</a> - returns item from nested map</li>
     </ul>
   </div>
 </div>
@@ -97,39 +95,38 @@
 <div class="grid">
   <div class="col-6@lg copy">
     <ul>
-      <li><code>@mixin</code> processStructure</li>
-      <li><code>@mixin</code> processColors</li>
+      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_structure.scss">processStructure</a></li>
+      <li><code>@mixin</code> <a href="https://github.com/area17/scss-utilities/blob/main/mixins/_color.scss">processColors</a></li>
       <li>
-        <code>@mixin</code> processTypography
+        <code>@mixin</code> <a href="">processTypography</a>
         <ul>
-          <li><code>@mixin</code> typeStyles</li>
-          <li><code>@mixin</code> typeStyle</li>
-          <li><code>@mixin</code> typeAttribute</li>
+          <li><code>@mixin</code> <a href="">typeStyles</a></li>
+          <li><code>@mixin</code> <a href="">typeStyle</a></li>
+          <li><code>@mixin</code> <a href="">typeAttribute</a></li>
         </ul>
       </li>
-      <li><code>@mixin</code> setupGrid</li>
-      <li><code>@mixin</code> setupSpacing</li>
+      <li><code>@mixin</code> <a href="">setupGrid</a></li>
+      <li><code>@mixin</code> <a href="">setupSpacing</a></li>
     </ul>
     <ul>
-      <li><code>@mixin</code> grid-overlay</li>
-      <li><code>@mixin</code> setColspan</li>
-      <li><code>@mixin</code> setBreakpointColspan</li>
-      <li><code>@mixin</code> setGridCol</li>
-      <li><code>@mixin</code> setBreakpointColumn</li>
-      <li><code>@mixin</code> setStartEndCColumn</li>
-      <li><code>@mixin</code> setBreakpointStartEndCColumn</li>
-      <li><code>@mixin</code> pushdown</li>
+      <li><code>@mixin</code> <a href="">grid-overlay</a></li>
+      <li><code>@mixin</code> <a href="">setColspan</a></li>
+      <li><code>@mixin</code> <a href="">setBreakpointColspan</a></li>
+      <li><code>@mixin</code> <a href="">setGridCol</a></li>
+      <li><code>@mixin</code> <a href="">setBreakpointColumn</a></li>
+      <li><code>@mixin</code> <a href="">setStartEndCColumn</a></li>
+      <li><code>@mixin</code> <a href="">setBreakpointStartEndCColumn</a></li>
+      <li><code>@mixin</code> <a href="">pushdown</a></li>
     </ul>
   </div>
   <div class="col-6@lg copy">
     <ul>
-      <li><code>@function</code> -px-to-rem</li>
-      <li><code>@function</code> get-breakpoint-directions</li>
-      <li><code>@function</code> get-media</li>
-      <li><code>@function</code> process-breakpoints</li>
-      <li><code>@function</code> get-smallest-breakpoint</li>
-      <li><code>@function</code> isColorVariable</li>
-      <li><code>@function</code> get-max</li>
+      <li><code>@function</code> <a href="">get-breakpoint-directions</a></li>
+      <li><code>@function</code> <a href="">get-media</a></li>
+      <li><code>@function</code> <a href="">process-breakpoints</a></li>
+      <li><code>@function</code> <a href="">get-smallest-breakpoint</a></li>
+      <li><code>@function</code> <a href="">isColorVariable</a></li>
+      <li><code>@function</code> <a href="">get-max</a></li>
     </ul>
   </div>
 </div>

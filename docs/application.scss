@@ -16,12 +16,13 @@ $a17-scss-generate-classes: (
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include site css
 
-@import 'mixins/_base';
-@import 'mixins/_header';
-@import 'mixins/_footer';
-@import 'mixins/_copy';
-@import 'mixins/_code-example';
-@import 'mixins/_grid-colspan-demo-styles';
-@import 'mixins/_mixin';
-@import 'mixins/_mixin-table';
-@import 'mixins/_props-table';
+@import 'scss/_base';
+@import 'scss/_header';
+@import 'scss/_footer';
+@import 'scss/_copy';
+@import 'scss/_code-example';
+@import 'scss/_grid-colspan-demo-styles';
+@import 'scss/_mixin';
+@import 'scss/_mixin-table';
+@import 'scss/_props-table';
+@import 'scss/_demos';

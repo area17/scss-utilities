@@ -1,0 +1,63 @@
+<?php $title = 'font-smoothing'; ?>
+<?php include 'includes/_header.php'; ?>
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>Controls the application of anti-aliasing when fonts are rendered.</p>
+
+  <h2 id="scss-usage">SCSS Usage</h2>
+
+  <code class="mixin"><span class="mixin-include">@include</span> font-smoothing(<em>$value: on</em>)</code>
+
+  <p>Where <code>$value</code> can be <code>on</code> or <code>off</code>, defaults to <code>on</code>.</p>
+
+  <p>And so, in SCSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">_component.scss</figcaption>
+    <pre class="code-example-code"><code class="language-scss">p.foo {
+  @include font-smoothing(on);
+}
+
+p.bar {
+  @include font-smoothing(off);
+}</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.demo-font-smoothing-on {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.demo-font-smoothing-off {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
+}</code></pre>
+  </figure>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>Using the above <code>.demo-font-smoothing-on</code> and <code>.demo-font-smoothing-off</code> classes above:</p>
+</div>
+
+<div class="bg-banner background-fill py-gutter text-inverse mt-gutter">
+  <p class="f-h1 demo-font-smoothing-on">Font smoothing: on</p>
+  <p class="f-h1 demo-font-smoothing-off">Font smoothing: off</p>
+</div>
+
+<div class="copy">
+    <figure class="code-example">
+      <figcaption class="code-example-filename">document.html</figcaption>
+      <pre class="code-example-code"><code class="language-html">&lt;div class="bg-banner background-fill py-gutter text-inverse mt-gutter">
+  &lt;p class="f-h1 demo-font-smoothing-on">Font smoothing: on&lt;/p>
+  &lt;p class="f-h1 demo-font-smoothing-off">Font smoothing: off&lt;/p>
+&lt;/div></code></pre>
+    </figure>
+</div>
+
+<?php include 'includes/_footer.php'; ?>

@@ -23,14 +23,16 @@
       </tr>
     </thead>
     <tbody>
-      <td><code>breakpoint</code></td>
-      <td>Yes</td>
-      <td>any of the named breakpoint names from the setup</td>
-    </tbody>
-    <tbody>
-      <td><code>option</code></td>
-      <td>No</td>
-      <td><code>hover</code> or <code>IE11</code></td>
+      <tr>
+        <td><code>breakpoint</code></td>
+        <td>Yes</td>
+        <td>any of the named breakpoint names from the setup</td>
+      </tr>
+      <tr>
+        <td><code>option</code></td>
+        <td>No</td>
+        <td><code>hover</code> or <code>IE11</code></td>
+      </tr>
     </tbody>
   </table>
 

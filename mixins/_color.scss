@@ -1,3 +1,10 @@
+/*
+  @mixin processColors
+
+  Sets up the color tokens, color `:root` variables and
+  the associated `%placeholder` and CSS classes.
+*/
+
 @mixin processColors() {
   @if variable-exists(color) {
     $tokens: ();

@@ -7,6 +7,14 @@ $a17-breakpoints: ();
 $a17-breakpoints-with-directions:();
 $a17-smallest-breakpoint-name: 'xs';
 
+/*
+  @mixin processStructure
+
+  Sets up the structural `:root` vars used by other utilities.
+  Most utilities point to these variables, either directly or within `calc()`'s.
+  These variables are then updated with media queries so the individual utilities
+  don't require their own media queries.
+*/
 @mixin processStructure() {
   $a17-container-type: map-get($structure, 'container') !global;
   $a17-column-count: map-get($structure, 'columns') !global;

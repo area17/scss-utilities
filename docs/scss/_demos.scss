@@ -1,0 +1,24 @@
+.demo-keyline-full-1 {
+  @include keyline-full();
+}
+
+.demo-keyline-full-2 {
+  @include keyline-full(top, var(--border-tertiary));
+}
+
+.demo-keyline-full-3 {
+  @include keyline-full(bottom, red);
+}
+
+.demo-keyline-full-4 {
+  @include keyline-full(top, var(--border-primary), 4px);
+}
+
+
+.demo-font-smoothing-on {
+  @include font-smoothing(on);
+}
+
+.demo-font-smoothing-off {
+  @include font-smoothing(off);
+}
