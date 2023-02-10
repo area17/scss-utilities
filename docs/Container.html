@@ -1,5 +1,7 @@
-<?php $title = 'Container'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Container
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -8,7 +10,7 @@
 
   <h2 id="setup">Setup</h2>
 
-  <p>The required <code>$structure</code> map (<a href="/Setup.php">Setup</a>).</p>
+  <p>The required <code>$structure</code> map (<a href="/Setup.html">Setup</a>).</p>
 
   <h2 id="output">Output</h2>
 
@@ -36,4 +38,4 @@
   <p>This site uses <code>.container</code> in the <code>main</code> node.</p>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

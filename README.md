@@ -29,7 +29,7 @@ $ npm install @area17/scss-utilities
 
 ## Documentation and demos
 
-* [scss-utilities.dev.area17.com](http://scss-utilities.dev.area17.com/)
+* [area17.github.io/scss-utilities/](https://area17.github.io/scss-utilities/)
 
 
 ## Contribution

@@ -1,5 +1,7 @@
-<?php $title = 'Grid Columns'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Grid Columns
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -8,7 +10,7 @@
 
   <h2 id="setup">Setup</h2>
 
-  <p>The required <code>$structure</code> map (<a href="/Setup.php">Setup</a>).</p>
+  <p>The required <code>$structure</code> map (<a href="/Setup.html">Setup</a>).</p>
 
   <h2 id="output">Output</h2>
 
@@ -156,7 +158,7 @@
 
   <h4 id="wrapping">Wrapping and <code>gap-y-gutter</code> usage</h4>
 
-  <p>Same col class on every item, wrapping, using <code>gap-y-gutter</code> <a href="/Spacing.php">Spacing</a> utility:</p>
+  <p>Same col class on every item, wrapping, using <code>gap-y-gutter</code> <a href="/Spacing.html">Spacing</a> utility:</p>
 </div>
 
 <ul class="grid gap-y-gutter grid-demo">
@@ -278,7 +280,7 @@
 </ul>
 
 <div class="copy">
-  <p>Nesting <code>.grid/.col-x</code> and <code>.colspan</code> (<a href="/Colspan.php">docs</a>):</p>
+  <p>Nesting <code>.grid/.col-x</code> and <code>.colspan</code> (<a href="/Colspan.html">docs</a>):</p>
 </div>
 
 <ul class="grid grid-demo">
@@ -317,7 +319,7 @@
 
   <p>As you can see, this generates <strong>a lot</strong> of CSS classes - you will want to purge your CSS of unused classes to remove any of these that you don't use.</p>
 
-  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.php">CSS-Class-Generation</a>.</p>
+  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.html">CSS-Class-Generation</a>.</p>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

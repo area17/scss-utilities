@@ -1,14 +1,16 @@
-<?php $title = 'string-replace'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: map-deep-get
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>Replaces item in string with new string (similar to PHP's <code>preg_replace</code>).</p>
+  <p>Returns item from nested map.</p>
 
   <h2 id="scss-usage">SCSS Usage</h2>
 
-  <code class="mixin">string-replace(<em>$string</em>, <em>$search</em>, <em>$replace</em>)</code>
+  <code class="mixin">map-deep-get(<em>$map</em>, <em>$keys...</em>)</code>
 
   <table class="mixin-table">
     <thead>
@@ -20,19 +22,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><code>$string</code></td>
+        <td><code>$map</code></td>
         <td>Yes</td>
-        <td>String to search and replace within</td>
+        <td>Base map to pick from</td>
       </tr>
       <tr>
-        <td><code>$search</code></td>
+        <td><code>$keys</code></td>
         <td>Yes</td>
-        <td>Item to replace</td>
-      </tr>
-      <tr>
-        <td><code>$replace</code></td>
-        <td>Yes</td>
-        <td>What to replace with</td>
+        <td>list of keys to traverse, can be singular, or multiple comma separated</td>
       </tr>
     </tbody>
   </table>
@@ -41,8 +38,16 @@
 
   <figure class="code-example">
     <figcaption class="code-example-filename">_component.scss</figcaption>
-    <pre class="code-example-code"><code class="language-scss">.foo::before {
-  content: str-replace('foo bar baz', 'baz', 'qux');
+    <pre class="code-example-code"><code class="language-scss">$myMap: (
+  foo: (
+    bar: (
+      baz: 'qux'
+    )
+  )
+);
+
+.foo::before {
+  content: map-deep-get($myMap, 'foo', 'bar', 'baz');
 }</code></pre>
   </figure>
 
@@ -51,9 +56,9 @@
   <figure class="code-example">
     <figcaption class="code-example-filename">app.css</figcaption>
     <pre class="code-example-code"><code class="language-css">.foo::before {
-  content: str-replace('foo bar baz', 'baz', 'qux');
+  content: "qux";
 }</code></pre>
   </figure>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

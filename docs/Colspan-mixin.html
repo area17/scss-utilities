@@ -1,10 +1,12 @@
-<?php $title = 'Colspan (mixin)'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Colspan (mixin)
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>Mixin to add a design column spanning <code>width</code> to an element. This mixin is used in the auto generated <a href="/Colspan.php">Colspan</a> CSS classes.</p>
+  <p>Mixin to add a design column spanning <code>width</code> to an element. This mixin is used in the auto generated <a href="/Colspan.html">Colspan</a> CSS classes.</p>
 
   <h2 id="scss-usage">SCSS Usage</h2>
 
@@ -65,11 +67,11 @@
 }</code></pre>
   </figure>
 
-  <p>This mixin also inserts a CSS variable to the children of the element with the mixin; this allows for nesting. See <a href="/Colspan.php#nesting">Colspan#nesting</a>.</p>
+  <p>This mixin also inserts a CSS variable to the children of the element with the mixin; this allows for nesting. See <a href="/Colspan.html#nesting">Colspan#nesting</a>.</p>
 
   <hr>
 
   <p>You may want to span 2 columns <strong>and</strong> a gutter so the right hand edge of your element is against the next design grid column. For this you would use <code>@include colspan(2, var(--inner-gutter));</code>.</p>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

@@ -1,5 +1,7 @@
-<?php $title = 'Color'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Color
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -244,8 +246,8 @@
 
   <p>As you can see, this generates a reasonable number of CSS classes - you will want to purge your CSS of unused classes to remove any of these that you don't use.</p>
 
-  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.php">CSS-Class-Generation</a>.</p>
+  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.html">CSS-Class-Generation</a>.</p>
 
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

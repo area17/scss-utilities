@@ -1,14 +1,63 @@
-<?php $title = 'Spacing'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Spacing
+spacingArrPositive: {
+  "mt": ["margin-top"],
+  "mb": ["margin-bottom"],
+  "ml": ["margin-left"],
+  "mr": ["margin-right"],
+  "m": ["margin"],
+  "mx": ["margin-right", "margin-left"],
+  "my": ["margin-top", "margin-bottom"],
+  "pt": ["padding-top"],
+  "pb": ["padding-bottom"],
+  "pl": ["padding-left"],
+  "pr": ["padding-right"],
+  "p": ["padding"],
+  "px": ["padding-right", "padding-left"],
+  "py": ["padding-top", "padding-bottom"],
+  "top": ["top"],
+  "bottom": ["bottom"],
+  "left": ["left"],
+  "right": ["right"],
+  "inset": ["inset"],
+  "inset-x": ["inset-x"],
+  "inset-y": ["inset-y"],
+  "gap": ["gap"],
+  "gap-x": ["column-gap"],
+  "gap-y": ["row-gap"]
+}
+spacingArrNegative: {
+  "mt": ["margin-top"],
+  "mb": ["margin-bottom"],
+  "ml": ["margin-left"],
+  "mr": ["margin-right"],
+  "m": ["margin"],
+  "mx": ["margin-right", "margin-left"],
+  "my": ["margin-top", "margin-bottom"],
+  "top": ["top"],
+  "bottom": ["bottom"],
+  "left": ["left"],
+  "right": ["right"],
+  "inset": ["inset"],
+  "inset-x": ["inset-x"],
+  "inset-y": ["inset-y"]
+}
+gutters: {
+  "gutter": "var(--inner-gutter)",
+  "outer-gutter": "var(--outer-gutter)"
+}
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
+
   <h2 id="description">Description</h2>
 
   <p>A series of utilities for responsive spacing and gutter spacing, covering <code>margin</code>, <code>padding</code>, <code>top/left/right/bottom</code>, <code>inset/inset-x/inset-y</code> and <code>gap/row-gap/column-gap</code>.</p>
 
   <h2 id="setup">Setup</h2>
 
-  <p>In addition to the required <code>$structure</code> map (<a href="/Setup.php">Setup</a>), you should add a <code>$spacing</code> map to your <code>_tokens.scss</code>, with the following format:</p>
+  <p>In addition to the required <code>$structure</code> map (<a href="/Setup.html">Setup</a>), you should add a <code>$spacing</code> map to your <code>_tokens.scss</code>, with the following format:</p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">_tokens.scss</figcaption>
@@ -89,51 +138,6 @@
 
   <p>Then the corresponding placeholder and CSS classes:</p>
 
-  <?php
-    $spacingArrPositive = [
-      'mt' => ['margin-top'],
-      'mb' => ['margin-bottom'],
-      'ml' => ['margin-left'],
-      'mr' => ['margin-right'],
-      'm' => ['margin'],
-      'mx' => ['margin-right', 'margin-left'],
-      'my' => ['margin-top', 'margin-bottom'],
-      'pt' => ['padding-top'],
-      'pb' => ['padding-bottom'],
-      'pl' => ['padding-left'],
-      'pr' => ['padding-right'],
-      'p' => ['padding'],
-      'px' => ['padding-right', 'padding-left'],
-      'py' => ['padding-top', 'padding-bottom'],
-      'top' => ['top'],
-      'bottom' => ['bottom'],
-      'left' => ['left'],
-      'right' => ['right'],
-      'inset' => ['inset'],
-      'inset-x' => ['inset-x'],
-      'inset-y' => ['inset-y'],
-      'gap' => ['gap'],
-      'gap-x' => ['column-gap'],
-      'gap-y' => ['row-gap'],
-    ];
-    $spacingArrNegative = [
-      'mt' => ['margin-top'],
-      'mb' => ['margin-bottom'],
-      'ml' => ['margin-left'],
-      'mr' => ['margin-right'],
-      'm' => ['margin'],
-      'mx' => ['margin-right', 'margin-left'],
-      'my' => ['margin-top', 'margin-bottom'],
-      'top' => ['top'],
-      'bottom' => ['bottom'],
-      'left' => ['left'],
-      'right' => ['right'],
-      'inset' => ['inset'],
-      'inset-x' => ['inset-x'],
-      'inset-y' => ['inset-y'],
-    ];
-  ?>
-
   <table class="props-table">
     <thead>
       <tr>
@@ -143,22 +147,17 @@
       </tr>
     </thead>
     <tbody>
-      <?php
-        foreach ($spacingArrPositive as $class => $props) {
-          echo '<tr>';
-          echo '  <td class="text-secondary">%'.$class.'-outer-1</td>';
-          echo '  <td>.'.$class.'-outer-1</td>';
-          $propsStr = '';
-          foreach ($props as $attr) {
-            if ($propsStr !== '') {
-              $propsStr = $propsStr.' <br>';
-            }
-            $propsStr = $propsStr.$attr.': var(--spacing-outer-1)';
-          }
-          echo '  <td class="text-secondary">'.$propsStr.'</td>';
-          echo '</tr>';
-        }
-      ?>
+      {% for type in page.spacingArrPositive %}
+        <tr>
+            <td class="text-secondary">%{{ type[0] }}-outer-1</td>
+            <td>.{{ type[0] }}-outer-1</td>
+            <td class="text-secondary">
+              {% for prop in type[1] %}
+                {{ prop }}: var(--spacing-outer-1); {% if first %}<br>{% endif %}
+              {% endfor %}
+            </td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
 
@@ -173,22 +172,17 @@
       </tr>
     </thead>
     <tbody>
-      <?php
-        foreach ($spacingArrNegative as $class => $props) {
-          echo '<tr>';
-          echo '  <td class="text-secondary">%-'.$class.'-outer-1</td>';
-          echo '  <td>.-'.$class.'-outer-1</td>';
-          $propsStr = '';
-          foreach ($props as $attr) {
-            if ($propsStr !== '') {
-              $propsStr = $propsStr.' <br>';
-            }
-            $propsStr = $propsStr.$attr.': calc(var(--spacing-outer-1) * -1)';
-          }
-          echo '  <td class="text-secondary">'.$propsStr.'</td>';
-          echo '</tr>';
-        }
-      ?>
+      {% for type in page.spacingArrNegative %}
+        <tr>
+            <td class="text-secondary">%-{{ type[0] }}-outer-1</td>
+            <td>.-{{ type[0] }}-outer-1</td>
+            <td class="text-secondary">
+              {% for prop in type[1] %}
+                {{ prop }}: calc(var(--spacing-outer-1) * -1); {% if first %}<br>{% endif %}
+              {% endfor %}
+            </td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
 
@@ -197,13 +191,6 @@
   <h3 id="gutters">Gutter spacing classes</h2>
 
   <p>Also generated are utility placeholders and CSS classes for inner gutter and outer gutters:</p>
-
-  <?php
-    $gutters = [
-      'gutter' => 'var(--inner-gutter)',
-      'outer-gutter' => 'var(--outer-gutter)'
-    ];
-  ?>
 
   <table class="props-table">
     <thead>
@@ -214,38 +201,32 @@
       </tr>
     </thead>
     <tbody>
-      <?php
-        foreach ($gutters as $prop => $cssVariable) {
-          foreach ($spacingArrPositive as $class => $props) {
-            echo '<tr>';
-            echo '  <td class="text-secondary">%'.$class.'-'.$prop.'</td>';
-            echo '  <td>.'.$class.'-'.$prop.'</td>';
-            $propsStr = '';
-            foreach ($props as $attr) {
-              if ($propsStr !== '') {
-                $propsStr = $propsStr.' <br>';
-              }
-              $propsStr = $propsStr.$attr.': '.$cssVariable;
-            }
-            echo '  <td class="text-secondary">'.$propsStr.'</td>';
-            echo '</tr>';
-          }
-          foreach ($spacingArrNegative as $class => $props) {
-            echo '<tr>';
-            echo '  <td class="text-secondary">%-'.$class.'-'.$prop.'</td>';
-            echo '  <td>.-'.$class.'-'.$prop.'</td>';
-            $propsStr = '';
-            foreach ($props as $attr) {
-              if ($propsStr !== '') {
-                $propsStr = $propsStr.' <br>';
-              }
-              $propsStr = $propsStr.$attr.': calc('.$cssVariable.' * -1)';
-            }
-            echo '  <td class="text-secondary">'.$propsStr.'</td>';
-            echo '</tr>';
-          }
-        }
-      ?>
+      {% for gutter in page.gutters %}
+        {% assign gutterName = gutter[0] %}
+        {% assign gutterProp = gutter[1] %}
+        {% for type in page.spacingArrPositive %}
+          <tr>
+              <td class="text-secondary">%{{ type[0] }}-{{ gutter[0] }}</td>
+              <td>.{{ type[0] }}-{{ gutter[0] }}</td>
+              <td class="text-secondary">
+                {% for prop in type[1] %}
+                  {{ prop }}: {{ gutter[1] }}; {% if first %}<br>{% endif %}
+                {% endfor %}
+              </td>
+          </tr>
+        {% endfor %}
+        {% for type in page.spacingArrNegative %}
+          <tr>
+              <td class="text-secondary">%-{{ type[0] }}-{{ gutter[0] }}</td>
+              <td>.-{{ type[0] }}-{{ gutter[0] }}</td>
+              <td class="text-secondary">
+                {% for prop in type[1] %}
+                  {{ prop }}: calc({{ gutter[1] }} * -1); {% if first %}<br>{% endif %}
+                {% endfor %}
+              </td>
+          </tr>
+        {% endfor %}
+      {% endfor %}
     </tbody>
   </table>
 
@@ -300,9 +281,9 @@
 
   <p>As you can see, this generates <strong>a lot</strong> of CSS classes - you will want to purge your CSS of unused classes to remove any of these that you don't use.</p>
 
-  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.php">CSS-Class-Generation</a>.</p>
+  <p>Alternatively, if you don't want to generate the CSS classes, see <a href="/CSS-Class-Generation.html">CSS-Class-Generation</a>.</p>
 
   <p>You maybe wondering why we don't also generate spacing classes linked to <code>rem</code> values such as those within Tailwind. When writing SCSS to style your components, you would place any none non systemised spacing inside your SCSS files. Though you may choose to use the systemised responsive spacing classes in your HTML, they can help debugging as its clear which spacing group is being applied.</p>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

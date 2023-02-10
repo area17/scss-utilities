@@ -4,10 +4,10 @@
     <footer class="footer">
       <ul>
         <li><a href="https://area17.com/" target="_blank">Copyright &copy; AREA 17</a></li>
-        <?php if (!isset($index)) { ?>
+        {% if page.index %}
         <li><a href="#a17">↑ top</a></li>
         <li><a href="/">← back</a></li>
-        <?php } ?>
+        {% endif %}
         <li>
           <a href="https://github.com/area17/scss-utilities">
             GitHub
@@ -22,7 +22,7 @@
       <div class="dev-tools-grid" hidden></div>
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>
 </html>

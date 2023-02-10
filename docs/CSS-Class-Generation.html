@@ -1,16 +1,18 @@
-<?php $title = 'CSS Class Generation'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: CSS Class Generation
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <p>The following utilities output large amounts CSS classes for you to use within your HTML:</p>
 
   <ul>
-      <li><a href="/Colspan.php">Colspan</a></li>
-      <li><a href="/Grid-Columns.php">Grid Columns</a></li>
-      <li><a href="/Spacing.php">Spacing</a></li>
-      <li><a href="/Typography.php">Typography</a></li>
-      <li><a href="/Color.php">Color</a>
-      <li><a href="/DevTools.php">DevTools</a>
+      <li><a href="/Colspan.html">Colspan</a></li>
+      <li><a href="/Grid-Columns.html">Grid Columns</a></li>
+      <li><a href="/Spacing.html">Spacing</a></li>
+      <li><a href="/Typography.html">Typography</a></li>
+      <li><a href="/Color.html">Color</a>
+      <li><a href="/DevTools.html">DevTools</a>
   </ul>
 
   <p>Each of these classes has a either a <code>%placeholder</code>, <code>@mixin</code> and/or <code>@function</code> to also use within your SCSS.</p>
@@ -43,4 +45,4 @@ $a17-scss-generate: (
   <p>The values for each can be <code>true</code> or <code>false</code> as required, where the default is <code>true.</code></p>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

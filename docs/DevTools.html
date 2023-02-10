@@ -1,5 +1,7 @@
-<?php $title = 'DevTools'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: DevTools
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -8,7 +10,7 @@
 
   <h2 id="setup">Setup</h2>
 
-  <p>The required <code>$structure</code> map (<a href="/Setup.php">Setup</a>). And the following HTML:</p>
+  <p>The required <code>$structure</code> map (<a href="/Setup.html">Setup</a>). And the following HTML:</p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
@@ -23,4 +25,4 @@
   <p>Why have the <code>data-env</code> attribute? We'd recommend you integrate this because its too easy to get confused between your local environment, staging environment, and QA environment and this label helps. For production you'll want to not include the DevTools markup.</p>
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}
