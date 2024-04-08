@@ -19,7 +19,7 @@ And then open a new terminal tab, `cd` to the root of the project and run:
 
 ```bash
 $ npm install
-$ npm run watch
+$ npm run dev
 ```
 
 The site should now be available in a browser at http://localhost:3000 with browser-sync live reloading.
