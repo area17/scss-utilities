@@ -12,8 +12,8 @@ $a17-scss-generate-classes: (
   typography: true,
   devtools: true,
 );
-@import '@area17/scss-utilities/a17-scss-utilities'; // package
-//@import '../a17-scss-utilities'; // for local dev
+//@import '@area17/scss-utilities/a17-scss-utilities'; // for project sites, you'd use this
+@import '../a17-scss-utilities'; // for A17 SCSS Utilities documentation
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ include site css
 
