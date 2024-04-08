@@ -8,6 +8,8 @@ spacingArrPositive: {
   "m": ["margin"],
   "mx": ["margin-right", "margin-left"],
   "my": ["margin-top", "margin-bottom"],
+  "ms": ["margin-inline-start"],
+  "me": ["margin-inline-end"],
   "pt": ["padding-top"],
   "pb": ["padding-bottom"],
   "pl": ["padding-left"],
@@ -15,6 +17,8 @@ spacingArrPositive: {
   "p": ["padding"],
   "px": ["padding-right", "padding-left"],
   "py": ["padding-top", "padding-bottom"],
+  "ps": ["padding-inline-start"],
+  "pe": ["padding-inline-end"],
   "top": ["top"],
   "bottom": ["bottom"],
   "left": ["left"],
@@ -22,6 +26,8 @@ spacingArrPositive: {
   "inset": ["inset"],
   "inset-x": ["inset-x"],
   "inset-y": ["inset-y"],
+  "start": ["inset-inline-start"],
+  "end": ["inset-inline-end"],
   "gap": ["gap"],
   "gap-x": ["column-gap"],
   "gap-y": ["row-gap"]
@@ -34,6 +40,8 @@ spacingArrNegative: {
   "m": ["margin"],
   "mx": ["margin-right", "margin-left"],
   "my": ["margin-top", "margin-bottom"],
+  "ms": ["margin-inline-start"],
+  "me": ["margin-inline-end"],
   "top": ["top"],
   "bottom": ["bottom"],
   "left": ["left"],
@@ -54,6 +62,16 @@ gutters: {
   <h2 id="description">Description</h2>
 
   <p>A series of utilities for responsive spacing and gutter spacing, covering <code>margin</code>, <code>padding</code>, <code>top/left/right/bottom</code>, <code>inset/inset-x/inset-y</code> and <code>gap/row-gap/column-gap</code>.</p>
+
+  <p><code>v1.1.0</code> adds logical properties:</p>
+  <ul>
+    <li><code>margin-inline-start</code>/<code>ms-</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-start" target="_blank">MDN</a>)</li>
+    <li><code>margin-inline-end</code>/<code>me-</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-end" target="_blank">MDN</a>)</li>
+    <li><code>padding-inline-start</code>/<code>ps-</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start" target="_blank">MDN</a>)</li>
+    <li><code>padding-inline-end</code>/<code>pe-</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start" target="_blank">MDN</a>)</li>
+    <li><code>inset-inline-start</code>/<code>start</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start" target="_blank">MDN</a>)</li>
+    <li><code>inset-inline-end</code>/<code>end</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start" target="_blank">MDN</a>)</li>
+  </ul>
 
   <h2 id="setup">Setup</h2>
 
