@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $a17-container-type: ();
 $a17-column-count: ();
 $a17-inner-gutters: ();
@@ -16,15 +18,15 @@ $a17-smallest-breakpoint-name: 'xs';
   don't require their own media queries.
 */
 @mixin processStructure() {
-  $a17-container-type: map-get($structure, 'container') !global;
-  $a17-column-count: map-get($structure, 'columns') !global;
+  $a17-container-type: map.get($structure, 'container') !global;
+  $a17-column-count: map.get($structure, 'columns') !global;
   $a17-gutters: (
     'inner': map-deep-get($structure, 'gutters', 'inner'),
     'outer': map-deep-get($structure, 'gutters', 'outer')
   ) !global;
-  $a17-breakpoints: process-breakpoints(map-get($structure, 'breakpoints')) !global;
+  $a17-breakpoints: process-breakpoints(map.get($structure, 'breakpoints')) !global;
   $a17-breakpoints-with-directions: get-breakpoint-directions($a17-breakpoints) !global;
-  $a17-smallest-breakpoint-name: get-smallest-breakpoint(map-get($structure, 'breakpoints')) !global;
+  $a17-smallest-breakpoint-name: get-smallest-breakpoint(map.get($structure, 'breakpoints')) !global;
 
   :root {
     --safe-area-inset-bottom: 0px;
@@ -44,18 +46,18 @@ $a17-smallest-breakpoint-name: 'xs';
 
   @each $name, $point in $a17-breakpoints {
     @if ($name == $a17-smallest-breakpoint-name) {
-      $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
+      $containerWidth: if(map.get($a17-container-type, $name) == 'auto', 'unset', map.get($a17-container-type, $name));
       $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
 
       :root {
         --breakpoint: '#{$name}';
         --inner-gutter: #{map-deep-get($a17-gutters, 'inner', $name)};
         --outer-gutter: #{$outerGutter};
-        --grid-columns: #{map-get($a17-column-count, $name)};
+        --grid-columns: #{map.get($a17-column-count, $name)};
         --container-width: #{$containerWidth};
       }
     } @else {
-      $containerWidth: if(map-get($a17-container-type, $name) == 'auto', 'unset', map-get($a17-container-type, $name));
+      $containerWidth: if(map.get($a17-container-type, $name) == 'auto', 'unset', map.get($a17-container-type, $name));
       $outerGutter: if(map-deep-get($a17-gutters, 'outer', $name) == 'auto', '0px', map-deep-get($a17-gutters, 'outer', $name));
 
       @include breakpoint('#{$name}+') {
@@ -63,7 +65,7 @@ $a17-smallest-breakpoint-name: 'xs';
           --breakpoint: '#{$name}';
           --inner-gutter: #{map-deep-get($a17-gutters, 'inner', $name)};
           --outer-gutter: #{$outerGutter};
-          --grid-columns: #{map-get($a17-column-count, $name)};
+          --grid-columns: #{map.get($a17-column-count, $name)};
           --container-width: #{$containerWidth};
         }
       }

@@ -1,3 +1,5 @@
+@use 'sass:string';
+
 /*
   @function isColorVariable
 
@@ -9,5 +11,5 @@
 */
 
 @function isColorVariable($value) {
-  @return str-index(#{$value}, '#') or str-index(#{$value}, 'rgb') or str-index(#{$value}, 'rgba') or str-index(#{$value}, 'hsl') or str-index(#{$value}, 'transparent') or str-index(#{$value}, 'currentcolor');
+  @return string.index(#{$value}, '#') or string.index(#{$value}, 'rgb') or string.index(#{$value}, 'rgba') or string.index(#{$value}, 'hsl') or string.index(#{$value}, 'transparent') or string.index(#{$value}, 'currentcolor');
 }

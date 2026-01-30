@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "sass:map";
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ internal
 
 @import 'functions/string-replace';
@@ -77,8 +80,8 @@ $_a17-scss-generate-classes: (
   devtools: true,
 );
 
-@if variable-exists(a17-scss-generate-classes) {
-  $_a17-scss-generate-classes: map-merge($_a17-scss-generate-classes, $a17-scss-generate-classes);
+@if meta.variable-exists(a17-scss-generate-classes) {
+  $_a17-scss-generate-classes: map.merge($_a17-scss-generate-classes, $a17-scss-generate-classes);
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ go go go

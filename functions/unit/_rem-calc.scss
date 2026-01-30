@@ -1,21 +1,22 @@
+@use "sass:meta";
 @use "sass:math";
 
 @function rem-calc($value, $base: 100%) {
   $base: (math.div($base, 100%)) * 16px;
 
   // Check if the value is a number
-  @if type-of($value) != 'number' {
+  @if meta.type-of($value) != 'number' {
     @warn inspect($value) + ' was passed to rem-calc(), which is not a number.';
     @return $value;
   }
 
   // Transform em into rem if someone hands over 'em's
-  @if unit($value) == 'em' {
+  @if math.unit($value) == 'em' {
     $value: strip-units($value) * 1rem;
   }
 
   // Calculate rem if units for $value is not rem or em
-  @if unit($value) != 'rem' {
+  @if math.unit($value) != 'rem' {
     $value: math.div(strip-units($value), strip-units($base)) * 1rem;
   }
 

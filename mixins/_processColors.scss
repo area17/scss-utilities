@@ -1,3 +1,5 @@
+@use "sass:map";
+@use "sass:meta";
 /*
   @mixin processColors
 
@@ -6,7 +8,7 @@
 */
 
 @mixin processColors() {
-  @if variable-exists(color) {
+  @if meta.variable-exists(color) {
     $tokens: ();
     $textColor: ();
     $backgroundColor: (
@@ -14,36 +16,36 @@
     );
     $borderColor: ();
 
-    @if map-has-key($color, 'tokens') {
-      $tokens: map-merge($tokens, map-deep-get($color, 'tokens'));
+    @if map.has-key($color, 'tokens') {
+      $tokens: map.merge($tokens, map-deep-get($color, 'tokens'));
     }
 
     @each $key, $value in $tokens {
-      $tokens: map-merge($tokens, ($key: $value));
+      $tokens: map.merge($tokens, ($key: $value));
     }
 
-    @if map-has-key($color, 'textColor') {
-      $textColor: map-merge($textColor, map-deep-get($color, 'textColor'));
+    @if map.has-key($color, 'textColor') {
+      $textColor: map.merge($textColor, map-deep-get($color, 'textColor'));
     }
 
     @each $key, $value in $textColor {
-      $textColor: map-merge($textColor, ($key: $value));
+      $textColor: map.merge($textColor, ($key: $value));
     }
 
-    @if map-has-key($color, 'backgroundColor') {
-      $backgroundColor: map-merge($backgroundColor, map-deep-get($color, 'backgroundColor'));
+    @if map.has-key($color, 'backgroundColor') {
+      $backgroundColor: map.merge($backgroundColor, map-deep-get($color, 'backgroundColor'));
     }
 
     @each $key, $value in $backgroundColor {
-      $backgroundColor: map-merge($backgroundColor, ($key: $value));
+      $backgroundColor: map.merge($backgroundColor, ($key: $value));
     }
 
-    @if map-has-key($color, 'borderColor') {
-      $borderColor: map-merge($borderColor, map-deep-get($color, 'borderColor'));
+    @if map.has-key($color, 'borderColor') {
+      $borderColor: map.merge($borderColor, map-deep-get($color, 'borderColor'));
     }
 
     @each $key, $value in $borderColor {
-      $borderColor: map-merge($borderColor, ($key: $value));
+      $borderColor: map.merge($borderColor, ($key: $value));
     }
 
     // add root tokens
@@ -93,7 +95,7 @@
           border-color: #{$value};
         }
 
-        @if map-get($_a17-scss-generate-classes, 'color') == true {
+        @if map.get($_a17-scss-generate-classes, 'color') == true {
           .border-#{$key} {
             border-color: #{$value};
           }
@@ -103,7 +105,7 @@
           border-color: var(--#{$value});
         }
 
-        @if map-get($_a17-scss-generate-classes, 'color') == true {
+        @if map.get($_a17-scss-generate-classes, 'color') == true {
           .border-#{$key} {
             border-color: var(--#{$value});
           }
@@ -116,7 +118,7 @@
           background-color: #{$value};
         }
 
-        @if map-get($_a17-scss-generate-classes, 'color') == true {
+        @if map.get($_a17-scss-generate-classes, 'color') == true {
           .bg-#{$key} {
             background-color: #{$value};
           }
@@ -126,7 +128,7 @@
           background-color: var(--#{$value});
         }
 
-        @if map-get($_a17-scss-generate-classes, 'color') == true {
+        @if map.get($_a17-scss-generate-classes, 'color') == true {
           .bg-#{$key} {
             background-color: var(--#{$value});
           }
@@ -139,7 +141,7 @@
           color: #{$value};
         }
 
-        @if map-get($_a17-scss-generate-classes, 'color') == true {
+        @if map.get($_a17-scss-generate-classes, 'color') == true {
           .text-#{$key} {
             color: #{$value};
           }
@@ -149,7 +151,7 @@
           color: var(--#{$value});
         }
 
-        @if map-get($_a17-scss-generate-classes, 'color') == true {
+        @if map.get($_a17-scss-generate-classes, 'color') == true {
           .text-#{$key} {
             color: var(--#{$value});
           }

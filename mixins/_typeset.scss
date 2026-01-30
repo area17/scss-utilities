@@ -1,13 +1,17 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
 /* outputs a specified typeset */
 @mixin typeset($name) {
   @if $name {
     /* check if user specified a `f-xxx` type name and fix */
-    $index: str-index($name, 'f-');
+    $index: string.index($name, 'f-');
     @if $index == 1 {
-      $name: str-slice($name, 3, str-length($name));
+      $name: string.slice($name, 3, string.length($name));
     }
     /* now look for the specified typeset */
-    @if variable-exists(typography) and map-has-key($typography, 'typesets') {
+    @if meta.variable-exists(typography) and map.has-key($typography, 'typesets') {
       $settings: map-deep-get($typography, 'typesets', $name);
       @if $settings {
         /* output specified typeset */

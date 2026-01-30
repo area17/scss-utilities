@@ -1,3 +1,4 @@
+@use "sass:map";
 /*
   @mixin breakpoint
 
@@ -37,11 +38,11 @@
 */
 
 @mixin breakpoint($name, $option:'') {
-  $points: map-get($a17-breakpoints-with-directions, $name);
+  $points: map.get($a17-breakpoints-with-directions, $name);
   @if ($name and $points) {
     $media: get-media($points);
-    $start: map-get($media, 'start');
-    $end: map-get($media, 'end');
+    $start: map.get($media, 'start');
+    $end: map.get($media, 'end');
     $str: 'screen and (';
     @if($start != null) {
       $str: $str + 'min-width: ' + ($start);
