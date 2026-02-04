@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:list";
+
 /*
   @mixin processTypography
 
@@ -9,27 +13,27 @@
   $faces: ();
   $typesets: ();
 
-  @if variable-exists(typography) {
-    $families: map-merge($families, map-deep-get($typography, 'families'));
+  @if meta.variable-exists(typography) {
+    $families: map.merge($families, map-deep-get($typography, 'families'));
 
-    @if type-of(nth(map-deep-get($typography, 'faces'), 1)) == 'list' {
+    @if meta.type-of(list.nth(map-deep-get($typography, 'faces'), 1)) == 'list' {
       // single faces confuse things..
       // the face object stops being wrapped in a list
       $f: (
         "json1": map-deep-get($typography, 'faces')
       );
-      $faces: map-merge($faces, $f);
+      $faces: map.merge($faces, $f);
     } @else {
-      @for $i from 1 through length(map-deep-get($typography, 'faces')) {
-        $face: nth(map-deep-get($typography, 'faces'), $i);
+      @for $i from 1 through list.length(map-deep-get($typography, 'faces')) {
+        $face: list.nth(map-deep-get($typography, 'faces'), $i);
         $f: (
           "json#{$i}": $face
         );
-        $faces: map-merge($faces, $f);
+        $faces: map.merge($faces, $f);
       }
     }
 
-    $typesets: map-merge($typesets, map-deep-get($typography, 'typesets'));
+    $typesets: map.merge($typesets, map-deep-get($typography, 'typesets'));
   }
 
   :root {

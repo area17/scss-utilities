@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:list";
+
 /*
   @function process-breakpoints
 
@@ -8,16 +11,16 @@
   $bps: ();
 
   @each $key, $value in $points {
-    $index: index(($points), ($key $value)) !global;
+    $index: list.index(($points), ($key $value));
     $nextIndex: $index + 1;
     $nextValue: 9999px;
 
-    @if $nextIndex <= length($points) {
-      $nextValue: nth(map-values($points), $nextIndex);
+    @if $nextIndex <= list.length($points) {
+      $nextValue: list.nth(map.values($points), $nextIndex);
     }
 
     $bp: (start: $value, end: $nextValue);
-    $bps: map-merge($bps, ($key: $bp));
+    $bps: map.merge($bps, ($key: $bp));
   }
   @return $bps;
 }

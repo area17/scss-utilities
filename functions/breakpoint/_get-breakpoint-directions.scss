@@ -1,3 +1,5 @@
+@use "sass:map";
+@use "sass:string";
 /*
   @function get-breakpoint-directions
 
@@ -9,21 +11,21 @@
 @function get-breakpoint-directions($bps) {
   $_bps: ();
   @each $k, $bp in $bps {
-    $_bps: map-merge($_bps, ($k: $bp));
-    $start: map-get($bp, start);
-    $end: map-get($bp, end);
+    $_bps: map.merge($_bps, ($k: $bp));
+    $start: map.get($bp, start);
+    $end: map.get($bp, end);
 
     @if $end != null and $start != null {
-      $down-key: unquote($k + '-');
-      $_bps: map-merge($_bps, ($down-key: (
+      $down-key: string.unquote($k + '-');
+      $_bps: map.merge($_bps, ($down-key: (
         start: null,
         end: $end
       )));
     }
 
     @if $start != null and $end != null {
-      $up-key: unquote($k) + '+';
-      $_bps: map-merge($_bps, ($up-key: (
+      $up-key: string.unquote($k) + '+';
+      $_bps: map.merge($_bps, ($up-key: (
         start: $start,
         end: null
       )));

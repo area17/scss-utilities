@@ -1,3 +1,5 @@
+@use 'sass:math';
+@use 'sass:list';
 /*
   @function get-max
 
@@ -11,8 +13,8 @@
   $list: (0);
 
   @each $key, $val in $map {
-    $list: append($list, $val, comma);
+    $list: list.append($list, $val, comma);
   }
 
-  @return max($list...);
+  @return math.max($list...);
 }
