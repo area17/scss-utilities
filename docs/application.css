@@ -312,7 +312,7 @@ html {
 }
 
 :root {
-  --COLOR-TOKENS: "↓";
+  --COLOR-TOKENS: '↓';
   --white: #fff;
   --grey-3: #f8f8f8;
   --grey-5: #f2f2f2;
@@ -331,7 +331,7 @@ html {
 }
 
 :root {
-  --COLOR-BORDER: "for usage ↓";
+  --COLOR-BORDER: 'for usage ↓';
   --border-primary: var(--black);
   --border-secondary: var(--grey-15);
   --border-tertiary: var(--grey-54);
@@ -339,7 +339,7 @@ html {
 }
 
 :root {
-  --COLOR-BACKGROUND: "for usage ↓";
+  --COLOR-BACKGROUND: 'for usage ↓';
   --bg-design-grid: rgba(127, 255, 255, 0.25);
   --bg-primary: var(--white);
   --bg-header: var(--grey-10);
@@ -354,7 +354,7 @@ html {
 }
 
 :root {
-  --COLOR-TEXT: "for usage ↓";
+  --COLOR-TEXT: 'for usage ↓';
   --text-title: var(--black);
   --text-primary: var(--grey-90);
   --text-inverse: var(--white);
@@ -472,7 +472,7 @@ html {
   }
 }
 :root {
-  --breakpoint: "xs";
+  --breakpoint: 'xs';
   --inner-gutter: 10px;
   --outer-gutter: 20px;
   --grid-columns: 4;
@@ -481,7 +481,7 @@ html {
 
 @media screen and (min-width: 544px) {
   :root {
-    --breakpoint: "sm";
+    --breakpoint: 'sm';
     --inner-gutter: 15px;
     --outer-gutter: 30px;
     --grid-columns: 4;
@@ -490,7 +490,7 @@ html {
 }
 @media screen and (min-width: 650px) {
   :root {
-    --breakpoint: "md";
+    --breakpoint: 'md';
     --inner-gutter: 20px;
     --outer-gutter: 40px;
     --grid-columns: 8;
@@ -499,7 +499,7 @@ html {
 }
 @media screen and (min-width: 990px) {
   :root {
-    --breakpoint: "lg";
+    --breakpoint: 'lg';
     --inner-gutter: 30px;
     --outer-gutter: 40px;
     --grid-columns: 12;
@@ -508,7 +508,7 @@ html {
 }
 @media screen and (min-width: 1300px) {
   :root {
-    --breakpoint: "xl";
+    --breakpoint: 'xl';
     --inner-gutter: 40px;
     --outer-gutter: 40px;
     --grid-columns: 12;
@@ -517,7 +517,7 @@ html {
 }
 @media screen and (min-width: 1520px) {
   :root {
-    --breakpoint: "xxl";
+    --breakpoint: 'xxl';
     --inner-gutter: 40px;
     --outer-gutter: 0px;
     --grid-columns: 12;
@@ -4616,7 +4616,7 @@ html {
 
 /* generate responsive spacing root variables */
 :root {
-  --SPACING_VARs: "at this breakpoint ↓";
+  --SPACING_VARs: 'at this breakpoint ↓';
   --spacing-outer-1: 4rem;
   --spacing-inner-1: 1.5rem;
   --spacing-inner-2: 1rem;
@@ -4624,7 +4624,7 @@ html {
 
 @media screen and (min-width: 544px) {
   :root {
-    --SPACING_VARs: "at this breakpoint ↓";
+    --SPACING_VARs: 'at this breakpoint ↓';
     --spacing-outer-1: 4rem;
     --spacing-inner-1: 1.5rem;
     --spacing-inner-2: 1rem;
@@ -4632,7 +4632,7 @@ html {
 }
 @media screen and (min-width: 650px) {
   :root {
-    --SPACING_VARs: "at this breakpoint ↓";
+    --SPACING_VARs: 'at this breakpoint ↓';
     --spacing-outer-1: 4rem;
     --spacing-inner-1: 2.5rem;
     --spacing-inner-2: 1.5rem;
@@ -4640,7 +4640,7 @@ html {
 }
 @media screen and (min-width: 990px) {
   :root {
-    --SPACING_VARs: "at this breakpoint ↓";
+    --SPACING_VARs: 'at this breakpoint ↓';
     --spacing-outer-1: 6rem;
     --spacing-inner-1: 4rem;
     --spacing-inner-2: 2rem;
@@ -4648,7 +4648,7 @@ html {
 }
 @media screen and (min-width: 1300px) {
   :root {
-    --SPACING_VARs: "at this breakpoint ↓";
+    --SPACING_VARs: 'at this breakpoint ↓';
     --spacing-outer-1: 6rem;
     --spacing-inner-1: 4rem;
     --spacing-inner-2: 2rem;
@@ -4656,7 +4656,7 @@ html {
 }
 @media screen and (min-width: 1520px) {
   :root {
-    --SPACING_VARs: "at this breakpoint ↓";
+    --SPACING_VARs: 'at this breakpoint ↓';
     --spacing-outer-1: 6rem;
     --spacing-inner-1: 4rem;
     --spacing-inner-2: 2rem;
@@ -5323,7 +5323,6 @@ main {
   letter-spacing: -0.02em;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  margin-top: 2.5rem;
 }
 .copy h3 b,
 .copy h3 strong {
@@ -5338,6 +5337,9 @@ main {
     font-size: 1.25rem;
   }
 }
+.copy h3 {
+  margin-top: 2.5rem;
+}
 
 .copy h4 {
   /* check if user specified a `f-xxx` type name and fix */
@@ -5351,7 +5353,6 @@ main {
   letter-spacing: -0.02em;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  margin-top: 2.5rem;
 }
 .copy h4 b,
 .copy h4 strong {
@@ -5365,6 +5366,9 @@ main {
   .copy h4 {
     font-size: 1rem;
   }
+}
+.copy h4 {
+  margin-top: 2.5rem;
 }
 
 .copy p,
@@ -5433,12 +5437,6 @@ main {
   font-size: 0.875rem;
   line-height: 1.2;
   font-weight: 400;
-  background-color: var(--grey-10);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.125rem;
-  color: var(--black);
 }
 .copy code:not([class]) b,
 .copy code:not([class]) strong {
@@ -5447,6 +5445,14 @@ main {
 .copy code:not([class]) i,
 .copy code:not([class]) em {
   font-style: italic;
+}
+.copy code:not([class]) {
+  background-color: var(--grey-10);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.125rem;
+  color: var(--black);
 }
 
 .copy pre:not([class]) {
@@ -5457,10 +5463,6 @@ main {
   font-size: 0.875rem;
   line-height: 1.2;
   font-weight: 400;
-  margin-top: 1.25rem;
-  display: block;
-  max-height: 25rem;
-  overflow-y: scroll;
 }
 .copy pre:not([class]) b,
 .copy pre:not([class]) strong {
@@ -5469,6 +5471,12 @@ main {
 .copy pre:not([class]) i,
 .copy pre:not([class]) em {
   font-style: italic;
+}
+.copy pre:not([class]) {
+  margin-top: 1.25rem;
+  display: block;
+  max-height: 25rem;
+  overflow-y: scroll;
 }
 
 .copy pre:not([class]) code:not([class]) {
@@ -5738,14 +5746,6 @@ main {
   font-size: 0.875rem;
   line-height: 1.2;
   font-weight: 400;
-  margin-top: 1.25rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  display: block;
-  background-color: var(--grey-90);
-  color: var(--grey-3);
 }
 .copy .mixin b,
 .copy .mixin strong {
@@ -5754,6 +5754,16 @@ main {
 .copy .mixin i,
 .copy .mixin em {
   font-style: italic;
+}
+.copy .mixin {
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: block;
+  background-color: var(--grey-90);
+  color: var(--grey-3);
 }
 .copy .mixin .mixin-include {
   color: #e28964;

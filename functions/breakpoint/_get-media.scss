@@ -1,3 +1,4 @@
+@use "sass:map";
 /*
   @function get-media
 
@@ -11,8 +12,8 @@
   $start: null;
   $end: null;
 
-  $bp-start: map-get($bp, 'start');
-  $bp-end: map-get($bp, 'end');
+  $bp-start: map.get($bp, 'start');
+  $bp-end: map.get($bp, 'end');
   @if($bp-start != null and ($start == null or $bp-start < $start)) {
     $start: $bp-start;
   }
