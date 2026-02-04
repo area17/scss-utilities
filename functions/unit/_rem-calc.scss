@@ -6,7 +6,7 @@
 
   // Check if the value is a number
   @if meta.type-of($value) != 'number' {
-    @warn inspect($value) + ' was passed to rem-calc(), which is not a number.';
+    @warn meta.inspect($value) + ' was passed to rem-calc(), which is not a number.';
     @return $value;
   }
 
