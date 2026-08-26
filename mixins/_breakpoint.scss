@@ -45,13 +45,13 @@
     $end: map.get($media, 'end');
     $str: 'screen and (';
     @if($start != null) {
-      $str: $str + 'min-width: ' + ($start);
+      $str: $str + 'width >= ' + ($start);
     }
     @if($start != null and $end != null) {
       $str: $str + ') and ('
     }
     @if($end != null) {
-      $str: $str + 'max-width: ' + ($end);
+      $str: $str + 'width < ' + ($end);
     }
     $str: $str + ')';
     @if($option == 'hover') {
