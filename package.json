@@ -1,6 +1,6 @@
 {
   "name": "@area17/scss-utilities",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A utility class system for SCSS to help build responsive design systems in collaboration with A17 design and development build methodologies",
   "scripts": {
     "sass": "sass --watch --load-path=node_modules --load-path=./ --style=expanded --no-source-map ./docs/application.scss:./docs/application.css",
